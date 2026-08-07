@@ -80,7 +80,6 @@
   .role-stage .date{font-size:9.5px;color:var(--ink-3);margin-bottom:5px}.role-stage strong{font-family:var(--font-head);font-weight:400;font-size:13px;display:block;margin-bottom:4px}.role-stage span{font-size:10.5px;color:var(--ink-2);line-height:1.5}
 
   .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  .cases .case:first-child{grid-column:1/-1;min-height:auto}
   .case{background:var(--paper);border:1px solid var(--line);padding:19px;position:relative;min-height:248px}
   .case::before{content:attr(data-no);font-family:var(--font-head);color:var(--yellow);font-size:30px;position:absolute;right:16px;top:12px}
   .case .case-type{font-size:10px;color:var(--brand);letter-spacing:.05em;margin-bottom:28px}.case h3{font-size:18px;font-weight:400;line-height:1.45;margin:0 0 10px;padding-right:32px}.case p{font-size:11.5px;color:var(--ink-2);line-height:1.65;margin:0 0 16px}.impact{border-top:1px solid var(--line);padding-top:12px;display:flex;align-items:baseline;gap:7px}.impact .num{font-size:23px}.impact span:last-child{font-size:10.5px;color:var(--ink-3)}
@@ -109,7 +108,6 @@
   @media(max-width:1000px){.hero{grid-template-columns:.85fr 1.15fr}.hero-copy{padding:50px 38px 40px}.metric-strip{grid-template-columns:repeat(3,1fr)}.metric:nth-child(3n){border-right:0}.metric:nth-child(n+4){border-top:1px solid var(--line)}.cases{grid-template-columns:1fr 1fr}.skill-layout{grid-template-columns:1fr}.credential-grid{grid-template-columns:1fr 1fr}.credential-card:last-child{grid-column:1/-1}}
   @media(max-width:720px){.viz-root{padding:16px 14px 48px}.topbar{align-items:flex-start}.nav a{display:none}.hero{grid-template-columns:1fr;min-height:0}.portrait{min-height:520px}.hero-copy{padding:40px 24px}.hero-copy::before{display:none}.metric-strip{grid-template-columns:repeat(2,1fr)}.metric:nth-child(3n){border-right:1px solid var(--line)}.metric:nth-child(even){border-right:0}.metric:nth-child(n+3){border-top:1px solid var(--line)}.section{padding:24px 18px}.section-no{display:none}.career-layout{grid-template-columns:1fr}.tabs{display:grid;grid-template-columns:repeat(3,1fr)}.tab{text-align:center;padding:10px 7px}.achievement-grid,.cases,.skills,.role-evolution,.credential-grid{grid-template-columns:1fr}.credential-card:last-child{grid-column:auto}.career-title{flex-direction:column;gap:5px}.time-row{grid-template-columns:110px 1fr}.footer{flex-direction:column;align-items:flex-start}}
   @media(max-width:430px){.portrait{min-height:440px}.tabs{grid-template-columns:1fr}.metric{padding:16px}.metric-value{font-size:23px}.section-head{align-items:flex-start}.time-row{grid-template-columns:1fr;gap:5px}.commerce-spectrum{grid-template-columns:repeat(2,1fr)}.spectrum-item:nth-child(2),.spectrum-item:nth-child(4){border-right:0}.spectrum-item:nth-child(n+3){border-top:1px solid var(--line)}.spectrum-item:last-child{grid-column:1/-1;border-right:0}}
-  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .viz-root{--paper:#151515;--paper-2:#242424;--card:#1c1c1c;--ink:#fff;--ink-2:#c9c9c9;--ink-3:#8f8f8f;--line:#383838;--yellow:#f5d742;--yellow-soft:#4b451c;--brand:#aaa1ff;--brand-soft:#302c51;--shadow:rgba(0,0,0,.22)}html,body{background:#151515}}
   :root[data-theme="dark"] .viz-root{--paper:#151515;--paper-2:#242424;--card:#1c1c1c;--ink:#fff;--ink-2:#c9c9c9;--ink-3:#8f8f8f;--line:#383838;--yellow:#f5d742;--yellow-soft:#4b451c;--brand:#aaa1ff;--brand-soft:#302c51;--shadow:rgba(0,0,0,.22)}
   :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#151515}
   @media print{.viz-root{max-width:none;padding:0}.topbar,.theme-toggle{display:none}.hero,.section,.metric-strip{box-shadow:none;break-inside:avoid}.section{break-inside:auto}.career-panel{display:none!important}.career-panel.is-active{display:block!important}}
@@ -120,7 +118,7 @@
   <header class="topbar">
     <div class="wordmark">KIM TAE SIK <span>· PORTFOLIO</span></div>
     <nav class="nav" aria-label="페이지 탐색">
-      <a href="#career">Experience</a><a href="#cases">Business Impact</a><a href="#skills">Strength</a><a href="#credentials">Credentials</a><a href="#history">History</a>
+      <a href="#career">Experience</a><a href="#cases">Business Impact</a><a href="#skills">Strength</a><a href="#credentials">Credentials</a><a href="#history">History</a><a class="view-switch" href="kim-taesik-profile-mobile.html">모바일</a>
       <button class="theme-toggle" id="themeBtn" type="button">다크 모드</button>
     </nav>
   </header>
@@ -187,7 +185,7 @@
           <div class="career-title"><div><h3>잡화·화장품 팀장 · 이랜드리테일</h3><p>51개 점포 카테고리 운영 / 브랜드 입퇴점 / 직사입 PB / 매출·수익·인원 관리</p></div><span class="period">2009.07 — 2016.10</span></div>
           <div class="achievement-grid">
             <div class="achievement"><div class="label">CATEGORY SCALE</div><strong>2,400억 카테고리</strong><p>화장품·시즌·ACC·명품·테크ACC를 아우르는 잡화 부문의 매출을 총괄했습니다.</p></div>
-            <div class="achievement"><div class="label">STRATEGIC PARTNERSHIP</div><strong>올리브영 10개점 통합 런칭 추진</strong><p>2016년 전략적 협약을 통해 최초 특정매입 1호점인 강서점을 오픈하고 10개점 확대 협의를 완료했습니다.</p></div>
+            <div class="achievement"><div class="label">STRATEGIC PARTNERSHIP</div><strong>올리브영 10개점 통합 런칭 추진</strong><p>2016년 전략적 협약을 통해 NC백화점 강서점을 오픈하고 10개점 확대 협의를 완료했습니다.</p></div>
             <div class="achievement"><div class="label">BRAND DEVELOPMENT</div><strong>아프리카 아이웨어 신규 발굴</strong><p>아프리카 아이웨어를 NC백화점 최초 입점 브랜드로 발굴해 확장 기반을 만들었으며, 빌리프 등 20개 신규 브랜드 입점을 성사시켰습니다.</p></div>
             <div class="achievement"><div class="label">PB OPERATION</div><strong>직사입 103.7억</strong><p>뉴코아 강남점 PB 운영을 총괄하며 2012년 16% 성장을 만들었습니다.</p></div>
           </div>
@@ -197,13 +195,14 @@
   </section>
 
   <section class="section" id="cases">
-    <div class="section-head"><div><div class="section-kicker">SELECTED BUSINESS IMPACT</div><h2>대표 프로젝트 5</h2><p class="section-desc">새로운 기회를 발견하고 이해관계자를 연결해 숫자로 완성한 사례입니다.</p></div><div class="section-no">03</div></div>
+    <div class="section-head"><div><div class="section-kicker">SELECTED BUSINESS IMPACT</div><h2>대표 프로젝트 6</h2><p class="section-desc">새로운 기회를 발견하고 이해관계자를 연결해 숫자로 완성한 사례입니다.</p></div><div class="section-no">03</div></div>
     <div class="cases">
       <article class="case" data-no="01"><div class="case-type">BUSINESS MODEL BUILDING</div><h3>배민상회 최초 KA 셀러 연간 마케팅 파트너십</h3><p>문제 정의부터 사업모델·혜택 구조·법무 계약·정산·회계·운영정책·셀러 제안과 협상·성과관리까지 전 과정을 직접 설계하고 구축했습니다.</p><div class="impact"><span class="num">151%</span><span>광고 목표 달성 · KA 셀러 매출 YoY +15.8%</span></div></article>
-      <article class="case" data-no="02"><div class="case-type">CATEGORY CREATION</div><h3>배민스토어 뷰티 라인업 구축</h3><p>풀필먼트 기반 신규 운영 모델을 설계하고 닥터브로너스·오호라·톤28·가히·에스쁘아·달바 등 26개 브랜드를 런칭했습니다.</p><div class="impact"><span class="num">31%</span><span>2023.07—2024.02 월평균 성장</span></div></article>
-      <article class="case" data-no="03"><div class="case-type">POLICY TO BUSINESS</div><h3>신라면세점 쿠팡 3P·2P 런칭</h3><p>관세청의 면세 재고 내수판매 정책을 사업 기회로 전환했습니다. 온라인 업계 최초 쿠팡 3P 입점 구조를 만든 뒤 로켓그로스(판매자로켓)까지 확장했습니다.</p><div class="impact"><span class="num">12.5억</span><span>2021년 3P 누적 실적</span></div></article>
-      <article class="case" data-no="04"><div class="case-type">ACCOUNT TRANSFORMATION</div><h3>다이소몰 매출 성장과 로켓그로스 확장</h3><p>아이템위너·배송·재고·출고·마케팅 구조를 개선해 3P 매출을 성장시키고, 이후 로켓그로스(판매자로켓) 계약과 운영 확장까지 연결했습니다.</p><div class="impact"><span class="num">384억</span><span>2020년 매출 · 목표 대비 122%</span></div></article>
-      <article class="case" data-no="05"><div class="case-type">RETAIL BRAND DEVELOPMENT</div><h3>이랜드리테일 신규 브랜드 발굴·다점포 확장</h3><p>올리브영 특정매입 1호점을 강서점에 오픈하고 10개점 확대 협의를 완료했습니다. 아프리카 아이웨어를 신규 발굴해 NC백화점 최초 입점과 확장 기반을 만들고, 빌리프 등 신규 브랜드 입점을 성사시켰습니다.</p><div class="impact"><span class="num">10개점</span><span>올리브영 확대 협의 완료</span></div></article>
+      <article class="case" data-no="02"><div class="case-type">BMART 1P LAUNCH</div><h3>러쉬 B마트 1P 직매입 런칭</h3><p>B마트 뷰티 직매입 MD로 러쉬 입점을 확정해 2024년 7월 런칭했습니다. 동시에 뷰티 직매입 상품 포트폴리오를 구축하고 운영했습니다.</p><div class="impact"><span class="num">15개</span><span>B마트 뷰티 직매입 브랜드 런칭</span></div></article>
+      <article class="case" data-no="03"><div class="case-type">CATEGORY CREATION</div><h3>배민스토어 뷰티 라인업 구축</h3><p>풀필먼트 기반 신규 운영 모델을 설계하고 닥터브로너스·오호라·톤28·가히·에스쁘아·달바 등 26개 브랜드를 런칭했습니다.</p><div class="impact"><span class="num">31%</span><span>2023.07—2024.02 월평균 성장</span></div></article>
+      <article class="case" data-no="04"><div class="case-type">POLICY TO BUSINESS</div><h3>신라면세점 쿠팡 3P·2P 런칭</h3><p>관세청의 면세 재고 내수판매 정책을 사업 기회로 전환했습니다. 온라인 업계 최초 쿠팡 3P 입점 구조를 만든 뒤 로켓그로스(판매자로켓)까지 확장했습니다.</p><div class="impact"><span class="num">12.5억</span><span>2021년 3P 누적 실적</span></div></article>
+      <article class="case" data-no="05"><div class="case-type">ACCOUNT TRANSFORMATION</div><h3>다이소몰 매출 성장과 로켓그로스 확장</h3><p>아이템위너·배송·재고·출고·마케팅 구조를 개선해 3P 매출을 성장시키고, 이후 로켓그로스(판매자로켓) 계약과 운영 확장까지 연결했습니다.</p><div class="impact"><span class="num">384억</span><span>2020년 매출 · 목표 대비 122%</span></div></article>
+      <article class="case" data-no="06"><div class="case-type">RETAIL BRAND DEVELOPMENT</div><h3>이랜드리테일 신규 브랜드 발굴·다점포 확장</h3><p>올리브영 NC백화점 강서점을 오픈하고 10개점 확대 협의를 완료했습니다. 아프리카 아이웨어를 신규 발굴해 NC백화점 최초 입점과 확장 기반을 만들고, 빌리프 등 신규 브랜드 입점을 성사시켰습니다.</p><div class="impact"><span class="num">10개점</span><span>올리브영 확대 협의 완료</span></div></article>
     </div>
   </section>
 
@@ -250,7 +249,8 @@
 <script>
 (function(){
   var root=document.documentElement,themeBtn=document.getElementById('themeBtn');
-  function isDark(){return root.dataset.theme==='dark'||(!root.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches)}
+  root.dataset.theme='light';
+  function isDark(){return root.dataset.theme==='dark'}
   function syncTheme(){themeBtn.textContent=isDark()?'라이트 모드':'다크 모드'}
   themeBtn.addEventListener('click',function(){root.dataset.theme=isDark()?'light':'dark';syncTheme()});syncTheme();
   var tabs=[].slice.call(document.querySelectorAll('.tab'));

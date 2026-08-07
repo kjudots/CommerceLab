@@ -16,7 +16,7 @@ html{scroll-behavior:smooth}body{margin:0;background:#e9e6de;color:var(--ink);fo
 .mobile-profile{width:100%;max-width:540px;margin:0 auto;background:var(--paper);min-height:100vh;padding-bottom:calc(78px + var(--safe-bottom))}
 h1,h2,h3,.eyebrow,.num,.nav-label,.model strong,.section-no{font-family:var(--head);font-weight:400}
 .top{height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;background:rgba(246,244,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(223,219,209,.8)}
-.brand{font-family:var(--head);font-size:14px}.brand b{color:var(--violet);font-family:inherit;font-weight:400}.desktop-link{font-size:11px;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:7px 10px;background:var(--card)}
+.brand{font-family:var(--head);font-size:14px}.brand b{color:var(--violet);font-family:inherit;font-weight:400}.top-actions{display:flex;align-items:center;gap:3px}.top-actions a,.mobile-theme-toggle{font-size:10px;color:var(--sub);text-decoration:none;border:0;border-radius:18px;padding:7px 8px;background:transparent;cursor:pointer;white-space:nowrap}.top-actions a:hover,.mobile-theme-toggle:hover{background:var(--card);color:var(--ink)}
 .hero{margin:0 12px 12px;background:var(--card);border:1px solid var(--line);overflow:hidden}
 .portrait{height:min(96vw,475px);position:relative;background:#e9e7e2}.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:saturate(.9)}
 .portrait:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.72))}
@@ -37,12 +37,14 @@ details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px so
 .bottom-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:30;width:100%;max-width:540px;height:calc(64px + var(--safe-bottom));padding:7px 8px var(--safe-bottom);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(25,25,25,.96);backdrop-filter:blur(12px)}.bottom-nav a{color:#bfbfbf;text-decoration:none;text-align:center;font-size:9px;padding:5px 1px}.bottom-nav a:before{display:block;font-size:18px;line-height:1.1;margin-bottom:4px}.bottom-nav a:nth-child(1):before{content:'●'}.bottom-nav a:nth-child(2):before{content:'▦'}.bottom-nav a:nth-child(3):before{content:'◆'}.bottom-nav a:nth-child(4):before{content:'★'}.bottom-nav a:first-child{color:var(--yellow)}
 @media(min-width:541px){.mobile-profile{box-shadow:0 0 42px rgba(0,0,0,.13)}}
 @media(max-width:360px){.hero-copy,.section{padding-left:15px;padding-right:15px}.achievement-grid,.cap-grid{grid-template-columns:1fr}.model{flex-basis:116px}.metric{flex-basis:138px}}
+:root[data-theme="dark"]{--paper:#151515;--card:#1c1c1c;--ink:#fff;--sub:#c9c9c9;--muted:#8f8f8f;--line:#383838;--violet:#aaa1ff}
+:root[data-theme="dark"] body{background:#151515}:root[data-theme="dark"] .top{background:rgba(21,21,21,.94)}:root[data-theme="dark"] .current{background:#0f0f0f;color:#fff}:root[data-theme="dark"] .quick-nav a:first-child{background:#fff;color:#151515;border-color:#fff}
 @media print{body{background:#fff}.mobile-profile{max-width:none}.top,.quick-nav,.bottom-nav,.swipe-hint{display:none}.mobile-profile{padding-bottom:0}.section,.hero,.metric{break-inside:avoid}.metrics,.models{overflow:visible;flex-wrap:wrap}.metric,.model{flex:1 1 140px}}
 </style>
 </head>
 <body>
 <main class="mobile-profile">
-  <header class="top"><div class="brand">KIM TAE SIK <b>· MOBILE</b></div><a class="desktop-link" href="kim-taesik-profile.html">웹 버전</a></header>
+  <header class="top"><div class="brand">KIM TAE SIK <b>· MOBILE</b></div><nav class="top-actions" aria-label="프로필 보기 설정"><a href="#career">히스토리</a><a href="kim-taesik-profile.html">웹</a><button class="mobile-theme-toggle" id="mobileThemeBtn" type="button">다크 모드</button></nav></header>
 
   <section class="hero" id="home">
     <div class="portrait"><img src="assets/kim-taesik-profile-final-v5.png" alt="김태식 프로필 사진"><div class="portrait-copy"><small>PLATFORM BUSINESS LEADER</small><strong>김태식 · Kim Tae Sik</strong></div></div>
@@ -82,16 +84,17 @@ details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px so
     <div class="section-head"><div><div class="section-kicker">CAREER</div><h2>17년의 현장</h2><p class="section-desc">회사를 누르면 핵심 역할과 성과가 펼쳐집니다.</p></div><div class="section-no">02</div></div>
     <details open><summary><strong>우아한형제들</strong><span>2022.12 — 현재 · Store → B마트 → 배민상회</span></summary><div class="detail-body"><b>배민스토어</b>에서 닥터브로너스·오호라·톤28·가히·에스쁘아·달바 등 뷰티·라이프 26개 브랜드를 런칭하고, <b>B마트</b>에서 뷰티 직매입을 운영했습니다. 현재 <b>배민상회 비품MD팀 팀장</b>으로 카테고리 P&amp;L·PB·KA 셀러 구조를 총괄합니다.</div></details>
     <details><summary><strong>쿠팡</strong><span>2016.10 — 2022.12 · Part Leader / Principal AM</span></summary><div class="detail-body">전략 셀러 영입과 성장을 리딩하며 <b>5년 연속 최상위 평가 등급인 Top Tier</b>를 달성했습니다. 마켓플레이스에서 오뚜기몰·투썸플레이스·농협경제지주·베베쿡 등을, 로켓그로스에서 풀무원건강생활·NS홈쇼핑·샵다나와 등을 런칭했으며 신라면세점 3P·2P 런칭과 다이소몰 384억 성장을 만들었습니다.</div></details>
-    <details><summary><strong>이랜드리테일</strong><span>2009.07 — 2016.10 · 잡화·화장품 팀장</span></summary><div class="detail-body">51개 점포의 브랜드 입·퇴점과 카테고리를 관리했습니다. <b>올리브영 최초 특정매입 1호점 오픈 및 10개점 확대 협의</b>, 아프리카 아이웨어 신규 발굴과 NC백화점 최초 입점·확장, 빌리프 등 신규 브랜드 입점을 추진했습니다.</div></details>
+    <details><summary><strong>이랜드리테일</strong><span>2009.07 — 2016.10 · 잡화·화장품 팀장</span></summary><div class="detail-body">51개 점포의 브랜드 입·퇴점과 카테고리를 관리했습니다. <b>올리브영 NC백화점 강서점 오픈 및 10개점 확대 협의</b>, 아프리카 아이웨어 신규 발굴과 NC백화점 최초 입점·확장, 빌리프 등 신규 브랜드 입점을 추진했습니다.</div></details>
   </section>
 
   <section class="section" id="projects">
-    <div class="section-head"><div><div class="section-kicker">SELECTED IMPACT</div><h2>대표 프로젝트 5</h2><p class="section-desc">카드를 눌러 문제·실행·성과를 확인하세요.</p></div><div class="section-no">03</div></div>
+    <div class="section-head"><div><div class="section-kicker">SELECTED IMPACT</div><h2>대표 프로젝트 6</h2><p class="section-desc">카드를 눌러 문제·실행·성과를 확인하세요.</p></div><div class="section-no">03</div></div>
     <details class="project" open><summary><div class="type">BUSINESS MODEL BUILDING</div><strong>KA 셀러 연간 마케팅 파트너십</strong></summary><div class="detail-body">문제 정의부터 사업모델·혜택·법무 계약·정산·운영정책·셀러 협상·성과관리까지 전 과정을 직접 설계하고 구축했습니다.<div class="impact"><span class="num">151%</span><span>광고 목표 · 셀러 매출 YoY +15.8%</span></div></div></details>
+    <details class="project"><summary><div class="type">BMART 1P LAUNCH</div><strong>러쉬 B마트 1P 직매입 런칭</strong></summary><div class="detail-body">B마트 뷰티 직매입 MD로 러쉬 입점을 확정해 2024년 7월 런칭했습니다. 동시에 뷰티 직매입 상품 포트폴리오를 구축하고 운영했습니다.<div class="impact"><span class="num">15개</span><span>B마트 뷰티 직매입 브랜드 런칭</span></div></div></details>
     <details class="project"><summary><div class="type">CATEGORY CREATION</div><strong>배민스토어 뷰티 라인업 구축</strong></summary><div class="detail-body">풀필먼트 운영 모델을 설계하고 닥터브로너스·오호라·톤28·가히·에스쁘아·달바 등 26개 브랜드를 런칭했습니다.<div class="impact"><span class="num">31%</span><span>월평균 성장률</span></div></div></details>
     <details class="project"><summary><div class="type">POLICY TO BUSINESS</div><strong>신라면세점 쿠팡 3P·2P 런칭</strong></summary><div class="detail-body">관세청 정책을 사업 기회로 전환해 온라인 업계 최초 쿠팡 3P 입점 구조를 만들고, 로켓그로스(판매자로켓)까지 확장했습니다.<div class="impact"><span class="num">12.5억</span><span>2021년 3P 누적 실적</span></div></div></details>
     <details class="project"><summary><div class="type">ACCOUNT TRANSFORMATION</div><strong>다이소몰 매출 성장과 로켓그로스 확장</strong></summary><div class="detail-body">상품·배송·재고·출고·마케팅 구조를 개선해 3P 매출을 성장시키고 로켓그로스 계약과 운영 확장까지 연결했습니다.<div class="impact"><span class="num">384억</span><span>2020년 매출 · 목표 대비 122%</span></div></div></details>
-    <details class="project"><summary><div class="type">RETAIL BRAND DEVELOPMENT</div><strong>이랜드리테일 신규 브랜드 발굴·다점포 확장</strong></summary><div class="detail-body">올리브영 강서 1호점 오픈과 10개점 확대 협의를 완료했습니다. 아프리카 아이웨어를 신규 발굴해 NC백화점 최초 입점·확장 기반을 만들고 빌리프 등 신규 브랜드 입점을 성사시켰습니다.<div class="impact"><span class="num">10개점</span><span>올리브영 확대 협의 완료</span></div></div></details>
+    <details class="project"><summary><div class="type">RETAIL BRAND DEVELOPMENT</div><strong>이랜드리테일 신규 브랜드 발굴·다점포 확장</strong></summary><div class="detail-body">올리브영 NC백화점 강서점을 오픈하고 10개점 확대 협의를 완료했습니다. 아프리카 아이웨어를 신규 발굴해 NC백화점 최초 입점·확장 기반을 만들고 빌리프 등 신규 브랜드 입점을 성사시켰습니다.<div class="impact"><span class="num">10개점</span><span>올리브영 확대 협의 완료</span></div></div></details>
   </section>
 
   <section class="section" id="strength">
@@ -117,5 +120,15 @@ details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px so
   <footer class="footer"><strong>김태식 · Full-Commerce Leader</strong><span>유통 MD · 1P · 2P · 3P · PB</span></footer>
   <nav class="bottom-nav" aria-label="모바일 하단 탐색"><a href="#home"><span class="nav-label">홈</span></a><a href="#career"><span class="nav-label">경력</span></a><a href="#projects"><span class="nav-label">프로젝트</span></a><a href="#credentials"><span class="nav-label">리더십</span></a></nav>
 </main>
+<script>
+(function(){
+  var root=document.documentElement,button=document.getElementById('mobileThemeBtn'),themeColor=document.querySelector('meta[name="theme-color"]');
+  root.dataset.theme='light';
+  function isDark(){return root.dataset.theme==='dark'}
+  function syncTheme(){button.textContent=isDark()?'라이트 모드':'다크 모드';themeColor.setAttribute('content',isDark()?'#151515':'#f6f4ef')}
+  button.addEventListener('click',function(){root.dataset.theme=isDark()?'light':'dark';syncTheme()});
+  syncTheme();
+})();
+</script>
 </body>
 </html>
