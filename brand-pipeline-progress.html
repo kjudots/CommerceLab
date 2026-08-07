@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="샘플 리테일 홈리빙 사업부의 가상 신규 브랜드 영입 및 기존 파트너 육성 진척판">
+<title>브랜드 영입·육성 진척판 (샘플)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:'BMDOHYEON';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap}
+html,body{margin:0;background:#f7f7fa}
+.viz-root{--font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--surface:#f7f7fa;--surface-2:#f1f1f7;--card:#fff;--ink:#191930;--ink-2:#56566d;--ink-3:#7d7d91;--line:#e4e4ed;--brand:#5b4fcf;--brand-soft:#efedff;--mint:#2ac1bc;--mint-soft:#e5f7f6;--green:#1baf7a;--green-soft:#e7f7f0;--yellow:#d28a00;--yellow-soft:#fff4d7;--red:#d95050;--red-soft:#fdeaea;--shadow:rgba(25,25,48,.07);max-width:1600px;margin:0 auto;padding:28px 24px 70px;font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--ink);background:var(--surface);-webkit-font-smoothing:antialiased}
+.viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}.viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,.viz-root .num,.viz-root .kpi-value{font-family:var(--font-head)}.viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+.top-actions{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}.top-actions a,.theme-toggle{border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:20px;padding:7px 12px;text-decoration:none;font-size:11.5px;cursor:pointer}.top-actions a:hover,.theme-toggle:hover{border-color:var(--brand);color:var(--brand)}
+.eyebrow{margin:0 0 8px;color:var(--brand);font-size:13px;letter-spacing:.05em}h1{font-size:clamp(30px,4vw,44px);font-weight:400;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}.deck{max-width:1100px;color:var(--ink-2);font-size:13.5px;line-height:1.75;margin:0 0 16px}.deck b{color:var(--ink)}.demo-alert{display:flex;align-items:center;gap:9px;width:fit-content;padding:7px 11px;border:1px solid #ead283;background:#fff8da;color:#705900;border-radius:7px;font-size:11px}.rule{height:3px;background:linear-gradient(90deg,var(--brand),var(--mint));border-radius:4px;margin:18px 0}
+.dual-kpi{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:16px}.kpi-panel{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:0 2px 7px var(--shadow)}.kpi-title{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;background:var(--surface-2)}.kpi-title h2{font-size:17px;font-weight:400;margin:0}.kpi-title span{font-size:10px;color:var(--ink-3)}.kpi-row{display:grid;grid-template-columns:repeat(5,1fr)}.kpi{padding:15px 13px;border-right:1px solid var(--line);min-height:98px}.kpi:last-child{border-right:0}.kpi.hi{background:var(--brand-soft)}.kpi-label{font-size:9px;color:var(--ink-3);margin-bottom:6px}.kpi-value{font-size:23px;line-height:1.1}.kpi-note{font-size:9px;color:var(--ink-3);margin-top:6px;line-height:1.45}
+.live-entry{display:grid;grid-template-columns:1.15fr .85fr;gap:0;margin-bottom:16px;border:1px solid #b9dedc;border-radius:15px;overflow:hidden;background:var(--card);box-shadow:0 2px 7px var(--shadow)}.live-entry-copy{padding:19px 21px;background:var(--mint-soft)}.live-entry .eyelabel{font-family:var(--font-head);font-size:10px;letter-spacing:.05em;color:#168b87;margin-bottom:6px}.live-entry h2{font-size:18px;font-weight:400;margin:0 0 7px}.live-entry p{font-size:11px;line-height:1.65;color:var(--ink-2);margin:0}.live-flow{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}.live-step{position:relative;display:flex;flex-direction:column;justify-content:center;padding:14px 12px;border-left:1px solid var(--line);background:var(--card)}.live-step:not(:last-child)::after{content:'›';position:absolute;right:-5px;top:50%;transform:translateY(-50%);z-index:2;color:var(--mint);font-family:var(--font-head);font-size:18px}.live-step b{font-family:var(--font-head);font-weight:400;font-size:12px;color:var(--ink)}.live-step span{font-size:9px;line-height:1.45;color:var(--ink-3);margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:21px 23px;margin-bottom:16px;box-shadow:0 2px 7px var(--shadow)}.tabbar{display:flex;gap:8px;margin-bottom:16px}.tab{border:1px solid var(--line);background:var(--card);color:var(--ink-2);padding:9px 17px;border-radius:10px;font-size:13px;cursor:pointer}.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}.toolbar{display:flex;flex-wrap:wrap;gap:9px 13px;align-items:center;padding:12px 13px;border:1px solid var(--line);border-radius:11px;background:var(--surface);margin-bottom:14px}.toolbar label{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink-2)}.toolbar select,.toolbar input{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px;padding:6px 8px;font-size:11px}.toolbar input{width:170px}.toolbar .count{margin-left:auto;font-size:10.5px;color:var(--ink-3)}
+.playbook-entry{display:none;align-items:center;justify-content:space-between;gap:16px;margin:-2px 0 14px;padding:13px 15px;border:1px solid #b9dedc;border-radius:11px;background:var(--mint-soft)}.playbook-entry.on{display:flex}.playbook-entry strong{font-family:var(--font-head);font-weight:400;font-size:13px}.playbook-entry p{font-size:9.5px;color:var(--ink-2);margin:3px 0 0}.playbook-entry a{flex:none;border-radius:18px;padding:7px 11px;background:var(--mint);color:#fff;text-decoration:none;font-size:10px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.summary-card{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:11px 12px}.summary-card strong{font-size:11px}.summary-card .num{font-size:19px;margin-top:6px}.summary-card p{font-size:9px;color:var(--ink-3);margin:4px 0 0}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px;max-height:680px}table{border-collapse:collapse;width:100%;min-width:1280px;font-size:10.5px}th,td{padding:10px 9px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{position:sticky;top:0;z-index:2;background:var(--surface-2);color:var(--ink-2);font-weight:500;white-space:nowrap}tbody tr:hover{background:var(--surface)}tbody tr:last-child td{border-bottom:0}.brand-name{min-width:150px}.brand-name strong{font-family:var(--font-head);font-weight:400;font-size:12.5px;display:block;margin-bottom:3px}.muted{color:var(--ink-3);font-size:9px}.stage{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:9px;font-weight:700;white-space:nowrap;background:var(--brand-soft);color:var(--brand)}.stage.green{background:var(--green-soft);color:var(--green)}.stage.yellow{background:var(--yellow-soft);color:var(--yellow)}.stage.red{background:var(--red-soft);color:var(--red)}.next{min-width:230px;line-height:1.55}.blocker{min-width:180px;color:var(--ink-2);line-height:1.55}.due{white-space:nowrap}.metric{white-space:nowrap;text-align:right}.progress{min-width:140px}.bar{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin:5px 0}.bar span{display:block;height:100%;background:var(--brand);border-radius:4px}.progress small{font-size:8.5px;color:var(--ink-3)}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.legend span{font-size:9.5px;color:var(--ink-2);padding:5px 8px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.footer{display:flex;justify-content:space-between;gap:14px;color:var(--ink-3);font-size:9.5px;padding:3px}.footer strong{font-family:var(--font-head);font-weight:400;color:var(--ink)}
+:root[data-theme="dark"] .viz-root{--surface:#141420;--surface-2:#252538;--card:#1c1c2a;--ink:#fff;--ink-2:#c5c5d7;--ink-3:#9292aa;--line:#34344a;--brand:#aaa1ff;--brand-soft:#302c51;--mint:#49d4cf;--mint-soft:#173d3b;--green:#66cfa3;--green-soft:#163b2d;--yellow:#f1c35f;--yellow-soft:#41371c;--red:#ee8484;--red-soft:#482525;--shadow:rgba(0,0,0,.18)}:root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#141420}
+@media(max-width:1050px){.dual-kpi{grid-template-columns:1fr}.live-entry{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.viz-root{padding:18px 12px 46px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.next,.blocker{text-wrap:pretty}.top-actions{justify-content:flex-start;flex-wrap:wrap}.top-actions a,.theme-toggle{display:inline-flex;align-items:center;min-height:38px}h1{font-size:28px}.deck{font-size:12.5px;line-height:1.75}.dual-kpi{gap:10px}.live-entry-copy{padding:17px 15px}.live-flow{grid-template-columns:1fr}.live-step{min-height:72px;border-left:0;border-top:1px solid var(--line)}.live-step:not(:last-child)::after{content:'⌄';right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%)}.kpi-row{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(even){border-right:0}.kpi:nth-child(n+3){border-top:1px solid var(--line)}.kpi:last-child{grid-column:1/-1}.card{padding:16px 12px}.tabbar{display:grid;grid-template-columns:1fr 1fr}.tab{min-height:42px}.toolbar label{width:100%;justify-content:space-between}.toolbar select,.toolbar input{width:62%;min-height:38px}.toolbar .count{margin-left:0}.summary{grid-template-columns:1fr 1fr}.table-wrap{overflow:auto;-webkit-overflow-scrolling:touch;max-height:72vh}.footer{flex-direction:column}}
+@media(max-width:420px){h1{font-size:26px}.summary{grid-template-columns:1fr}.toolbar select,.toolbar input{width:60%}}
+@media print{.top-actions,.toolbar{display:none}.viz-root{max-width:none;padding:0}.card,.kpi-panel{box-shadow:none}}
+</style>
+</head>
+<body>
+<main class="viz-root">
+  <div class="top-actions"><a href="md-field-os.html">MD Field OS</a><a href="waterfall-progress.html">← 워터폴 진척판</a><a href="index.html">목표 워터폴</a><button class="theme-toggle" id="themeBtn" type="button">다크 모드</button></div>
+  <p class="eyebrow">샘플 리테일 홈리빙 사업부 · 2026년 10월 12일 기준</p>
+  <h1>브랜드 영입과 육성, 다음 행동까지 한 판에</h1>
+  <p class="deck">신규 브랜드는 <b>후보 발굴부터 판매 개시까지</b>, 기존 파트너는 <b>진단부터 성장 확인까지</b> 같은 방식으로 추적합니다. 워터폴 진척판의 영입·육성 항목을 실행 단위로 내려본 가상 상세 화면입니다.</p>
+  <div class="demo-alert"><b>DEMO DATA</b><span>브랜드명·조직명·담당·수치·일정은 모두 설명을 위해 만든 가상 자료입니다.</span></div>
+  <div class="rule"></div>
+
+  <section class="live-entry" aria-label="배포 링크 기반 공동 업데이트 방식">
+    <div class="live-entry-copy"><div class="eyelabel">LIVE OPERATING MODEL</div><h2>MD가 직접 기록하고, 현황판은 바로 갱신됩니다</h2><p>실제 운영 배포본에서는 담당 MD가 공유받은 입력 링크에서 브랜드·단계·블로커·다음 행동·기한을 직접 기재합니다. 저장된 내용은 중앙 데이터에 반영되고 현황판이 즉시 갱신되어, 별도 파일 취합 없이 하나의 최신 상태를 공유합니다. <b>현재 화면은 이 운영 구조를 설명하는 가상 예시입니다.</b></p></div>
+    <div class="live-flow"><div class="live-step"><b>01 · MD 직접 입력</b><span>배포 링크에서 담당 건 업데이트</span></div><div class="live-step"><b>02 · 중앙 데이터 반영</b><span>단계·블로커·기한을 단일화</span></div><div class="live-step"><b>03 · 현황판 즉시 갱신</b><span>회의 전 최신 상태 자동 공유</span></div></div>
+  </section>
+
+  <section class="dual-kpi" aria-label="영입과 육성 핵심 진척">
+    <article class="kpi-panel"><div class="kpi-title"><h2>신규 브랜드 영입</h2><span>목표 12곳</span></div><div class="kpi-row" id="acqKpis"></div></article>
+    <article class="kpi-panel"><div class="kpi-title"><h2>기존 파트너 육성</h2><span>집중 18곳</span></div><div class="kpi-row" id="growKpis"></div></article>
+  </section>
+
+  <section class="card">
+    <div class="tabbar" role="tablist" aria-label="진척 유형">
+      <button class="tab on" type="button" data-view="acq" role="tab" aria-selected="true">신규 브랜드 영입</button>
+      <button class="tab" type="button" data-view="grow" role="tab" aria-selected="false">기존 파트너 육성</button>
+    </div>
+    <div class="playbook-entry" id="playbookEntry"><div><strong>육성 셀러 성장 플레이북</strong><p>진단 → 기회 발견 → 처방 → 미팅 → 공개 리포트까지 연결한 가상 실행 예시</p></div><a href="partner-growth-playbook.html">내부 플레이북 보기 →</a></div>
+    <div class="toolbar">
+      <label>담당 조직 <select id="ownerFilter"><option value="">전체</option></select></label>
+      <label>카테고리 <select id="categoryFilter"><option value="">전체</option></select></label>
+      <label>단계 <select id="stageFilter"><option value="">전체</option></select></label>
+      <label>검색 <input id="searchFilter" type="search" placeholder="브랜드·다음 행동"></label>
+      <span class="count" id="resultCount"></span>
+    </div>
+    <div class="summary" id="summary"></div>
+    <div class="table-wrap"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <footer class="footer"><strong>샘플 리테일 홈리빙 사업부 · Brand Pipeline Board</strong><span>예시 화면 · 실제 회사 및 브랜드 자료와 무관</span></footer>
+</main>
+<script>
+(function(){
+'use strict';
+var ACQ_STAGES=['후보 발굴','사전 분석','1차 제안','관심 확인','조건 협의','계약 진행','상품 등록','판매 개시','보류'];
+var GROW_STAGES=['대상 선정','현황 진단','성장안 작성','액션 합의','실행 중','성과 확인','성장 달성','재설계'];
+var ACQ=[
+{brand:'리빙포레스트',category:'수납·정리',owner:'리빙MD 1파트',stage:'판매 개시',route:'제휴 문의',potential:1.8,progress:100,blocker:'없음',next:'첫 2주 판매 데이터 리뷰',due:'10/14'},
+{brand:'모노키친',category:'주방용품',owner:'리빙MD 1파트',stage:'판매 개시',route:'파트너 소개',potential:1.5,progress:100,blocker:'없음',next:'핵심 12SKU 재고 보충',due:'10/15'},
+{brand:'베러바스',category:'욕실용품',owner:'리빙MD 2파트',stage:'판매 개시',route:'공식 제휴',potential:1.2,progress:100,blocker:'없음',next:'리뷰 확보용 체험 구성',due:'10/17'},
+{brand:'스튜디오램프',category:'조명·인테리어',owner:'자체브랜드 파트',stage:'상품 등록',route:'전시회 발굴',potential:1.1,progress:86,blocker:'상세 이미지 4종 보완',next:'상품정보 최종 검수',due:'10/18'},
+{brand:'코지패브릭',category:'침구·패브릭',owner:'리빙MD 2파트',stage:'1차 제안',route:'공식 제휴',potential:1.0,progress:36,blocker:'온라인 전용 구성 검토',next:'대표 18SKU 운영안 제안',due:'10/18'},
+{brand:'클린데이',category:'청소용품',owner:'리빙MD 2파트',stage:'계약 진행',route:'파트너 소개',potential:.9,progress:72,blocker:'반품 기준 문구 조정',next:'표준 계약서 최종 합의',due:'10/16'},
+{brand:'오브제홈',category:'홈데코',owner:'자체브랜드 파트',stage:'조건 협의',route:'전시회 발굴',potential:.8,progress:58,blocker:'초도 물량 협의',next:'초도 600개 분할 납품 확정',due:'10/19'},
+{brand:'슬로우룸',category:'수납·정리',owner:'리빙MD 1파트',stage:'조건 협의',route:'공식 제휴',potential:.8,progress:58,blocker:'공급가 2개 구간 이견',next:'혼합 발주안 재제안',due:'10/15'},
+{brand:'테이블온',category:'주방용품',owner:'리빙MD 1파트',stage:'관심 확인',route:'제휴 문의',potential:.7,progress:46,blocker:'온라인 전용 구성 검토',next:'베스트 8SKU 수익성 시뮬레이션',due:'10/17'},
+{brand:'하우스픽',category:'홈데코',owner:'자체브랜드 파트',stage:'1차 제안',route:'전시회 발굴',potential:.6,progress:34,blocker:'제안서 내부 검토 중',next:'공동 기획전 샘플 전달',due:'10/20'},
+{brand:'리프앤라이트',category:'조명·인테리어',owner:'자체브랜드 파트',stage:'사전 분석',route:'시장 탐색',potential:.5,progress:22,blocker:'인증 정보 확인 필요',next:'인증·배송 조건 확인',due:'10/21'},
+{brand:'데일리바스',category:'욕실용품',owner:'리빙MD 2파트',stage:'후보 발굴',route:'시장 탐색',potential:.4,progress:10,blocker:'담당 창구 미확보',next:'공식 제휴 채널 접수',due:'10/22'}
+];
+var GROW=[
+{brand:'홈앤코',category:'수납·정리',owner:'리빙MD 1파트',stage:'성장 달성',base:2.1,target:2.8,current:3.0,progress:107,blocker:'없음',next:'성공 SKU를 2개 카테고리로 확장',due:'10/18'},
+{brand:'라이프메이트',category:'생활잡화',owner:'리빙MD 2파트',stage:'성장 달성',base:1.8,target:2.3,current:2.5,progress:109,blocker:'없음',next:'11월 공동 기획전 확정',due:'10/16'},
+{brand:'키친웍스',category:'주방용품',owner:'리빙MD 1파트',stage:'성장 달성',base:2.4,target:3.0,current:3.2,progress:107,blocker:'없음',next:'상위 SKU 세트화 테스트',due:'10/20'},
+{brand:'수납연구소',category:'수납·정리',owner:'리빙MD 1파트',stage:'성장 달성',base:1.5,target:2.0,current:2.1,progress:105,blocker:'없음',next:'검색 키워드 2차 확장',due:'10/21'},
+{brand:'바스데이',category:'욕실용품',owner:'리빙MD 2파트',stage:'성장 달성',base:1.3,target:1.7,current:1.8,progress:106,blocker:'없음',next:'리필형 상품 비중 확대',due:'10/22'},
+{brand:'소프트룸',category:'침구·패브릭',owner:'리빙MD 2파트',stage:'성장 달성',base:1.7,target:2.2,current:2.3,progress:105,blocker:'없음',next:'겨울 시즌 상품 교체',due:'10/17'},
+{brand:'라이트하우스',category:'조명·인테리어',owner:'자체브랜드 파트',stage:'성장 달성',base:1.0,target:1.4,current:1.5,progress:107,blocker:'없음',next:'연관 상품 번들 확대',due:'10/19'},
+{brand:'클린플러스',category:'청소용품',owner:'리빙MD 2파트',stage:'성과 확인',base:1.5,target:2.0,current:1.9,progress:95,blocker:'재구매율 데이터 대기',next:'코호트 성과 재측정',due:'10/15'},
+{brand:'리빙랩',category:'생활잡화',owner:'리빙MD 1파트',stage:'성과 확인',base:1.9,target:2.5,current:2.3,progress:92,blocker:'유입 대비 전환 저조',next:'상세페이지 첫 화면 교체',due:'10/16'},
+{brand:'데코스튜디오',category:'홈데코',owner:'자체브랜드 파트',stage:'실행 중',base:1.1,target:1.6,current:1.3,progress:81,blocker:'대표 이미지 테스트 중',next:'A/B 결과로 이미지 확정',due:'10/18'},
+{brand:'코지앤홈',category:'침구·패브릭',owner:'리빙MD 2파트',stage:'실행 중',base:1.4,target:1.9,current:1.5,progress:79,blocker:'일부 컬러 품절',next:'대체 컬러 전면 배치',due:'10/14'},
+{brand:'테이블무드',category:'주방용품',owner:'리빙MD 1파트',stage:'실행 중',base:1.6,target:2.1,current:1.6,progress:76,blocker:'묶음 구성 반응 확인 중',next:'2개입·4개입 구성 비교',due:'10/17'},
+{brand:'패브릭온',category:'침구·패브릭',owner:'리빙MD 2파트',stage:'액션 합의',base:1.2,target:1.7,current:1.2,progress:71,blocker:'행사 분담률 협의',next:'프로모션 비용안 확정',due:'10/15'},
+{brand:'홈베이직',category:'생활잡화',owner:'리빙MD 1파트',stage:'현황 진단',base:1.3,target:1.8,current:1.2,progress:42,blocker:'핵심 SKU 재고 부족',next:'재고·유입·전환 지표 분해',due:'10/16'},
+{brand:'오거나이즈',category:'수납·정리',owner:'리빙MD 1파트',stage:'성장안 작성',base:1.5,target:2.0,current:1.2,progress:60,blocker:'가격대 구조 재정의 필요',next:'입문·주력·프리미엄 구간 설계',due:'10/19'},
+{brand:'데일리키친',category:'주방용품',owner:'리빙MD 1파트',stage:'성장안 작성',base:1.7,target:2.3,current:1.3,progress:57,blocker:'베스트 SKU 편중',next:'교차구매 후보 6SKU 선정',due:'10/20'},
+{brand:'리빙센스',category:'홈데코',owner:'자체브랜드 파트',stage:'현황 진단',base:1.0,target:1.5,current:.8,progress:53,blocker:'저성과 원인 분리 필요',next:'유입·전환·재고 지표 분해',due:'10/17'},
+{brand:'룸앤무드',category:'조명·인테리어',owner:'자체브랜드 파트',stage:'현황 진단',base:.9,target:1.3,current:.6,progress:46,blocker:'분석 데이터 취합 중',next:'상위 경쟁 상품 비교 완료',due:'10/21'}
+];
+var view='acq',q=function(s){return document.querySelector(s)},esc=function(s){return String(s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};
+function kpi(target,vals,labels,id){q(id).innerHTML=vals.map(function(v,i){return '<div class="kpi'+(i===vals.length-1?' hi':'')+'"><div class="kpi-label">'+labels[i]+'</div><div class="kpi-value num">'+v+'</div><div class="kpi-note">목표 '+target+'곳 기준</div></div>'}).join('')}
+function stageClass(stage){if(/판매 개시|성장 달성/.test(stage))return 'green';if(/보류|재설계/.test(stage))return 'red';if(/계약|등록|실행|성과/.test(stage))return 'yellow';return ''}
+function fillFilters(){var rows=view==='acq'?ACQ:GROW,stages=view==='acq'?ACQ_STAGES:GROW_STAGES;[['#ownerFilter',Array.from(new Set(rows.map(function(r){return r.owner})))],['#categoryFilter',Array.from(new Set(rows.map(function(r){return r.category})))],['#stageFilter',stages]].forEach(function(x){q(x[0]).innerHTML='<option value="">전체</option>'+x[1].map(function(v){return '<option>'+esc(v)+'</option>'}).join('')})}
+function summary(rows){var total=rows.length,late=rows.filter(function(r){return r.progress<60}).length,active=rows.filter(function(r){return r.progress>=60&&r.progress<100}).length,done=rows.filter(function(r){return r.progress>=100}).length;var cards=[['전체 대상',total,'현재 필터 결과'],['초기 단계',late,'진척 60% 미만'],['진행 중',active,'진척 60~99%'],['완료·달성',done,'진척 100% 이상']];q('#summary').innerHTML=cards.map(function(c){return '<div class="summary-card"><strong>'+c[0]+'</strong><div class="num">'+c[1]+'곳</div><p>'+c[2]+'</p></div>'}).join('')}
+function draw(){var rows=(view==='acq'?ACQ:GROW).filter(function(r){var text=(r.brand+' '+r.next+' '+r.blocker).toLowerCase();return(!q('#ownerFilter').value||r.owner===q('#ownerFilter').value)&&(!q('#categoryFilter').value||r.category===q('#categoryFilter').value)&&(!q('#stageFilter').value||r.stage===q('#stageFilter').value)&&(!q('#searchFilter').value||text.indexOf(q('#searchFilter').value.toLowerCase())>-1)});q('#resultCount').textContent=rows.length+'곳 표시';summary(rows);q('#tableHead').innerHTML=view==='acq'?'<tr><th>브랜드·카테고리</th><th>담당 조직</th><th>현재 단계</th><th>발굴 경로</th><th>월 잠재 증분</th><th>진척</th><th>현재 블로커</th><th>다음 행동</th><th>기한</th></tr>':'<tr><th>파트너·카테고리</th><th>담당 조직</th><th>현재 단계</th><th>기준</th><th>목표</th><th>현재</th><th>달성률</th><th>현재 블로커</th><th>다음 행동</th><th>기한</th></tr>';q('#tableBody').innerHTML=rows.map(function(r){var base='<td class="brand-name"><strong>'+esc(r.brand)+'</strong><span class="muted">'+esc(r.category)+'</span></td><td>'+esc(r.owner)+'</td><td><span class="stage '+stageClass(r.stage)+'">'+esc(r.stage)+'</span></td>';if(view==='acq')return '<tr>'+base+'<td>'+esc(r.route)+'</td><td class="metric num">'+r.potential.toFixed(1)+'억</td><td class="progress"><b class="num">'+r.progress+'%</b><div class="bar"><span style="width:'+Math.min(r.progress,100)+'%"></span></div></td><td class="blocker">'+esc(r.blocker)+'</td><td class="next"><b>'+esc(r.next)+'</b></td><td class="due">'+esc(r.due)+'</td></tr>';return '<tr>'+base+'<td class="metric num">'+r.base.toFixed(1)+'억</td><td class="metric num">'+r.target.toFixed(1)+'억</td><td class="metric num">'+r.current.toFixed(1)+'억</td><td class="progress"><b class="num">'+r.progress+'%</b><div class="bar"><span style="width:'+Math.min(r.progress,100)+'%"></span></div></td><td class="blocker">'+esc(r.blocker)+'</td><td class="next"><b>'+esc(r.next)+'</b></td><td class="due">'+esc(r.due)+'</td></tr>'}).join('');q('#legend').innerHTML=(view==='acq'?ACQ_STAGES:GROW_STAGES).map(function(s,i){return '<span>'+(i+1)+'. '+esc(s)+'</span>'}).join('')}
+function setView(next){view=next;document.querySelectorAll('.tab').forEach(function(b){var on=b.dataset.view===view;b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false')});q('#playbookEntry').classList.toggle('on',view==='grow');fillFilters();q('#searchFilter').value='';draw();history.replaceState(null,'',location.pathname+'?view='+view)}
+kpi(12,[12,10,7,5,3],['후보','1차 제안','조건 협의','계약','판매 개시'],'#acqKpis');kpi(18,[18,15,12,9,7],['진단','성장안','실행','성과 확인','성장 달성'],'#growKpis');
+document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.view)})});['#ownerFilter','#categoryFilter','#stageFilter'].forEach(function(id){q(id).addEventListener('change',draw)});q('#searchFilter').addEventListener('input',draw);
+var root=document.documentElement,themeBtn=q('#themeBtn');root.dataset.theme='light';themeBtn.addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';themeBtn.textContent=root.dataset.theme==='dark'?'라이트 모드':'다크 모드'});
+var initial=new URLSearchParams(location.search).get('view');setView(initial==='grow'?'grow':'acq');
+})();
+</script>
+</body>
+</html>

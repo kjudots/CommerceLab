@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>플랫폼 MD 역할 정의</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  @font-face{
+    font-family:'BMDOHYEON';
+    src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight:normal;font-style:normal;font-display:swap;
+  }
+  html,body{margin:0;padding:0;background:#f7f7fa}
+  .viz-root{
+    --font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --surface-1:#f7f7fa;--surface-2:#f3f3f8;--surface-3:#fafaff;--card:#fff;
+    --border:#e7e7f0;--border-soft:#eeeef5;--ink:#191930;--ink-2:#55556e;--ink-3:#77778d;
+    --brand:#5b4fcf;--brand-soft:#efedff;--mint:#2ac1bc;--mint-soft:#e5f7f6;
+    --blue:#2a78d6;--blue-soft:#e9f0fb;--orange:#eb6834;--orange-soft:#fdeee6;
+    --green:#1baf7a;--green-soft:#e5f5ef;--yellow:#eda100;--yellow-soft:#fff5d8;
+    font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--ink);
+    background:var(--surface-1);max-width:1560px;margin:0 auto;padding:30px 24px 70px;
+    -webkit-font-smoothing:antialiased;position:relative;
+  }
+  .viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}
+  .viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,
+  .viz-root .num,.viz-root .kpi-value{font-family:var(--font-head)}
+  .viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+  .theme-toggle{position:absolute;right:24px;top:28px;border:1px solid var(--border);background:var(--card);
+    color:var(--ink-2);border-radius:20px;padding:8px 13px;cursor:pointer;font-size:12px}
+  .os-link{position:absolute;right:143px;top:28px;border:1px solid var(--border);background:var(--card);
+    color:var(--brand);border-radius:20px;padding:8px 13px;text-decoration:none;font-size:12px;line-height:1.15}
+  .os-link:hover{border-color:var(--brand);background:var(--brand-soft)}
+  .eyebrow{margin:0 0 7px;color:var(--brand);font-size:14px;letter-spacing:.04em}
+  h1{font-size:36px;line-height:1.22;font-weight:400;letter-spacing:-.02em;margin:0 100px 12px 0}
+  .deck{max-width:960px;margin:0 0 20px;color:var(--ink-2);font-size:14px;line-height:1.75}
+  .deck b{color:var(--ink)}
+  .rule{height:3px;background:linear-gradient(90deg,var(--brand),var(--mint));border-radius:3px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:18px;
+    box-shadow:0 1px 3px rgba(25,25,48,.05)}
+  h2{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:400;letter-spacing:-.015em;margin:0 0 7px}
+  h2::before{content:'';width:4px;height:19px;background:var(--brand);border-radius:2px;flex:none}
+  h3{font-size:17px;font-weight:400;margin:0 0 8px;letter-spacing:-.01em}
+  .sub{font-size:13px;line-height:1.65;color:var(--ink-2);margin:0 0 18px}
+  .chip{display:inline-block;border-radius:18px;padding:3px 10px;background:var(--brand-soft);color:var(--brand);font-size:11px}
+
+  .identity{display:grid;grid-template-columns:1.45fr .75fr;gap:14px;margin-bottom:18px}
+  .statement{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:center;gap:20px}
+  .statement-mark{flex:none;width:74px;height:74px;border-radius:22px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;
+    font-family:var(--font-head);font-size:28px}
+  .statement strong{display:block;font-family:var(--font-head);font-weight:400;font-size:21px;line-height:1.45;margin-bottom:6px}
+  .statement p{margin:0;color:var(--ink-2);font-size:13px;line-height:1.65}
+  .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:15px 16px}
+  .kpi-label{font-size:11px;color:var(--ink-3);margin-bottom:5px}
+  .kpi-value{font-size:25px;line-height:1.1;color:var(--ink)}
+  .kpi-note{font-size:11px;color:var(--ink-3);margin-top:5px}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .tab{border:1px solid var(--border);background:var(--card);color:var(--ink-2);border-radius:20px;padding:7px 13px;cursor:pointer;font-size:13px}
+  .tab:hover{border-color:var(--brand);color:var(--ink)}
+  .tab[aria-selected="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand)}
+  .role-panel{display:none}.role-panel.is-active{display:block}
+  .phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .phase{position:relative;border:1px solid var(--border);background:var(--surface-3);border-radius:14px;padding:21px 19px;min-height:224px;overflow:hidden}
+  .phase::after{content:attr(data-no);position:absolute;right:14px;top:9px;font-family:var(--font-head);font-size:37px;color:var(--border-soft)}
+  .phase:nth-child(2){background:var(--brand-soft);border-color:var(--brand)}
+  .phase:nth-child(3){background:var(--mint-soft);border-color:var(--mint)}
+  .phase-label{font-family:var(--font-head);font-size:11px;color:var(--brand);letter-spacing:.04em;margin-bottom:28px}
+  .phase h3{font-size:19px;margin-bottom:9px;position:relative;z-index:1}.phase p{font-size:12.5px;color:var(--ink-2);line-height:1.65;margin:0 0 16px}
+  .phase-tags,.deliverables{display:flex;flex-wrap:wrap;gap:6px}
+  .phase-tags span,.deliverables span{font-size:10.5px;padding:4px 9px;border-radius:16px;background:var(--card);border:1px solid var(--border);color:var(--ink-3)}
+  .phase-result{margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--ink-3)}.phase-result b{color:var(--ink);font-weight:700}
+
+  .panel-summary{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;margin-bottom:12px}
+  .panel-hero{border-radius:14px;padding:23px;background:#191930;color:#fff;min-height:184px;display:flex;flex-direction:column;justify-content:space-between}
+  .panel-hero .panel-label{font-family:var(--font-head);font-size:11px;color:#49d4cf;letter-spacing:.05em}.panel-hero h3{font-size:23px;line-height:1.4;margin:14px 0 8px;color:#fff}
+  .panel-hero p{font-size:12.5px;line-height:1.7;color:#c8c8d5;margin:0}.panel-goal{font-size:11px;color:var(--yellow);margin-top:16px}
+  .panel-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  .panel-kpi{background:var(--surface-3);border:1px solid var(--border);border-radius:12px;padding:14px;min-height:88px}
+  .panel-kpi .label{font-size:9.5px;color:var(--ink-3);margin-bottom:6px}.panel-kpi .value{font-family:var(--font-head);font-size:17px;line-height:1.2;color:var(--ink)}.panel-kpi .note{font-size:9.5px;color:var(--ink-3);margin-top:5px}
+  .workstream-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .workstream{border:1px solid var(--border);border-radius:13px;background:var(--surface-3);padding:18px;min-height:196px}
+  .workstream .n{font-family:var(--font-head);font-size:11px;color:var(--brand);margin-bottom:10px}.workstream h3{font-size:16px;margin-bottom:8px}.workstream p{font-size:12px;line-height:1.65;color:var(--ink-2);margin:0 0 13px}
+  .deliverable-row{display:grid;grid-template-columns:125px 1fr;gap:12px;align-items:center;margin-top:12px;padding:14px 16px;border-radius:12px;background:var(--surface-2)}
+  .deliverable-title{font-family:var(--font-head);font-size:13px;color:var(--ink)}
+  .common-intro{margin:30px 0 15px;padding:24px 24px 20px;border-radius:16px;background:linear-gradient(120deg,var(--brand-soft),var(--mint-soft));border:1px solid var(--border)}
+  .common-kicker{font-family:var(--font-head);font-size:11px;letter-spacing:.06em;color:var(--brand);margin-bottom:7px}.common-intro h2{margin-bottom:7px}.common-intro p{font-size:13px;color:var(--ink-2);line-height:1.65;margin:0}
+
+  .flow{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));align-items:stretch;margin-top:8px}
+  .flow-step{grid-column:span 2;background:var(--surface-3);border:1px solid var(--border);border-radius:13px;padding:15px 13px;min-height:118px}
+  .flow-step:last-child{grid-column:span 3;background:var(--brand-soft);border-color:var(--brand)}
+  .flow-arrow{display:grid;place-items:center;color:var(--ink-3);font-size:18px}
+  .flow-step .n{font-family:var(--font-head);font-size:12px;color:var(--brand);margin-bottom:7px}
+  .flow-step b{font-family:var(--font-head);font-weight:400;font-size:15px;display:block;margin-bottom:6px}
+  .flow-step span{font-size:11.5px;line-height:1.55;color:var(--ink-2)}
+
+  .cadence{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .cad{border-left:4px solid var(--blue);background:var(--blue-soft);border-radius:10px;padding:16px}
+  .cad:nth-child(2){border-color:var(--green);background:var(--green-soft)}
+  .cad:nth-child(3){border-color:var(--orange);background:var(--orange-soft)}
+  .cad h3{margin-bottom:10px}.cad ul{margin:0;padding-left:17px;color:var(--ink-2);font-size:12.5px;line-height:1.8}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .compare-box{border:1px solid var(--border);border-radius:13px;padding:18px;background:var(--surface-3)}
+  .compare-box.platform{background:var(--brand-soft);border-color:var(--brand)}
+  .compare-box ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2);font-size:12.5px;line-height:1.8}
+  .formula{margin-top:14px;padding:15px 18px;border-radius:12px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+  .formula span{font-family:var(--font-head);font-size:16px}.formula i{font-style:normal;color:var(--brand);font-size:18px}
+
+  .translation{width:100%;border-collapse:collapse;font-size:12.5px}
+  .translation th,.translation td{padding:11px 12px;border-bottom:1px solid var(--border-soft);text-align:left}
+  .translation th{color:var(--ink-2);font-weight:500;background:var(--surface-3)}
+  .translation td:first-child{color:var(--ink-3)}
+  .translation td:nth-child(2){color:var(--brand);font-weight:500}
+  .translation tr:last-child td{border-bottom:0}
+  .translation.glossary{min-width:880px}
+  .translation.glossary td:first-child{font-family:var(--font-head);color:var(--brand);white-space:nowrap}
+  .translation.glossary td:nth-child(2){color:var(--ink-2);font-weight:500}
+  .footnote{font-size:11px;color:var(--ink-3);line-height:1.65;margin:12px 0 0}
+
+  @media(max-width:900px){.identity{grid-template-columns:1fr}.phase-grid,.workstream-grid{grid-template-columns:1fr}.phase{min-height:0}.panel-summary{grid-template-columns:1fr}.flow{grid-template-columns:1fr;gap:8px}.flow-step,.flow-step:last-child{grid-column:auto}.flow-arrow{transform:rotate(90deg)}}
+  @media(max-width:620px){.viz-root{padding:20px 14px 50px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.translation td{text-wrap:pretty}.os-link,.theme-toggle{position:static;display:inline-flex;align-items:center;min-height:38px;margin:0 6px 14px 0}h1{font-size:29px;margin-right:0}.deck{font-size:13px;line-height:1.75}.statement{align-items:flex-start}.statement-mark{width:52px;height:52px;border-radius:15px;font-size:20px;flex:0 0 52px}.statement strong{font-size:16px}.cadence,.compare{grid-template-columns:1fr}.kpis,.panel-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:18px 15px}.tabs{display:grid;grid-template-columns:repeat(2,1fr)}.tab{width:100%;min-height:42px;padding:9px 8px}.deliverable-row{grid-template-columns:1fr}.common-intro{padding:19px 16px}.translation{min-width:620px}.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:5px}}
+  @media(max-width:390px){.kpis,.panel-kpis{grid-template-columns:1fr}.tabs{grid-template-columns:1fr}h1{font-size:27px}}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .viz-root{--surface-1:#141420;--surface-2:#26263a;--surface-3:#222234;--card:#1d1d2b;--border:#33334a;--border-soft:#2b2b40;--ink:#fff;--ink-2:#c2c2d6;--ink-3:#9191aa;--brand:#a79df8;--brand-soft:#2c2851;--mint:#49d4cf;--mint-soft:#173c3b;--blue:#69a9f2;--blue-soft:#1d3050;--orange:#f5a181;--orange-soft:#452520;--green:#6fd0a8;--green-soft:#123a2d;--yellow:#f6ca62;--yellow-soft:#403515}html,body{background:#141420}}
+  :root[data-theme="dark"] .viz-root{--surface-1:#141420;--surface-2:#26263a;--surface-3:#222234;--card:#1d1d2b;--border:#33334a;--border-soft:#2b2b40;--ink:#fff;--ink-2:#c2c2d6;--ink-3:#9191aa;--brand:#a79df8;--brand-soft:#2c2851;--mint:#49d4cf;--mint-soft:#173c3b;--blue:#69a9f2;--blue-soft:#1d3050;--orange:#f5a181;--orange-soft:#452520;--green:#6fd0a8;--green-soft:#123a2d;--yellow:#f6ca62;--yellow-soft:#403515}
+  :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#141420}
+</style>
+</head>
+<body>
+<main class="viz-root" id="platformMd">
+  <a class="os-link" href="md-field-os.html">MD Field OS</a>
+  <button class="theme-toggle" id="themeBtn" type="button" aria-label="화면 테마 변경">다크 모드</button>
+  <p class="eyebrow">PLATFORM MERCHANDISER · ROLE FRAMEWORK</p>
+  <h1>플랫폼 MD는 셀러의 성장을 설계하는 사업 책임자입니다</h1>
+  <p class="deck"><b>입점시키는 사람에서 끝나지 않습니다.</b> 좋은 셀러와 상품을 발굴하고, 가격·구색·노출·운영을 개선해 파트너의 성장과 플랫폼 거래액을 함께 만드는 역할입니다.</p>
+  <div class="rule"></div>
+
+  <section class="identity" aria-label="플랫폼 MD 핵심 정의">
+    <div class="statement">
+      <div class="statement-mark" aria-hidden="true">MD</div>
+      <div><strong>파트너 성장 × 고객 가치 × 플랫폼 성과</strong><p>세 이해관계자의 접점을 관리하며, 데이터를 실행으로 바꾸고 유관 부서를 움직이는 단일 오너입니다.</p></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-label">성장 결과</div><div class="kpi-value num">GMV</div><div class="kpi-note">Gross Merchandise Value · 총거래액</div></div>
+      <div class="kpi"><div class="kpi-label">상품 경쟁력</div><div class="kpi-value num">SKU</div><div class="kpi-note">Stock Keeping Unit · 상품 관리 단위</div></div>
+      <div class="kpi"><div class="kpi-label">고객 가치</div><div class="kpi-value num">CVR</div><div class="kpi-note">Conversion Rate · 구매 전환율</div></div>
+      <div class="kpi"><div class="kpi-label">파트너 건강도</div><div class="kpi-value num">QoS</div><div class="kpi-note">Quality of Service · 운영 품질</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>플랫폼 MD의 3가지 책임 영역</h2>
+    <p class="sub">업무 영역을 선택하면 역할 정의부터 핵심 업무·관리 KPI·대표 산출물까지 하나의 미니 대시보드로 확인할 수 있습니다.</p>
+    <div class="tabs" role="tablist" aria-label="역할 단계 필터">
+      <button class="tab" id="tab-all" type="button" role="tab" aria-selected="true" aria-controls="panel-all" data-target="all">전체 역할</button>
+      <button class="tab" id="tab-build" type="button" role="tab" aria-selected="false" aria-controls="panel-build" data-target="build">입점 구축</button>
+      <button class="tab" id="tab-grow" type="button" role="tab" aria-selected="false" aria-controls="panel-grow" data-target="grow">성장 실행</button>
+      <button class="tab" id="tab-operate" type="button" role="tab" aria-selected="false" aria-controls="panel-operate" data-target="operate">운영 관리</button>
+    </div>
+    <div class="role-panel is-active" id="panel-all" role="tabpanel" aria-labelledby="tab-all">
+      <div class="phase-grid">
+        <article class="phase" data-no="01"><div class="phase-label">BUILD · ACQUISITION &amp; ONBOARDING</div><h3>좋은 파트너를 판매 가능한 상태로</h3><p>시장과 카테고리를 분석해 성장 가능성이 높은 셀러를 발굴하고, 제안·협상·계약·연동·초기 활성화까지 입점의 전 과정을 완결합니다.</p><div class="phase-tags"><span>셀러 발굴</span><span>조건 협상</span><span>온보딩</span></div><div class="phase-result"><b>핵심 결과</b> 신규 셀러와 상품 공급 기반 확보</div></article>
+        <article class="phase" data-no="02"><div class="phase-label">GROW · BUSINESS &amp; COMMERCIAL</div><h3>데이터를 반복 가능한 성장 공식으로</h3><p>거래액·구색·가격·전환 데이터를 진단하고 상품·재고·마케팅 액션을 연결해 셀러의 매출과 플랫폼 성과를 함께 성장시킵니다.</p><div class="phase-tags"><span>Account Plan</span><span>Selection</span><span>Marketing</span></div><div class="phase-result"><b>핵심 결과</b> GMV·CVR·활성 SKU 성장</div></article>
+        <article class="phase" data-no="03"><div class="phase-label">OPERATE · ORCHESTRATION</div><h3>운영 품질을 지속 가능한 신뢰로</h3><p>품절·배송·CS·정산·계약·연동 이슈를 끝까지 해결하고 재발 방지 기준을 만들어 파트너와 고객이 신뢰할 수 있는 운영을 구축합니다.</p><div class="phase-tags"><span>SLA</span><span>Issue Resolution</span><span>Governance</span></div><div class="phase-result"><b>핵심 결과</b> 운영 안정성과 파트너 건강도 향상</div></article>
+      </div>
+    </div>
+
+    <div class="role-panel" id="panel-build" role="tabpanel" aria-labelledby="tab-build" hidden>
+      <div class="panel-summary">
+        <div class="panel-hero"><div><div class="panel-label">BUILD · 입점 구축</div><h3>잠재 파트너를 실제 판매 상태로 전환합니다</h3><p>좋은 셀러를 찾는 것에서 멈추지 않고, 사업 조건과 운영 요건을 정리해 빠르고 안정적으로 첫 주문이 발생하는 상태까지 책임집니다.</p></div><div class="panel-goal">GOAL · 전략 셀러와 핵심 상품의 성공적인 판매 개시</div></div>
+        <div class="panel-kpis" aria-label="입점 구축 핵심 지표"><div class="panel-kpi"><div class="label">PIPELINE</div><div class="value">신규 셀러 수</div><div class="note">발굴·제안 진행 현황</div></div><div class="panel-kpi"><div class="label">GO LIVE</div><div class="value">판매 개시율</div><div class="note">계약 대비 실제 오픈</div></div><div class="panel-kpi"><div class="label">LEAD TIME</div><div class="value">온보딩 소요일</div><div class="note">계약부터 판매까지</div></div><div class="panel-kpi"><div class="label">ACTIVATION</div><div class="value">초기 활성화율</div><div class="note">입점 후 첫 성장 안착</div></div></div>
+      </div>
+      <div class="workstream-grid"><article class="workstream"><div class="n">01 · ACQUISITION</div><h3>타깃 셀러를 발굴합니다</h3><p>시장·경쟁사·고객 수요와 카테고리 공백을 분석해 플랫폼에 필요한 셀러와 상품의 우선순위를 정합니다.</p></article><article class="workstream"><div class="n">02 · COMMERCIAL DESIGN</div><h3>상호 성장 조건을 설계합니다</h3><p>수수료·가격·구색·재고·마케팅 조건을 협상하고 파트너가 참여해야 할 사업적 이유를 제안합니다.</p></article><article class="workstream"><div class="n">03 · ONBOARDING</div><h3>판매의 마찰을 제거합니다</h3><p>계약·상품 등록·승인·시스템 연동·교육·초기 목표 설정을 연결해 판매 가능한 상태를 만듭니다.</p></article></div>
+      <div class="deliverable-row"><div class="deliverable-title">대표 산출물</div><div class="deliverables"><span>Target Seller List</span><span>Sales Pitch</span><span>Term Sheet</span><span>Launch Checklist</span></div></div>
+    </div>
+
+    <div class="role-panel" id="panel-grow" role="tabpanel" aria-labelledby="tab-grow" hidden>
+      <div class="panel-summary">
+        <div class="panel-hero"><div><div class="panel-label">GROW · 성장 실행</div><h3>셀러 데이터를 상품·조건·마케팅 액션으로 바꿉니다</h3><p>숫자를 설명하는 데서 끝나지 않고 성장의 병목을 정의해 셀러와 내부 조직이 함께 실행할 우선순위와 계획을 만듭니다.</p></div><div class="panel-goal">GOAL · 셀러 성장과 플랫폼 거래액의 동시 확대</div></div>
+        <div class="panel-kpis" aria-label="성장 실행 핵심 지표"><div class="panel-kpi"><div class="label">BUSINESS</div><div class="value num">GMV</div><div class="note">거래액·주문 성장</div></div><div class="panel-kpi"><div class="label">CONVERSION</div><div class="value num">CVR</div><div class="note">유입 대비 구매 전환</div></div><div class="panel-kpi"><div class="label">SELECTION</div><div class="value">활성 SKU</div><div class="note">판매 가능한 핵심 구색</div></div><div class="panel-kpi"><div class="label">MARKETING</div><div class="value num">ROAS</div><div class="note">광고·프로모션 효율</div></div></div>
+      </div>
+      <div class="workstream-grid"><article class="workstream"><div class="n">01 · DEEP DIVE</div><h3>성장 병목을 진단합니다</h3><p>거래액·주문·구색·전환·재고·가격 데이터를 비교해 성과 차이의 원인과 기회를 찾습니다.</p></article><article class="workstream"><div class="n">02 · COMMERCIAL</div><h3>상품 경쟁력을 높입니다</h3><p>핵심 SKU와 구색을 확대하고 가격·재고·수수료·혜택 조건을 조율해 고객이 선택할 이유를 만듭니다.</p></article><article class="workstream"><div class="n">03 · MARKETING</div><h3>노출을 매출로 연결합니다</h3><p>기획전·광고·CRM·테마 프로모션을 설계하고 결과를 리뷰해 다음 성장 액션으로 확장합니다.</p></article></div>
+      <div class="deliverable-row"><div class="deliverable-title">대표 산출물</div><div class="deliverables"><span>Account Plan</span><span>Selection Gap</span><span>Promo Calendar</span><span>Monthly Business Review</span></div></div>
+    </div>
+
+    <div class="role-panel" id="panel-operate" role="tabpanel" aria-labelledby="tab-operate" hidden>
+      <div class="panel-summary">
+        <div class="panel-hero"><div><div class="panel-label">OPERATE · 운영 관리</div><h3>문제를 해결하고 다시 발생하지 않는 운영 기준을 만듭니다</h3><p>파트너의 단일 창구로서 이상 징후를 조기에 발견하고 유관 부서를 움직여 문제를 해결한 뒤 정책과 프로세스로 구조화합니다.</p></div><div class="panel-goal">GOAL · 고객 경험과 파트너 신뢰를 지키는 안정적 운영</div></div>
+        <div class="panel-kpis" aria-label="운영 관리 핵심 지표"><div class="panel-kpi"><div class="label">AVAILABILITY</div><div class="value num">OOS</div><div class="note">품절과 판매 중단</div></div><div class="panel-kpi"><div class="label">ORDER QUALITY</div><div class="value">취소율</div><div class="note">주문 이행 안정성</div></div><div class="panel-kpi"><div class="label">FULFILLMENT</div><div class="value num">SLA</div><div class="note">배송 약속 준수</div></div><div class="panel-kpi"><div class="label">CUSTOMER</div><div class="value num">CS</div><div class="note">문의·클레임 품질</div></div></div>
+      </div>
+      <div class="workstream-grid"><article class="workstream"><div class="n">01 · MONITOR</div><h3>이상 징후를 먼저 발견합니다</h3><p>품절·취소·배송·CS·정산 지표를 모니터링하고 고객과 셀러에 영향을 주는 이슈의 우선순위를 정합니다.</p></article><article class="workstream"><div class="n">02 · RESOLVE</div><h3>단일 오너로 끝까지 해결합니다</h3><p>상품·물류·CS·정산·법무·개발 담당자를 연결하고 진행 상황과 의사결정을 파트너에게 명확히 전달합니다.</p></article><article class="workstream"><div class="n">03 · PREVENT</div><h3>해결 경험을 운영 자산으로 남깁니다</h3><p>반복 이슈의 원인을 분석해 정책·매뉴얼·검증 절차와 에스컬레이션 기준으로 표준화합니다.</p></article></div>
+      <div class="deliverable-row"><div class="deliverable-title">대표 산출물</div><div class="deliverables"><span>Issue Log</span><span>SLA Dashboard</span><span>Escalation Map</span><span>Operation Policy</span></div></div>
+    </div>
+  </section>
+
+  <div class="common-intro">
+    <div class="common-kicker">COMMON OPERATING SYSTEM</div>
+    <h2>세 역할을 연결하는 공통 운영 체계</h2>
+    <p>입점·성장·운영은 분리된 업무가 아닙니다. 같은 데이터와 협업 리듬을 통해 하나의 셀러 성장 사이클로 연결됩니다.</p>
+  </div>
+
+  <section class="card">
+    <h2>성장을 만드는 운영 루프</h2>
+    <p class="sub">플랫폼 MD의 산출물은 보고서가 아니라 다음 실행입니다.</p>
+    <div class="flow" aria-label="플랫폼 MD 성장 운영 과정">
+      <div class="flow-step"><div class="n">01 · SEE</div><b>현황 감지</b><span>매출·상품·가격·재고·고객 반응을 확인합니다.</span></div><div class="flow-arrow">›</div>
+      <div class="flow-step"><div class="n">02 · FIND</div><b>기회 진단</b><span>경쟁사와 카테고리를 비교해 원인과 기회를 찾습니다.</span></div><div class="flow-arrow">›</div>
+      <div class="flow-step"><div class="n">03 · ACT</div><b>액션 설계</b><span>셀러 제안과 내부 지원을 하나의 실행안으로 묶습니다.</span></div><div class="flow-arrow">›</div>
+      <div class="flow-step"><div class="n">04 · LEARN</div><b>성과 학습</b><span>결과를 리뷰하고 성공 공식을 다음 셀러에 확장합니다.</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>일·주·월 업무 리듬</h2>
+    <p class="sub">모니터링의 빈도와 의사결정의 깊이를 분리하면 긴급 대응과 중장기 성장을 함께 관리할 수 있습니다.</p>
+    <div class="cadence">
+      <div class="cad"><h3>매일 · 이상 징후 대응</h3><ul><li>거래액·주문·품절 확인</li><li>가격과 핵심 상품 상태 점검</li><li>긴급 운영 이슈 해결</li></ul></div>
+      <div class="cad"><h3>매주 · 성장 액션 실행</h3><ul><li>셀러별 기회와 리스크 분석</li><li>미팅 우선순위와 제안 준비</li><li>액션 진행 상황 후속 관리</li></ul></div>
+      <div class="cad"><h3>매월 · 포트폴리오 최적화</h3><ul><li>목표와 실적 리뷰</li><li>마케팅·상품 전략 조정</li><li>집중 셀러와 자원 재배분</li></ul></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>전통 MD와 무엇이 다른가</h2>
+    <p class="sub">플랫폼 MD는 상품을 직접 매입하는 바이어라기보다, 셀러가 더 잘 팔 수 있는 구조를 만드는 성장 파트너입니다.</p>
+    <div class="compare">
+      <div class="compare-box"><h3>전통 유통 MD</h3><ul><li>상품 매입과 재고 운영</li><li>원가·판매가·매출총이익 관리</li><li>매장 또는 채널 단위 판매 계획</li><li>자사 재고의 판매 책임</li></ul></div>
+      <div class="compare-box platform"><h3>플랫폼 MD</h3><ul><li>셀러와 상품 생태계 구축</li><li>거래액·수수료·광고·고객 가치 관리</li><li>데이터 기반 셀러 성장 컨설팅</li><li>파트너와 플랫폼의 공동 성장 책임</li></ul></div>
+    </div>
+    <div class="formula" aria-label="플랫폼 MD 성과 공식"><span>좋은 파트너</span><i>×</i><span>좋은 상품</span><i>×</i><span>좋은 노출</span><i>×</i><span>안정적 운영</span><i>=</i><span>지속 가능한 거래액</span></div>
+  </section>
+
+  <section class="card">
+    <h2>플랫폼마다 다른 언어, 같은 사업 문제</h2>
+    <p class="sub">도구와 명칭은 달라도 플랫폼 MD가 해결해야 하는 사업 문제와 운영 원리는 같습니다.</p>
+    <div class="table-scroll"><table class="translation">
+      <thead><tr><th>플랫폼에서 쓰는 표현</th><th>MD가 읽어야 할 의미</th><th>공통 목적</th></tr></thead>
+      <tbody>
+        <tr><td>Seller / Account</td><td>함께 성장시킬 핵심 파트너</td><td>성장 주체와 관계 관리</td></tr>
+        <tr><td>GMV / Revenue</td><td>거래 규모와 수익 성과</td><td>사업 성장 결과</td></tr>
+        <tr><td>Selection / Assortment</td><td>상품 구색과 핵심 SKU</td><td>고객 선택 폭과 경쟁력</td></tr>
+        <tr><td>Admin / API</td><td>상품·주문·정산 운영 기반</td><td>안정적인 판매 운영</td></tr>
+        <tr><td>Merchandising</td><td>기획전·노출·전환 설계</td><td>트래픽과 구매 전환 확대</td></tr>
+        <tr><td>Partner Score</td><td>배송·CS·품질 운영 수준</td><td>고객 경험과 신뢰 안정</td></tr>
+      </tbody>
+    </table></div>
+    <p class="footnote">※ 원본 AM 업무 체계를 플랫폼 공통 역할로 재구성한 정의입니다. 조직별 권한과 KPI에 따라 세부 책임 범위는 달라질 수 있습니다.</p>
+  </section>
+
+  <section class="card">
+    <h2>MD 핵심 용어 사전 <span class="chip">GLOSSARY</span></h2>
+    <p class="sub">약어는 처음 등장할 때 풀어 쓰고, 이후에는 실무에서 사용하는 약어로 표기합니다. 성장뿐 아니라 수익성과 재고 건전성까지 함께 읽어야 카테고리를 온전히 관리할 수 있습니다.</p>
+    <div class="table-scroll"><table class="translation glossary">
+      <thead><tr><th>약어·용어</th><th>영문 원문</th><th>한국어 의미</th><th>MD가 보는 지점</th></tr></thead>
+      <tbody>
+        <tr><td>KPI</td><td>Key Performance Indicator</td><td>핵심성과지표</td><td>목표와 실행 결과의 관리 기준</td></tr>
+        <tr><td>GMV</td><td>Gross Merchandise Value</td><td>총거래액</td><td>플랫폼에서 발생한 전체 거래 규모</td></tr>
+        <tr><td>P&amp;L</td><td>Profit and Loss</td><td>손익</td><td>매출·비용·이익을 연결한 사업 수익 구조</td></tr>
+        <tr><td>공헌이익</td><td>Contribution Margin</td><td>매출에서 변동비를 차감한 이익</td><td>상품·셀러가 고정비 회수와 이익에 기여하는 수준</td></tr>
+        <tr><td>매출총이익률</td><td>Gross Margin Rate</td><td>매출총이익 ÷ 매출액</td><td>매입·판매 조건을 반영한 기본 수익성</td></tr>
+        <tr><td>SKU</td><td>Stock Keeping Unit</td><td>상품 관리 단위</td><td>구색·재고·판매 성과를 구분하는 최소 단위</td></tr>
+        <tr><td>재고회전율</td><td>Inventory Turnover</td><td>매출원가 ÷ 평균재고</td><td>보유 재고가 판매로 전환되는 속도</td></tr>
+        <tr><td>재고일수</td><td>Days Inventory Outstanding</td><td>재고가 소진되기까지 걸리는 평균 일수</td><td>과잉재고·현금 묶임·발주 시점 판단</td></tr>
+        <tr><td>OOS</td><td>Out of Stock</td><td>품절</td><td>판매 기회 손실과 공급 안정성</td></tr>
+        <tr><td>CTR</td><td>Click-Through Rate</td><td>클릭률</td><td>상품 노출이 상세 유입으로 전환되는 비율</td></tr>
+        <tr><td>CVR</td><td>Conversion Rate</td><td>구매 전환율</td><td>유입이 실제 주문으로 전환되는 비율</td></tr>
+        <tr><td>CAC</td><td>Customer Acquisition Cost</td><td>고객 획득 비용</td><td>신규 고객 한 명을 확보하는 데 든 비용</td></tr>
+        <tr><td>AOV</td><td>Average Order Value</td><td>평균 주문금액</td><td>주문 한 건의 평균 결제액</td></tr>
+        <tr><td>LTV</td><td>Customer Lifetime Value</td><td>고객 생애가치</td><td>관계 기간 동안 고객이 만드는 누적 가치</td></tr>
+        <tr><td>ROAS</td><td>Return on Ad Spend</td><td>광고비 대비 매출</td><td>광고·프로모션 투입 비용의 매출 효율</td></tr>
+        <tr><td>QoS</td><td>Quality of Service</td><td>서비스 품질</td><td>배송·CS·상품 품질을 포함한 운영 안정성</td></tr>
+        <tr><td>SLA</td><td>Service Level Agreement</td><td>서비스 수준 합의</td><td>배송·처리 등 약속된 운영 기준의 준수</td></tr>
+        <tr><td>CS</td><td>Customer Service</td><td>고객 서비스</td><td>문의·클레임 대응과 고객 경험 품질</td></tr>
+        <tr><td>API</td><td>Application Programming Interface</td><td>시스템 연결 규격</td><td>상품·주문·재고·정산 데이터 연동</td></tr>
+        <tr><td>MTD</td><td>Month to Date</td><td>월 누계</td><td>해당 월 시작일부터 현재까지의 실적</td></tr>
+        <tr><td>YTD</td><td>Year to Date</td><td>연 누계</td><td>해당 연도 시작일부터 현재까지의 실적</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</main>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  function dark(){return root.dataset.theme==='dark'||(!root.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches)}
+  function sync(){btn.textContent=dark()?'라이트 모드':'다크 모드'}
+  btn.addEventListener('click',function(){root.dataset.theme=dark()?'light':'dark';sync()});sync();
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.role-panel'));
+  function activate(tab){
+    tabs.forEach(function(t){var selected=t===tab;t.setAttribute('aria-selected',String(selected));t.tabIndex=selected?0:-1});
+    panels.forEach(function(panel){var active=panel.id==='panel-'+tab.dataset.target;panel.hidden=!active;panel.classList.toggle('is-active',active)});
+  }
+  tabs.forEach(function(tab,index){
+    tab.addEventListener('click',function(){activate(tab)});
+    tab.addEventListener('keydown',function(event){
+      var next=index;
+      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+      else if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+      else if(event.key==='Home')next=0;
+      else if(event.key==='End')next=tabs.length-1;
+      else return;
+      event.preventDefault();activate(tabs[next]);tabs[next].focus();
+    });
+  });
+  activate(tabs[0]);
+})();
+</script>
+</body>
+</html>

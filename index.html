@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>10월 과제별 기대효과 — 거래액 워터폴 (예시)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
   @font-face{
     font-family:'BMDOHYEON';
@@ -24,7 +26,8 @@
     --md2:#b44e21; --md2-bg:#fdeee6; --md2-line:#eb6834;
     --md3:#0e7d57; --md3-bg:#e5f5ef; --md3-line:#1baf7a;
     --neg:#c0332e; --pos:#1a7f4b;
-    --font:'BMDOHYEON',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     font-family:var(--font);
     font-variant-numeric:tabular-nums;
     background:var(--surface-1); color:var(--ink);
@@ -37,6 +40,11 @@
     box-shadow:0 1px 3px rgba(25,25,48,.06)}
   .theme-toggle:hover{color:var(--ink);border-color:var(--brand)}
   .theme-toggle .ico{font-size:13px}
+  .progress-link{position:absolute;top:28px;right:145px;display:inline-flex;align-items:center;padding:7px 13px;
+    border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--brand);text-decoration:none;
+    font-size:12px;line-height:1;box-shadow:0 1px 3px rgba(25,25,48,.06)}
+  .progress-link:hover{border-color:var(--brand);background:var(--brand-soft)}
+  .progress-link.os-home{right:268px;font-weight:700}
   @media (prefers-color-scheme:dark){
     :root:where(:not([data-theme="light"])) .viz-root{
       color-scheme:dark;
@@ -68,6 +76,11 @@
   }
   :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#141420}
   .viz-root *{box-sizing:border-box; font-family:inherit}
+  .viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,
+  .viz-root .tab,.viz-root .bridge .b .v,
+  .viz-root .num,.viz-root svg text.num{font-family:var(--font-head)}
+  .viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+  .viz-root,.viz-root *{word-break:keep-all;overflow-wrap:break-word}
 
   .card{background:var(--card);border:1px solid var(--border);border-radius:16px;
         padding:22px 24px 24px;margin:0 0 18px;box-shadow:0 1px 3px rgba(25,25,48,.05)}
@@ -215,12 +228,24 @@
   #cmt-form .ok{background:#2ac1bc;color:#fff;font-weight:700}
   #cmt-form .no{background:#eee;color:#333}
 
-  @media print{.theme-toggle,.filters,#cmt-fab,#cmt-panel,#cmt-selbtn,#cmt-form{display:none !important}}
+  @media(max-width:620px){
+    .viz-root{padding:18px 12px 48px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.tdesc{text-wrap:pretty}
+    .progress-link{position:static;min-height:38px;margin:0 5px 10px 0}.theme-toggle{position:static;min-height:38px;margin:0 0 10px}
+    h1{font-size:29px;line-height:1.25}.deck{font-size:12.5px;line-height:1.75}.card{padding:18px 14px}.legend{gap:8px 13px;font-size:12px}
+    .bridge{display:grid;grid-template-columns:1fr;margin-bottom:18px}.bridge .b{width:100%;padding:13px 14px;border-right:0;border-bottom:1px solid var(--border-soft)}.bridge .b:last-child{border-bottom:0}.bridge .b.op{width:100%;min-height:28px;transform:rotate(90deg);border:0}.bridge .b .split{justify-content:flex-start;flex-wrap:wrap}
+    .filters{display:grid;grid-template-columns:1fr;gap:13px;padding:14px}.fg{width:100%}.fg .fl{width:100%;margin-bottom:2px}.seg{max-width:100%;overflow-x:auto}.seg button{min-height:38px;white-space:nowrap}.fcheck{min-height:38px}
+    .scroller{margin-left:-2px;margin-right:-2px;padding-bottom:9px;-webkit-overflow-scrolling:touch}.viz-root table{font-size:12px}.tip{display:none!important}
+    details.src summary{padding:13px 12px}.src-grid{grid-template-columns:1fr}.src-item{padding:14px 12px}
+  }
+  @media(max-width:390px){h1{font-size:27px}.bridge .b .v{font-size:22px}.seg{width:100%}.seg button{flex:1;padding:6px 10px}}
+  @media print{.theme-toggle,.progress-link,.filters,#cmt-fab,#cmt-panel,#cmt-selbtn,#cmt-form{display:none !important}}
 </style>
 </head>
 <body>
 <div class="viz-root" id="doc">
 
+  <a class="progress-link os-home" href="md-field-os.html">MD Field OS</a>
+  <a class="progress-link" href="waterfall-progress.html">진척판 보기 →</a>
   <button class="theme-toggle" id="themebtn" type="button"><span class="ico">◑</span><span id="themetxt">다크 모드</span></button>
 
   <p class="eyebrow">샘플 리테일 홈리빙 사업부 — 26년 10월 목표 설정</p>
@@ -611,10 +636,10 @@ function renderWaterfall(d){
         svg.appendChild(el('text', {x:x+BW/2, y:yTop+h/2-5, 'text-anchor':'middle',
           fill:ink, 'font-size':19}, s.cat.name));
         svg.appendChild(el('text', {x:x+BW/2, y:yTop+h/2+21, 'text-anchor':'middle',
-          fill:ink, 'font-size':19}, f1(s.v)));
+          fill:ink, 'font-size':19, 'class':'num'}, f1(s.v)));
       } else if (h >= 27){
         svg.appendChild(el('text', {x:x+BW/2, y:yTop+h/2+7, 'text-anchor':'middle',
-          fill:ink, 'font-size':19}, f1(s.v)));
+          fill:ink, 'font-size':19, 'class':'num'}, f1(s.v)));
       } else if (h >= 19 && okSmall){
         var fits = wantName && tw(one, 11.5) <= BW-14;
         svg.appendChild(el('text', {x:x+BW/2, y:yTop+h/2+4, 'text-anchor':'middle',
@@ -636,7 +661,7 @@ function renderWaterfall(d){
     /* 열 합계 라벨 */
     var topY = Y(acc + col.v);
     svg.appendChild(el('text', {x:x+BW/2, y:topY-12, 'text-anchor':'middle',
-      fill:V('--ink'), 'font-size':col.isTotal?16:14}, sg(col.v)+'억'));
+      fill:V('--ink'), 'font-size':col.isTotal?16:14, 'class':'num'}, sg(col.v)+'억'));
 
     /* 열 이름 */
     if (col.mk){
@@ -663,8 +688,8 @@ function renderWaterfall(d){
     '10월 기준선 · 사업기획팀 26년 10월 예상'));
   svg.appendChild(el('text', {x:PL+14, y:bandY+45, fill:V('--ink-3'), 'font-size':11.5},
     '↑ 위 막대는 모두 이 기준선 위에 쌓이는 증분'));
-  svg.appendChild(el('text', {x:W-46, y:bandY+38, 'text-anchor':'end', fill:V('--ink'), 'font-size':22},
-    f1(d.base)+'억'));
+  svg.appendChild(el('text', {x:W-46, y:bandY+38, 'text-anchor':'end', fill:V('--ink'), 'font-size':22,
+    'class':'num'}, f1(d.base)+'억'));
 
   $('#wfSub').innerHTML =
     '세로축은 절대 거래액이 아니라 <b>기준선 대비 증분</b>입니다. +0이 기준선 '+f1(d.base)+
@@ -749,7 +774,7 @@ function renderTrend(d){
     ]));
   });
   svg.appendChild(el('text', {x:X(6), y:Y(d.target)-15, 'text-anchor':'middle',
-    fill:V('--ink'), 'font-size':14}, f1(d.target)+'억'));
+    fill:V('--ink'), 'font-size':14, 'class':'num'}, f1(d.target)+'억'));
   svg.appendChild(el('text', {x:X(5), y:Y(d.monthly[5])+24, 'text-anchor':'middle',
     fill:V('--ink-3'), 'font-size':12}, f1(d.monthly[5])+'억'));
 }

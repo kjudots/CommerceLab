@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="샘플 리테일 홈리빙 사업부의 가상 워터폴 진척판">
+<title>홈리빙 사업부 워터폴 진척판 (예시)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  @font-face{font-family:'BMDOHYEON';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap}
+  html,body{margin:0;padding:0;background:#f7f7fa}
+  .viz-root{
+    --font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --surface:#f7f7fa;--surface-2:#f1f1f7;--card:#fff;--ink:#191930;--ink-2:#56566d;--ink-3:#7d7d91;
+    --line:#e4e4ed;--brand:#5b4fcf;--brand-soft:#efedff;--mint:#2ac1bc;--mint-soft:#e5f7f6;
+    --green:#1baf7a;--green-soft:#e7f7f0;--yellow:#e49a0a;--yellow-soft:#fff4d7;--red:#d95050;--red-soft:#fdeaea;
+    --blue:#2a78d6;--blue-soft:#e9f1fb;--shadow:rgba(25,25,48,.07);
+    font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--ink);background:var(--surface);
+    max-width:1560px;margin:0 auto;padding:28px 24px 70px;position:relative;-webkit-font-smoothing:antialiased
+  }
+  .viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}
+  .viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,.viz-root .num,.viz-root .kpi-value,.viz-root svg text.num{font-family:var(--font-head)}
+  .viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+  .top-actions{display:flex;justify-content:flex-end;gap:7px;margin-bottom:12px}
+  .top-actions a,.theme-toggle{border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:20px;padding:7px 12px;text-decoration:none;font-size:11.5px;cursor:pointer}
+  .top-actions a:hover,.theme-toggle:hover{border-color:var(--brand);color:var(--brand)}
+  .eyebrow{margin:0 0 8px;color:var(--brand);font-size:13px;letter-spacing:.05em}
+  h1{font-size:clamp(30px,4vw,44px);font-weight:400;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
+  .deck{max-width:1120px;color:var(--ink-2);font-size:13.5px;line-height:1.75;margin:0 0 17px}.deck b{color:var(--ink)}
+  .demo-alert{display:flex;align-items:center;gap:9px;width:fit-content;margin:0 0 18px;padding:7px 11px;border:1px solid #ead283;background:#fff8da;color:#705900;border-radius:7px;font-size:11px}
+  .rule{height:3px;background:linear-gradient(90deg,var(--brand),var(--mint));border-radius:4px;margin-bottom:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:22px 24px;margin-bottom:16px;box-shadow:0 2px 7px var(--shadow)}
+  h2{display:flex;align-items:center;gap:9px;font-size:22px;font-weight:400;letter-spacing:-.015em;margin:0 0 7px}
+  h2::before{content:'';width:4px;height:18px;border-radius:2px;background:var(--brand);flex:none}
+  h3{font-size:16px;font-weight:400;margin:0 0 7px}.sub{font-size:12px;line-height:1.65;color:var(--ink-2);margin:0 0 17px}
+  .asof{font-size:10.5px;color:var(--ink-3);margin-left:auto}
+
+  .kpi-strip{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--card);margin-bottom:16px}
+  .kpi{padding:18px 16px;border-right:1px solid var(--line);min-height:118px}.kpi:last-child{border-right:0}.kpi.hi{background:var(--brand-soft)}
+  .kpi-label{font-size:9.5px;letter-spacing:.04em;color:var(--ink-3);margin-bottom:7px}.kpi-value{font-size:25px;line-height:1.1}.kpi-value small{font-family:var(--font);font-size:10px;color:var(--ink-3);margin-left:3px}
+  .kpi-note{font-size:10px;color:var(--ink-3);line-height:1.5;margin-top:7px}.kpi-note b{color:var(--ink)}
+  .signal{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700}.signal::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+  .signal.green{color:var(--green)}.signal.yellow{color:var(--yellow)}.signal.red{color:var(--red)}
+
+  .pace-layout{display:grid;grid-template-columns:1.45fr .55fr;gap:13px}
+  .chart-wrap{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--card);overflow:auto}
+  #paceChart{width:100%;min-width:620px;height:auto;display:block}
+  .forecast{display:flex;flex-direction:column;gap:9px}
+  .forecast-box{border:1px solid var(--line);border-radius:12px;padding:15px;background:var(--surface)}
+  .forecast-box .label{font-size:10px;color:var(--ink-3);margin-bottom:5px}.forecast-box .value{font-family:var(--font-head);font-size:22px}.forecast-box p{font-size:10.5px;line-height:1.55;color:var(--ink-2);margin:5px 0 0}
+  .forecast-box.warn{background:var(--yellow-soft);border-color:#ecd28e}.forecast-box.good{background:var(--green-soft);border-color:#a9dec8}
+
+  .blocker-room{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .blocker-card{border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:12px;background:var(--surface);padding:15px;min-height:224px}
+  .blocker-card.p1{border-top-color:var(--red)}.blocker-card.p2{border-top-color:var(--yellow)}.blocker-card.p3{border-top-color:var(--mint)}
+  .blocker-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.priority{font-family:var(--font-head);font-size:11px;color:var(--red)}.blocker-card.p2 .priority{color:var(--yellow)}.blocker-card.p3 .priority{color:var(--mint)}
+  .impact{font-size:9px;color:var(--ink-3);padding:4px 7px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  .blocker-card h3{font-size:15px;line-height:1.35;margin-bottom:10px}.blocker-card dl{margin:0}.blocker-card dt{font-size:8.5px;letter-spacing:.04em;color:var(--ink-3);margin-top:8px}.blocker-card dd{font-size:10.5px;line-height:1.55;color:var(--ink-2);margin:2px 0 0}.blocker-card dd strong{color:var(--ink)}
+  .blocker-owner{margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-size:9.5px;color:var(--ink-3)}.blocker-owner b{color:var(--ink)}
+
+  .table-scroll{overflow:auto;border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:11px;min-width:1180px}
+  th,td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+  th{background:var(--surface-2);color:var(--ink-2);font-weight:500;white-space:nowrap}
+  tbody tr:last-child td,tfoot tr:last-child td{border-bottom:0}
+  td.num-cell{text-align:right;white-space:nowrap}.task-title{min-width:185px}.task-title strong{font-family:var(--font-head);font-weight:400;font-size:13px;display:block;margin-bottom:4px}.task-title span{font-size:9.5px;color:var(--ink-3)}
+  .owner{white-space:nowrap}.action{min-width:220px;color:var(--ink-2);line-height:1.55}.action b{color:var(--ink)}
+  .progress-cell{min-width:160px}.bar{height:7px;border-radius:5px;background:var(--surface-2);overflow:hidden;margin:5px 0}.bar span{height:100%;display:block;border-radius:5px;background:var(--brand)}
+  .bar.green span{background:var(--green)}.bar.yellow span{background:var(--yellow)}.bar.red span{background:var(--red)}
+  .rate{font-family:var(--font-head);font-size:14px}.rate small{font-family:var(--font);font-size:9px;color:var(--ink-3);margin-left:4px}
+  .status-pill{display:inline-flex;align-items:center;gap:5px;border-radius:14px;padding:4px 8px;font-size:9.5px;font-weight:700;white-space:nowrap}
+  .status-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}.status-pill.green{background:var(--green-soft);color:var(--green)}.status-pill.yellow{background:var(--yellow-soft);color:var(--yellow)}.status-pill.red{background:var(--red-soft);color:var(--red)}
+  tfoot td{background:var(--surface-2);font-weight:700}
+
+  details.category{border:1px solid var(--line);border-radius:13px;background:var(--card);overflow:hidden}
+  details.category summary{cursor:pointer;padding:15px 17px;list-style:none;display:flex;align-items:center;gap:10px;font-size:12px}
+  details.category summary::-webkit-details-marker{display:none}details.category summary::after{content:'펼치기';margin-left:auto;color:var(--brand);font-size:10px}details.category[open] summary::after{content:'접기'}
+  .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 16px 16px}
+  .cat-card{border:1px solid var(--line);border-radius:11px;background:var(--surface);padding:14px;min-height:150px}
+  .cat-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.cat-head strong{font-family:var(--font-head);font-weight:400;font-size:14px}.cat-owner{font-size:9px;color:var(--ink-3)}
+  .cat-metric{display:flex;align-items:baseline;gap:6px;margin:13px 0 8px}.cat-metric .num{font-size:21px}.cat-metric span{font-size:9.5px;color:var(--ink-3)}
+  .cat-action{font-size:10.5px;color:var(--ink-2);line-height:1.55;margin-top:10px}
+
+  .pipeline-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .pipeline{border:1px solid var(--line);border-radius:13px;background:var(--surface);padding:17px}
+  .pipeline-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:14px}.pipeline-head p{font-size:10.5px;color:var(--ink-3);margin:4px 0 0}
+  .pipeline-rate{font-family:var(--font-head);font-size:23px;color:var(--brand)}
+  .pipeline-link{display:inline-flex;align-items:center;margin-top:8px;padding:5px 9px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--brand);font-size:9.5px;text-decoration:none}
+  .pipeline-link:hover{border-color:var(--brand);background:var(--brand-soft)}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .step{position:relative;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:11px 8px;text-align:center}
+  .step:not(:last-child)::after{content:'›';position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;color:var(--ink-3);font-size:16px}
+  .step .label{font-size:9px;color:var(--ink-3);margin-bottom:5px}.step .num{font-size:18px}.step .note{font-size:8.5px;color:var(--ink-3);margin-top:4px}
+  .pipeline-now{margin-top:12px;padding:10px 11px;border-radius:9px;background:var(--card);font-size:10.5px;line-height:1.55;color:var(--ink-2)}.pipeline-now b{color:var(--ink)}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.note{border-left:4px solid var(--brand);background:var(--surface);border-radius:9px;padding:13px}.note:nth-child(2){border-color:var(--mint)}.note:nth-child(3){border-color:var(--yellow)}
+  .note strong{font-size:11px;display:block;margin-bottom:6px}.note p{font-size:10.5px;line-height:1.6;color:var(--ink-2);margin:0}
+  .footer{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 3px 0;font-size:10px;color:var(--ink-3)}.footer strong{font-family:var(--font-head);font-weight:400;color:var(--ink)}
+
+  :root[data-theme="dark"] .viz-root{--surface:#141420;--surface-2:#252538;--card:#1c1c2a;--ink:#fff;--ink-2:#c5c5d7;--ink-3:#9292aa;--line:#34344a;--brand:#aaa1ff;--brand-soft:#302c51;--mint:#49d4cf;--mint-soft:#173d3b;--green:#66cfa3;--green-soft:#163b2d;--yellow:#f1c35f;--yellow-soft:#41371c;--red:#ee8484;--red-soft:#482525;--blue:#74aff3;--blue-soft:#1d3250;--shadow:rgba(0,0,0,.18)}
+  :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#141420}
+  @media(max-width:1080px){.kpi-strip{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(3n){border-right:0}.kpi:nth-child(n+4){border-top:1px solid var(--line)}.pace-layout{grid-template-columns:1fr}.forecast{display:grid;grid-template-columns:repeat(3,1fr)}.blocker-room{grid-template-columns:repeat(2,1fr)}.category-grid{grid-template-columns:repeat(2,1fr)}.pipeline-grid{grid-template-columns:1fr}}
+@media(max-width:680px){.viz-root{padding:18px 12px 48px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.task-copy{text-wrap:pretty}.top-actions{justify-content:flex-start;flex-wrap:wrap}.top-actions a,.theme-toggle{display:inline-flex;align-items:center;min-height:38px}h1{font-size:29px}.deck{font-size:12.5px;line-height:1.75}.card{padding:18px 14px}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(3n){border-right:1px solid var(--line)}.kpi:nth-child(even){border-right:0}.kpi:nth-child(n+3){border-top:1px solid var(--line)}.forecast{grid-template-columns:1fr}.blocker-room{grid-template-columns:1fr}.blocker-card{min-height:0}.category-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step:not(:last-child)::after{content:'⌄';right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%)}.notes{grid-template-columns:1fr}.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:5px}.footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:390px){h1{font-size:27px}.kpi{padding:14px 11px}.kpi .num{font-size:21px}}
+  @media print{.top-actions{display:none}.viz-root{padding:0;max-width:none}.card,.kpi-strip{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="viz-root" id="progressRoot">
+  <div class="top-actions"><a href="md-field-os.html">MD Field OS</a><a href="index.html">← 목표 워터폴</a><button class="theme-toggle" id="themeBtn" type="button">다크 모드</button></div>
+  <p class="eyebrow">샘플 리테일 홈리빙 사업부 · 2026년 10월 12일 기준</p>
+  <h1>워터폴 전략 진척판 — 목표 갭을 만드는 블로커를 해소한다</h1>
+  <p class="deck">목표 워터폴에서 설계한 <b>기준선 84.0억 + 과제 증분 15.6억 = 월 목표 99.6억</b>을 실행 관점으로 추적합니다. 단순 달성률보다 <b>갭을 만드는 핵심 블로커, 원인 가설, 필요한 의사결정, 해소 오너와 기한</b>을 한 화면에서 연결합니다.</p>
+  <div class="demo-alert"><b>DEMO DATA</b><span>회사·파트너·담당자·수치·일정은 모두 설명을 위해 만든 가상 자료입니다.</span></div>
+  <div class="rule"></div>
+
+  <section class="kpi-strip" id="kpis" aria-label="월간 핵심 진척 지표"></section>
+
+  <section class="card">
+    <h2>이번 달 페이스 — 계획대로 가고 있나 <span class="asof">10월 12일까지 누적</span></h2>
+    <p class="sub">누적 실적은 일별 계획 곡선과 비교하고, 월말 예상은 최근 7일의 요일 보정 런레이트로 계산한 예시입니다.</p>
+    <div class="pace-layout">
+      <div class="chart-wrap"><svg id="paceChart" viewBox="0 0 900 330" role="img" aria-label="10월 누적 목표와 누적 실적 비교 차트"></svg></div>
+      <div class="forecast" id="forecast"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Executive Blocker Room <span class="asof">이번 주 우선 해소 4건</span></h2>
+    <p class="sub">현상을 나열하지 않고 <b>근거 → 원인 가설 → 의사결정 → 회수할 증분</b> 순서로 봅니다. 회의의 목적은 보고가 아니라 블로커를 제거하는 것입니다.</p>
+    <div class="blocker-room" id="blockerRoom"></div>
+  </section>
+
+  <section class="card">
+    <h2>워터폴 과제별 전략 진척</h2>
+    <p class="sub">달성률은 <b>기준일까지의 누적 실측 ÷ 누적 목표</b>입니다. 각 과제는 진행 사실보다 <b>핵심 블로커와 해소 전략, 의사결정 시한</b>을 중심으로 관리합니다.</p>
+    <div class="table-scroll"><table id="taskTable"></table></div>
+  </section>
+
+  <section class="card">
+    <h2>카테고리 순증 — 같은 증분을 카테고리 축으로</h2>
+    <p class="sub">과제판과 같은 15.6억의 증분을 7개 카테고리로 다시 나눠 봅니다. 과제 합계와 카테고리 합계는 동일합니다.</p>
+    <details class="category" open>
+      <summary><b>카테고리별 진척</b><span>7개 카테고리 · 오너별 순증과 다음 액션</span></summary>
+      <div class="category-grid" id="categoryGrid"></div>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>신규 브랜드 입점 · 기존 파트너 육성</h2>
+    <p class="sub">워터폴 증분과 별도로 관리하는 상시 트랙입니다. 거래액 대신 단계 통과 수와 최종 판매 개시·성장 달성 건수로 관리합니다.</p>
+    <div class="pipeline-grid" id="pipelineGrid"></div>
+  </section>
+
+  <section class="card">
+    <h2>판정 기준과 회의 사용법</h2>
+    <div class="notes">
+      <div class="note"><strong>초록 · 계획 이상</strong><p>누적 목표의 100% 이상입니다. 성공 요인을 확인하고 다른 상품·카테고리로 확장합니다.</p></div>
+      <div class="note"><strong>노랑 · 회복 액션 필요</strong><p>누적 목표의 75~99%입니다. 이번 주 액션과 담당·기한을 확정해 회복 가능성을 관리합니다.</p></div>
+      <div class="note"><strong>빨강 · 구조적 장애</strong><p>누적 목표의 75% 미만입니다. 목표·자원·조건 중 무엇을 바꿀지 의사결정이 필요합니다.</p></div>
+    </div>
+  </section>
+
+  <footer class="footer"><strong>샘플 리테일 홈리빙 사업부 · Waterfall Progress Board</strong><span>예시 화면 · 실제 회사 자료와 무관</span></footer>
+</main>
+<script>
+(function(){
+'use strict';
+var DATA={
+  base:84.0,increment:15.6,goal:99.6,asofDay:12,cumPlan:38.7,cumActual:37.9,forecast:98.4,forecastLow:96.8,forecastHigh:100.2,
+  dailyPlan:[3.0,6.0,9.2,12.5,15.8,19.0,22.0,25.2,28.6,31.9,35.3,38.7],
+  dailyActual:[2.9,5.8,8.8,12.1,15.3,18.5,21.3,24.6,27.9,31.1,34.4,37.9]
+};
+var TASKS=[
+  {no:'①',name:'전략상품 24종',owner:'리빙MD 1파트',month:4.6,plan:1.79,actual:1.68,status:'yellow',blocker:'핵심 3종 품절 위험으로 주말 매출 상한 발생',strategy:'안전재고 14일 합의 · 공급가 구간 재협상 · 대체 SKU 동시 노출',due:'10/16',measure:'전략상품의 기준선 대비 순증을 중복 제거 후 집계'},
+  {no:'②',name:'기획전 미끼상품 8종',owner:'리빙MD 1파트',month:3.1,plan:1.21,actual:1.50,status:'green',blocker:'상위 4종에 성과가 편중되어 후속 구색 확장 필요',strategy:'승자 SKU 슬롯 연장 · 연관구매 6종 번들 테스트 승인',due:'10/14',measure:'기획전 유입 주문 중 전략상품 중복분을 제외한 순증'},
+  {no:'③',name:'자체브랜드 라인업 확장',owner:'자체브랜드 파트',month:1.4,plan:.55,actual:.42,status:'yellow',blocker:'4SKU 상세 콘텐츠와 초도 입고 일정 불일치',strategy:'콘텐츠·입고 병렬 진행 · 7SKU 선오픈으로 학습 데이터 확보',due:'10/18',measure:'신규 PB 코드의 결제완료 거래액에서 취소분 차감'},
+  {no:'④',name:'소용량 전용 전략상품',owner:'리빙MD 2파트',month:1.1,plan:.43,actual:.21,status:'red',blocker:'패키지 금형 일정 지연으로 7종 판매 개시 불가',strategy:'대체 패키지 4종 우선 오픈 · 3종은 다음 차수 이관 결정',due:'10/15',measure:'전용 코드 판매분만 집계하며 기존 상품 대체분 제외'},
+  {no:'⑤',name:'제휴 채널 확대',owner:'리빙MD 1파트',month:1.8,plan:.70,actual:.61,status:'yellow',blocker:'86SKU 속성 검수와 공동 쿠폰 분담률 미확정',strategy:'오류 상위 3유형 일괄 수정 · 쿠폰 분담 상한 승인 요청',due:'10/17',measure:'제휴 채널 유입 태그가 확인된 주문의 순증'},
+  {no:'⑥',name:'카테고리 오너 딥다이브',owner:'리빙MD 2파트',month:3.6,plan:1.40,actual:.98,status:'red',blocker:'침구·조명 저성과가 유입·전환·재고 문제로 혼재',strategy:'원인별 SKU 세분화 · 교체/개선/철수 포트폴리오 의사결정',due:'10/16',measure:'카테고리별 액션 대상 SKU의 기준선 대비 순증'}
+];
+var BLOCKERS=[
+  {priority:'P1',tone:'p1',title:'소용량 전용상품 출시 지연',impact:'월 증분 -0.42억',evidence:'12종 중 5종만 판매 개시, 7종 패키지 일정 2주 지연',cause:'단일 금형 일정에 출시 경로가 종속됨',decision:'대체 패키지 4종 선오픈, 잔여 3종 다음 차수 이관',owner:'리빙MD 2파트 · 상품개발',due:'10/15'},
+  {priority:'P1',tone:'p1',title:'침구·조명 저성과 원인 혼재',impact:'월 증분 -0.35억',evidence:'대상 38SKU 중 61%가 계획 대비 70% 미만',cause:'유입 부족·전환 저하·재고 결품이 같은 액션으로 관리됨',decision:'원인별 SKU 분리 후 교체·개선·철수 기준 승인',owner:'리빙MD 2파트 · 데이터',due:'10/16'},
+  {priority:'P2',tone:'p2',title:'전략상품 핵심 3종 품절 위험',impact:'주말 매출 -0.23억',evidence:'예상 재고일수 4.2일, 주말 수요 커버리지 68%',cause:'공급 리드타임과 프로모션 수요가 발주 기준에 미반영',decision:'안전재고 14일 전환 및 대체 SKU 동시 노출',owner:'리빙MD 1파트 · SCM',due:'10/16'},
+  {priority:'P3',tone:'p3',title:'제휴몰 상품 검수 장기화',impact:'오픈 5일 지연',evidence:'86SKU 중 29SKU가 동일 속성 오류로 반려',cause:'채널별 필수 속성 매핑 기준 부재',decision:'오류 3유형 일괄 수정 및 사전 검수 체크리스트 표준화',owner:'리빙MD 1파트 · 운영',due:'10/17'}
+];
+var CATS=[
+  {name:'수납박스',owner:'리빙MD 1파트',month:4.6,plan:1.79,actual:1.68,action:'대형 3종 재고 보강 · 중형 세트 가격 복구'},
+  {name:'주방소품',owner:'리빙MD 1파트',month:4.0,plan:1.56,actual:1.51,action:'기획전 상위 4종 슬롯 연장 · 리뷰 확보'},
+  {name:'욕실용품',owner:'리빙MD 2파트',month:2.5,plan:.97,actual:.92,action:'정리용품 세트 구성 확대 · 품절 2종 입고'},
+  {name:'침구패브릭',owner:'리빙MD 2파트',month:1.9,plan:.74,actual:.61,action:'환절기 이불 6종 검색 키워드와 썸네일 개선'},
+  {name:'청소용품',owner:'리빙MD 2파트',month:.4,plan:.16,actual:.12,action:'리필형 3종 교차판매 영역 추가'},
+  {name:'조명·인테리어',owner:'자체브랜드 파트',month:1.2,plan:.47,actual:.32,action:'PB 무드등 4종 초도 입고와 상세페이지 확정'},
+  {name:'생활잡화',owner:'자체브랜드 파트',month:1.0,plan:.39,actual:.24,action:'소용량 전용 4종 대체 패키지 우선 오픈'}
+];
+var PIPELINES=[
+  {title:'신규 브랜드 입점',note:'10월 목표 12개 브랜드 판매 개시',view:'acq',denom:12,done:3,steps:[['타깃',12,'확정'],['1차 제안',10,'83%'],['조건 협의',7,'58%'],['계약',5,'42%'],['판매 개시',3,'25%']],now:'<b>홈데코·키친 브랜드 5곳 계약 완료</b> · 상품 연동 2곳을 10/18까지 판매 개시'},
+  {title:'기존 파트너 육성',note:'집중 파트너 18곳의 성장 액션 운영',view:'grow',denom:18,done:7,steps:[['진단',18,'100%'],['계획 합의',15,'83%'],['액션 실행',12,'67%'],['성과 확인',9,'50%'],['성장 달성',7,'39%']],now:'<b>7곳이 누적 목표 100% 이상</b> · 저성과 3곳은 가격·재고 조건을 10/16 재협의'}
+];
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};
+var f1=function(v){return Number(v).toFixed(1)};
+var cls=function(rate){return rate>=100?'green':rate>=75?'yellow':'red'};
+var label=function(c){return c==='green'?'계획 이상':c==='yellow'?'회복 필요':'의사결정'};
+
+function renderKpis(){
+  var incActual=TASKS.reduce(function(s,t){return s+t.actual},0),incPlan=TASKS.reduce(function(s,t){return s+t.plan},0),incRate=incActual/incPlan*100;
+  var list=[
+    ['월 목표',f1(DATA.goal)+'<small>억</small>','기준선 '+f1(DATA.base)+' + 증분 '+f1(DATA.increment)],
+    ['누적 목표',f1(DATA.cumPlan)+'<small>억</small>','10/1-12 계획 곡선'],
+    ['누적 실적',f1(DATA.cumActual)+'<small>억</small>','목표 대비 <b>'+f1(DATA.cumActual/DATA.cumPlan*100)+'%</b>'],
+    ['누적 갭',(DATA.cumActual-DATA.cumPlan>=0?'+':'')+f1(DATA.cumActual-DATA.cumPlan)+'<small>억</small>','일별 계획 대비 차이'],
+    ['마감 예상',f1(DATA.forecast)+'<small>억</small>','목표 대비 <b>'+f1(DATA.forecast/DATA.goal*100)+'%</b>',1],
+    ['과제 증분',f1(incRate)+'<small>%</small>','실측 '+f1(incActual)+' / 목표 '+f1(incPlan)]
+  ];
+  $('#kpis').innerHTML=list.map(function(x){return '<div class="kpi'+(x[3]?' hi':'')+'"><div class="kpi-label">'+x[0]+'</div><div class="kpi-value num">'+x[1]+'</div><div class="kpi-note">'+x[2]+'</div></div>'}).join('');
+}
+function renderPace(){
+  var svg=$('#paceChart'),W=900,H=330,L=55,R=22,T=22,B=46,max=42,days=DATA.dailyPlan.length;
+  var x=function(i){return L+(W-L-R)*(i/(days-1))},y=function(v){return H-B-(H-T-B)*(v/max)};
+  var out='<rect width="'+W+'" height="'+H+'" fill="var(--card)"/>';
+  for(var v=0;v<=40;v+=10){out+='<line x1="'+L+'" y1="'+y(v)+'" x2="'+(W-R)+'" y2="'+y(v)+'" stroke="var(--line)"/><text x="'+(L-10)+'" y="'+(y(v)+4)+'" text-anchor="end" fill="var(--ink-3)" font-size="10">'+v+'억</text>'}
+  for(var i=0;i<days;i++){out+='<text x="'+x(i)+'" y="'+(H-20)+'" text-anchor="middle" fill="var(--ink-3)" font-size="9">'+(i+1)+'일</text>'}
+  var path=function(arr){return arr.map(function(v,i){return (i?'L':'M')+x(i)+','+y(v)}).join(' ')};
+  out+='<path d="'+path(DATA.dailyPlan)+'" fill="none" stroke="var(--brand)" stroke-width="2.5" stroke-dasharray="6 5"/>';
+  out+='<path d="'+path(DATA.dailyActual)+'" fill="none" stroke="var(--mint)" stroke-width="3"/>';
+  DATA.dailyActual.forEach(function(v,i){out+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="3.5" fill="var(--mint)" stroke="var(--card)" stroke-width="2"/>'});
+  out+='<g transform="translate(610,15)"><line x1="0" y1="8" x2="22" y2="8" stroke="var(--brand)" stroke-width="2" stroke-dasharray="5 4"/><text x="28" y="11" fill="var(--ink-2)" font-size="10">누적 목표</text><line x1="100" y1="8" x2="122" y2="8" stroke="var(--mint)" stroke-width="3"/><text x="128" y="11" fill="var(--ink-2)" font-size="10">누적 실적</text></g>';
+  svg.innerHTML=out;
+  $('#forecast').innerHTML='<div class="forecast-box warn"><div class="label">현재 판정</div><div class="value"><span class="signal yellow">회복 필요</span></div><p>누적 계획 대비 -0.8억. 목표와의 간격은 작지만 빨간 과제 2건의 회복이 필요합니다.</p></div><div class="forecast-box"><div class="label">월말 예상 구간</div><div class="value num">'+f1(DATA.forecastLow)+'-'+f1(DATA.forecastHigh)+'억</div><p>최근 7일 요일보정 런레이트 기준의 가상 예측 구간입니다.</p></div><div class="forecast-box good"><div class="label">목표 도달 조건</div><div class="value num">+1.2억</div><p>현재 예상 98.4억에서 추가 확보해야 하는 잔여 증분입니다.</p></div>';
+}
+function renderBlockers(){
+  $('#blockerRoom').innerHTML=BLOCKERS.map(function(b){return '<article class="blocker-card '+b.tone+'"><div class="blocker-top"><span class="priority">'+esc(b.priority)+'</span><span class="impact">'+esc(b.impact)+'</span></div><h3>'+esc(b.title)+'</h3><dl><dt>팩트·근거</dt><dd>'+esc(b.evidence)+'</dd><dt>원인 가설</dt><dd>'+esc(b.cause)+'</dd><dt>필요 의사결정</dt><dd><strong>'+esc(b.decision)+'</strong></dd></dl><div class="blocker-owner"><b>'+esc(b.owner)+'</b> · '+esc(b.due)+'</div></article>'}).join('');
+}
+function renderTasks(){
+  var head='<thead><tr><th>상태</th><th>워터폴 과제 · DRI</th><th>월 증분<br>목표</th><th>누적 목표</th><th>누적 실측</th><th>달성률</th><th>핵심 블로커</th><th>해소 전략·의사결정</th><th>시한</th></tr></thead>',sumM=0,sumP=0,sumA=0;
+  var body=TASKS.map(function(t){var rate=t.actual/t.plan*100;sumM+=t.month;sumP+=t.plan;sumA+=t.actual;return '<tr title="'+esc(t.measure)+'"><td><span class="status-pill '+t.status+'">'+label(t.status)+'</span></td><td class="task-title"><strong>'+t.no+' '+esc(t.name)+'</strong><span>'+esc(t.owner)+'</span></td><td class="num-cell">'+f1(t.month)+'억</td><td class="num-cell">'+f1(t.plan)+'억</td><td class="num-cell"><b>'+f1(t.actual)+'억</b></td><td class="progress-cell"><div class="rate num">'+f1(rate)+'%<small>'+label(t.status)+'</small></div><div class="bar '+t.status+'"><span style="width:'+Math.min(rate,100)+'%"></span></div></td><td class="action">'+esc(t.blocker)+'</td><td class="action"><b>'+esc(t.strategy)+'</b></td><td class="owner">'+esc(t.due)+'</td></tr>'}).join('');
+  var foot='<tfoot><tr><td colspan="2">합계 · 과제 귀속 증분</td><td class="num-cell">'+f1(sumM)+'억</td><td class="num-cell">'+f1(sumP)+'억</td><td class="num-cell">'+f1(sumA)+'억</td><td class="num-cell">'+f1(sumA/sumP*100)+'%</td><td colspan="3">회의 종료 조건: 의사결정·DRI·해소 시한이 모두 확정된 상태</td></tr></tfoot>';
+  $('#taskTable').innerHTML=head+'<tbody>'+body+'</tbody>'+foot;
+}
+function renderCategories(){
+  $('#categoryGrid').innerHTML=CATS.map(function(c){var rate=c.actual/c.plan*100,s=cls(rate);return '<article class="cat-card"><div class="cat-head"><div><strong>'+esc(c.name)+'</strong><div class="cat-owner">'+esc(c.owner)+'</div></div><span class="status-pill '+s+'">'+label(s)+'</span></div><div class="cat-metric"><span class="num">'+f1(rate)+'%</span><span>누적 달성률</span></div><div class="bar '+s+'"><span style="width:'+Math.min(rate,100)+'%"></span></div><div class="cat-action">월 증분 '+f1(c.month)+'억 · 누적 '+f1(c.actual)+'/'+f1(c.plan)+'억<br><b>다음</b> '+esc(c.action)+'</div></article>'}).join('');
+}
+function renderPipelines(){
+  $('#pipelineGrid').innerHTML=PIPELINES.map(function(p){return '<article class="pipeline"><div class="pipeline-head"><div><h3>'+esc(p.title)+'</h3><p>'+esc(p.note)+'</p><a class="pipeline-link" href="brand-pipeline-progress.html?view='+p.view+'">상세 진척판 →</a></div><div class="pipeline-rate num">'+Math.round(p.done/p.denom*100)+'%</div></div><div class="steps">'+p.steps.map(function(s){return '<div class="step"><div class="label">'+esc(s[0])+'</div><div class="num">'+esc(s[1])+'</div><div class="note">'+esc(s[2])+'</div></div>'}).join('')+'</div><div class="pipeline-now">'+p.now+'</div></article>'}).join('');
+}
+var root=document.documentElement,themeBtn=$('#themeBtn');root.dataset.theme='light';
+function syncTheme(){themeBtn.textContent=root.dataset.theme==='dark'?'라이트 모드':'다크 모드'}
+themeBtn.addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';syncTheme()});syncTheme();
+renderKpis();renderPace();renderBlockers();renderTasks();renderCategories();renderPipelines();
+})();
+</script>
+</body>
+</html>
