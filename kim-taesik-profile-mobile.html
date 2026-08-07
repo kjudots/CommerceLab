@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f4ef">
+<meta name="description" content="유통 MD부터 1P·2P·3P·PB까지 경험한 커머스 리더 김태식의 모바일 프로필">
+<title>김태식 · Mobile Profile</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:'BMDOHYEON';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap}
+:root{--head:'BMDOHYEON','Noto Sans KR','Malgun Gothic',sans-serif;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI','Malgun Gothic',sans-serif;--paper:#f6f4ef;--card:#fff;--ink:#191919;--sub:#626262;--muted:#898989;--line:#dfdbd1;--yellow:#f5d742;--violet:#5b4fcf;--mint:#2ac1bc;--safe-bottom:max(14px,env(safe-area-inset-bottom))}
+*{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}
+html{scroll-behavior:smooth}body{margin:0;background:#e9e6de;color:var(--ink);font-family:var(--font);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.mobile-profile{width:100%;max-width:540px;margin:0 auto;background:var(--paper);min-height:100vh;padding-bottom:calc(78px + var(--safe-bottom))}
+h1,h2,h3,.eyebrow,.num,.nav-label,.model strong,.section-no{font-family:var(--head);font-weight:400}
+.top{height:56px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;background:rgba(246,244,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(223,219,209,.8)}
+.brand{font-family:var(--head);font-size:14px}.brand b{color:var(--violet);font-family:inherit;font-weight:400}.desktop-link{font-size:11px;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:7px 10px;background:var(--card)}
+.hero{margin:0 12px 12px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.portrait{height:min(96vw,475px);position:relative;background:#e9e7e2}.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:saturate(.9)}
+.portrait:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.portrait-copy{position:absolute;left:20px;right:20px;bottom:18px;color:#fff;z-index:2}.portrait-copy small{display:block;font-size:9.5px;letter-spacing:.12em;opacity:.8;margin-bottom:5px}.portrait-copy strong{font-family:var(--head);font-weight:400;font-size:26px}
+.hero-copy{padding:25px 20px 22px}.eyebrow{font-size:11px;letter-spacing:.07em;color:var(--violet);margin:0 0 11px}.hero h1{font-size:clamp(31px,9.2vw,43px);line-height:1.18;letter-spacing:-.035em;margin:0 0 16px}.highlight{background:linear-gradient(transparent 58%,var(--yellow) 58% 91%,transparent 91%);padding:0 .04em}.lead{font-size:13px;line-height:1.75;color:var(--sub);margin:0}.lead b{color:var(--ink)}
+.models{display:flex;gap:7px;overflow-x:auto;padding:2px 0 5px;margin-top:19px;scroll-snap-type:x mandatory;scrollbar-width:none}.models::-webkit-scrollbar,.metrics::-webkit-scrollbar,.quick-nav::-webkit-scrollbar{display:none}.model{flex:0 0 126px;scroll-snap-align:start;border:1px solid var(--line);background:var(--paper);padding:11px;border-radius:8px}.model strong{display:block;font-size:15px;color:var(--violet);margin-bottom:4px}.model span{display:block;font-size:9.5px;color:var(--muted);line-height:1.45}
+.metrics{display:flex;gap:9px;overflow-x:auto;padding:0 12px 5px;scroll-snap-type:x mandatory;scrollbar-width:none}.metric{flex:0 0 148px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);padding:16px 15px;min-height:126px}.metric-label{font-size:8.5px;color:var(--muted);letter-spacing:.05em;min-height:25px}.metric .num{font-size:27px;line-height:1.1;margin:5px 0 7px}.metric-note{font-size:9.5px;color:var(--sub);line-height:1.5}
+.swipe-hint{text-align:right;font-size:9px;color:var(--muted);padding:4px 16px 0}.quick-nav{display:flex;gap:7px;overflow-x:auto;padding:13px 12px 3px;position:sticky;top:56px;z-index:15;background:linear-gradient(var(--paper) 78%,transparent);scrollbar-width:none}.quick-nav a{flex:0 0 auto;color:var(--sub);background:var(--card);border:1px solid var(--line);border-radius:18px;text-decoration:none;font-size:10.5px;padding:8px 11px}.quick-nav a:first-child{background:var(--ink);color:#fff;border-color:var(--ink)}
+.section{margin:12px;background:var(--card);border:1px solid var(--line);padding:22px 18px;scroll-margin-top:110px}.section-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:16px}.section-kicker{font-size:9px;color:var(--violet);letter-spacing:.08em;margin-bottom:6px}.section h2{font-size:23px;line-height:1.25;margin:0}.section-no{font-size:32px;color:#eeeae1}.section-desc{font-size:11px;color:var(--sub);line-height:1.6;margin:7px 0 0}
+.current{background:var(--ink);color:#fff;padding:19px;margin-bottom:10px}.current .role{font-family:var(--head);font-size:21px;margin-bottom:6px}.current .period{font-size:10px;color:#bcbcbc}.current p{font-size:11.5px;line-height:1.65;color:#d3d3d3;margin:13px 0 0}.current b{color:var(--yellow)}
+.achievement-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.achievement{background:var(--paper);border-left:3px solid var(--yellow);padding:13px;min-height:130px}.achievement .label{font-size:8px;color:var(--muted);margin-bottom:7px}.achievement strong{font-family:var(--head);font-weight:400;font-size:14px;line-height:1.4;display:block;margin-bottom:6px}.achievement p{font-size:9.8px;color:var(--sub);line-height:1.55;margin:0}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.cap{border:1px solid var(--line);background:var(--paper);padding:13px 12px}.cap strong{font-family:var(--head);font-weight:400;font-size:13.5px;line-height:1.35;display:block}.cap-line{height:4px;background:var(--yellow);margin:10px 0 8px}.cap span{font-size:9.5px;color:var(--sub);line-height:1.5;display:block}
+details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}summary{list-style:none;cursor:pointer;padding:15px 2px;position:relative;padding-right:30px}summary::-webkit-details-marker{display:none}summary:after{content:'＋';position:absolute;right:3px;top:16px;color:var(--violet);font-size:17px}details[open] summary:after{content:'－'}summary strong{font-family:var(--head);font-weight:400;font-size:15px;display:block;margin-bottom:4px}summary span{font-size:9.5px;color:var(--muted)}.detail-body{padding:0 4px 16px;font-size:11px;color:var(--sub);line-height:1.7}.detail-body b{color:var(--ink)}
+.project{border:1px solid var(--line);background:var(--paper);margin-bottom:9px}.project:last-child{margin-bottom:0}.project summary{padding:16px 45px 16px 15px}.project summary:after{right:15px}.project .type{font-size:8.5px;color:var(--violet);letter-spacing:.05em;margin-bottom:7px}.project summary strong{font-size:16px;line-height:1.4}.project .detail-body{padding:0 15px 16px}.impact{border-top:1px solid var(--line);padding-top:11px;margin-top:11px;display:flex;align-items:baseline;gap:7px}.impact .num{font-size:23px;color:var(--ink)}.impact span:last-child{font-size:9.5px;color:var(--muted)}
+.credential{padding:14px 0;border-top:1px solid var(--line)}.credential:first-of-type{border-top:0;padding-top:0}.credential h3{font-size:17px;margin:0 0 6px}.credential p{font-size:10.5px;line-height:1.6;color:var(--sub);margin:0 0 10px}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-size:9.5px;border:1px solid var(--line);background:var(--paper);padding:6px 8px;border-radius:16px;color:var(--sub)}
+.quote{background:var(--yellow);padding:21px;margin-bottom:12px}.quote strong{font-family:var(--head);font-weight:400;font-size:20px;line-height:1.5;display:block}.quote p{font-size:10.5px;line-height:1.65;margin:9px 0 0}
+.footer{text-align:center;padding:22px 16px 8px;color:var(--muted);font-size:9.5px}.footer strong{font-family:var(--head);font-size:13px;font-weight:400;color:var(--ink);display:block;margin-bottom:5px}
+.bottom-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:30;width:100%;max-width:540px;height:calc(64px + var(--safe-bottom));padding:7px 8px var(--safe-bottom);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(25,25,25,.96);backdrop-filter:blur(12px)}.bottom-nav a{color:#bfbfbf;text-decoration:none;text-align:center;font-size:9px;padding:5px 1px}.bottom-nav a:before{display:block;font-size:18px;line-height:1.1;margin-bottom:4px}.bottom-nav a:nth-child(1):before{content:'●'}.bottom-nav a:nth-child(2):before{content:'▦'}.bottom-nav a:nth-child(3):before{content:'◆'}.bottom-nav a:nth-child(4):before{content:'★'}.bottom-nav a:first-child{color:var(--yellow)}
+@media(min-width:541px){.mobile-profile{box-shadow:0 0 42px rgba(0,0,0,.13)}}
+@media(max-width:360px){.hero-copy,.section{padding-left:15px;padding-right:15px}.achievement-grid,.cap-grid{grid-template-columns:1fr}.model{flex-basis:116px}.metric{flex-basis:138px}}
+@media print{body{background:#fff}.mobile-profile{max-width:none}.top,.quick-nav,.bottom-nav,.swipe-hint{display:none}.mobile-profile{padding-bottom:0}.section,.hero,.metric{break-inside:avoid}.metrics,.models{overflow:visible;flex-wrap:wrap}.metric,.model{flex:1 1 140px}}
+</style>
+</head>
+<body>
+<main class="mobile-profile">
+  <header class="top"><div class="brand">KIM TAE SIK <b>· MOBILE</b></div><a class="desktop-link" href="kim-taesik-profile.html">웹 버전</a></header>
+
+  <section class="hero" id="home">
+    <div class="portrait"><img src="assets/kim-taesik-profile-final-v5.png" alt="김태식 프로필 사진"><div class="portrait-copy"><small>PLATFORM BUSINESS LEADER</small><strong>김태식 · Kim Tae Sik</strong></div></div>
+    <div class="hero-copy">
+      <p class="eyebrow">RETAIL × MARKETPLACE × COMMERCE</p>
+      <h1>유통 MD부터<br><span class="highlight">1P·2P·3P·PB까지</span><br>모두 경험한 커머스 리더</h1>
+      <p class="lead">점포와 본사의 유통 MD에서 출발해 B마트 직매입, 로켓그로스, 쿠팡 마켓플레이스와 배민스토어를 거쳤습니다. 현재는 <b>배민상회 비품MD팀 팀장</b>으로 카테고리 P&amp;L과 PB·셀러 생태계를 책임집니다.</p>
+      <div class="models" aria-label="사업 모델 경험">
+        <div class="model"><strong>유통 MD</strong><span>점포·본사 카테고리 운영</span></div><div class="model"><strong>1P</strong><span>B마트 직매입</span></div><div class="model"><strong>2P</strong><span>로켓그로스(판매자로켓)</span></div><div class="model"><strong>3P</strong><span>쿠팡 MP·배민스토어·배민상회</span></div><div class="model"><strong>PB</strong><span>이랜드·배민상회 PB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics" aria-label="핵심 성과">
+    <div class="metric"><div class="metric-label">CAREER</div><div class="num">17년+</div><div class="metric-note">리테일·플랫폼 커머스</div></div>
+    <div class="metric"><div class="metric-label">COUPANG</div><div class="num">5년 연속</div><div class="metric-note">평가 상위 10% Top Tier</div></div>
+    <div class="metric"><div class="metric-label">WOOWA AWARD</div><div class="num">HERO</div><div class="metric-note">턴어라운드 히어로상</div></div>
+    <div class="metric"><div class="metric-label">ROCKET GROWTH</div><div class="num">331억</div><div class="metric-note">판매자로켓 신사업 누적 매출</div></div>
+    <div class="metric"><div class="metric-label">KA MARKETING</div><div class="num">151%</div><div class="metric-note">광고 목표 누적 달성률</div></div>
+  </div>
+  <div class="swipe-hint">← 성과 카드를 좌우로 넘겨보세요 →</div>
+  <nav class="quick-nav"><a href="#experience">현재 역할</a><a href="#career">경력</a><a href="#projects">프로젝트</a><a href="#strength">핵심 역량</a><a href="#credentials">리더십·자격</a></nav>
+
+  <section class="section" id="experience">
+    <div class="section-head"><div><div class="section-kicker">CURRENT ROLE</div><h2>지금, 배민상회에서</h2></div><div class="section-no">01</div></div>
+    <div class="current"><div class="role">비품MD팀 팀장</div><div class="period">우아한형제들 · 2024.08 — 현재</div><p>비품 카테고리의 <b>거래액·수익·VFD·PB·직매입·KA 파트너십</b>을 총괄하며 팀의 우선순위와 실행 구조를 설계합니다.</p></div>
+    <div class="achievement-grid">
+      <div class="achievement"><div class="label">CATEGORY P&amp;L</div><strong>비품 카테고리 총괄</strong><p>거래액과 수익을 함께 관리하고 성장 우선순위를 설계합니다.</p></div>
+      <div class="achievement"><div class="label">PB BUSINESS</div><strong>배민상회 PB 담당</strong><p>PB·직매입·셀러 포트폴리오로 수익과 마진을 최적화합니다.</p></div>
+      <div class="achievement"><div class="label">KA PARTNERSHIP</div><strong>연간 마케팅 구조</strong><p>14개·4.22억에서 18개·6.58억 규모로 확장 모델을 구축했습니다.</p></div>
+      <div class="achievement"><div class="label">AWARD · 2025</div><strong>턴어라운드 히어로상</strong><p>새로운 도전과 시도로 배민상회의 반전을 만든 성과를 인정받았습니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="career">
+    <div class="section-head"><div><div class="section-kicker">CAREER</div><h2>17년의 현장</h2><p class="section-desc">회사를 누르면 핵심 역할과 성과가 펼쳐집니다.</p></div><div class="section-no">02</div></div>
+    <details open><summary><strong>우아한형제들</strong><span>2022.12 — 현재 · Store → B마트 → 배민상회</span></summary><div class="detail-body"><b>배민스토어</b>에서 뷰티·라이프 26개 브랜드를 런칭하고, <b>B마트</b>에서 뷰티 직매입을 운영했습니다. 현재 <b>배민상회 비품MD팀 팀장</b>으로 카테고리 P&amp;L·PB·KA 셀러 구조를 총괄합니다.</div></details>
+    <details><summary><strong>쿠팡</strong><span>2016.10 — 2022.12 · Part Leader / Principal AM</span></summary><div class="detail-body">전략 셀러 영입과 성장을 리딩했고, <b>5년 연속 Top Tier</b>를 달성했습니다. 로켓그로스(판매자로켓) 신사업 누적 매출 331억, 신라면세점 3P 최초 입점, 다이소몰 384억 성장을 만들었습니다.</div></details>
+    <details><summary><strong>이랜드리테일</strong><span>2009.07 — 2016.10 · 잡화·화장품 팀장</span></summary><div class="detail-body">유통 점포와 본사에서 브랜드 입·퇴점, 51개 점포 카테고리, 매출·수익·인원을 관리했습니다. 2,400억 규모 카테고리와 200개 브랜드 리뉴얼을 경험했습니다.</div></details>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-head"><div><div class="section-kicker">SELECTED IMPACT</div><h2>대표 프로젝트 4</h2><p class="section-desc">카드를 눌러 문제·실행·성과를 확인하세요.</p></div><div class="section-no">03</div></div>
+    <details class="project" open><summary><div class="type">OPERATING MODEL</div><strong>KA 셀러 연간 마케팅 파트너십</strong></summary><div class="detail-body">월 단위 광고 협상을 연간 통합계약으로 전환했습니다. 법무 계약서, 정산·회계 기준, 운영정책, 월간 리포트와 세일즈 키트까지 표준화했습니다.<div class="impact"><span class="num">151%</span><span>광고 목표 · 셀러 매출 YoY +15.8%</span></div></div></details>
+    <details class="project"><summary><div class="type">POLICY TO BUSINESS</div><strong>신라면세점 쿠팡 3P 최초 런칭</strong></summary><div class="detail-body">관세청의 면세 재고 내수판매 정책을 사업 기회로 전환해 온라인 업계 최초 입점 구조를 만들었습니다.<div class="impact"><span class="num">12.5억</span><span>2021년 누적 실적</span></div></div></details>
+    <details class="project"><summary><div class="type">ACCOUNT TRANSFORMATION</div><strong>다이소몰의 구조적 성장</strong></summary><div class="detail-body">상품·배송·재고·마케팅 구조를 함께 개선해 대형 셀러의 성장 기반을 재설계했습니다.<div class="impact"><span class="num">384억</span><span>2020년 매출 · 목표 대비 122%</span></div></div></details>
+    <details class="project"><summary><div class="type">CATEGORY CREATION</div><strong>배민스토어 뷰티 라인업 구축</strong></summary><div class="detail-body">풀필먼트 운영 모델을 설계하고 26개 브랜드를 런칭했습니다. 셀러 영업부터 상품·운영까지 통합 리딩했습니다.<div class="impact"><span class="num">31%</span><span>월평균 성장률</span></div></div></details>
+  </section>
+
+  <section class="section" id="strength">
+    <div class="section-head"><div><div class="section-kicker">CORE CAPABILITIES</div><h2>17년의 핵심 실행 영역</h2><p class="section-desc">등급이나 점수가 아닌, 현장에서 축적하고 반복해서 증명한 역량입니다.</p></div><div class="section-no">04</div></div>
+    <div class="cap-grid">
+      <div class="cap"><strong>Category Strategy</strong><div class="cap-line"></div><span>카테고리 구조·상품 포트폴리오·성장 로드맵</span></div>
+      <div class="cap"><strong>Seller Acquisition</strong><div class="cap-line"></div><span>전략 셀러 발굴·제안·협상·계약·온보딩</span></div>
+      <div class="cap"><strong>P&amp;L Management</strong><div class="cap-line"></div><span>거래액·수익·마케팅 계약·마진 구조 관리</span></div>
+      <div class="cap"><strong>New Business</strong><div class="cap-line"></div><span>정책과 시장 변화에서 신규 사업 기회 발굴</span></div>
+      <div class="cap"><strong>Cross-functional Lead</strong><div class="cap-line"></div><span>제품·운영·재무·마케팅 이해관계자 조율</span></div>
+      <div class="cap"><strong>Team Leadership</strong><div class="cap-line"></div><span>목표·우선순위·실행 리듬을 만드는 팀 운영</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="credentials">
+    <div class="section-head"><div><div class="section-kicker">LEADERSHIP × LEARNING</div><h2>사람과 실행의 기반</h2></div><div class="section-no">05</div></div>
+    <div class="quote"><strong>문무를 겸비한 실행력</strong><p>데이터와 현장의 판단, 무도 수련으로 다진 집중력과 자기관리를 리더십의 기반으로 삼습니다.</p></div>
+    <div class="credential"><h3>서울시립대학교 경영대학원</h3><p>2025.09 입학 · 2027.08 졸업 예정</p><div class="chips"><span class="chip">경영대학원 재학</span><span class="chip">연세대 역사문화학과</span></div></div>
+    <div class="credential"><h3>군 리더십</h3><p>ROTC 45기 육군 중위 · 해안경계 소초장·본부중대장</p><div class="chips"><span class="chip">제51보병사단장 표창</span><span class="chip">시흥시장 표창</span></div></div>
+    <div class="credential"><h3>자격과 수련</h3><div class="chips"><span class="chip">MOS Master · 2007.01</span><span class="chip">한자 준2급 · 2006.12</span><span class="chip">동대문구청장 표창 · 2002.12</span><span class="chip">태권도 2단 · 2005.10</span><span class="chip">유도 초단 · 2002.02</span></div></div>
+  </section>
+
+  <footer class="footer"><strong>김태식 · Full-Commerce Leader</strong><span>유통 MD · 1P · 2P · 3P · PB</span></footer>
+  <nav class="bottom-nav" aria-label="모바일 하단 탐색"><a href="#home"><span class="nav-label">홈</span></a><a href="#career"><span class="nav-label">경력</span></a><a href="#projects"><span class="nav-label">프로젝트</span></a><a href="#credentials"><span class="nav-label">리더십</span></a></nav>
+</main>
+</body>
+</html>
