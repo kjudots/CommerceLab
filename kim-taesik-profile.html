@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="플랫폼과 리테일 현장에서 성장 구조를 설계해 온 김태식의 프로필">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <title>김태식 · Platform Business Leader</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
@@ -22,6 +23,26 @@
   .viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}
   .viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,.viz-root .num,.viz-root .quote-strong{font-family:var(--font-head)}
   .viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+  body.is-locked{overflow:hidden}
+  body.is-locked .viz-root{display:none}
+  body:not(.is-locked) .access-gate{display:none}
+  .access-gate{--gate-paper:#f6f4ef;--gate-card:#fff;--gate-ink:#181818;--gate-muted:#686868;--gate-line:#dedad0;--gate-yellow:#f5d742;--gate-brand:#5b4fcf;position:fixed;inset:0;z-index:9999;display:grid;place-items:center;min-height:100dvh;padding:24px;background:var(--gate-paper);color:var(--gate-ink);font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;overflow:auto}
+  .access-gate::before{content:'';position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 0 58%,rgba(245,215,66,.18) 58% 70%,transparent 70%),radial-gradient(circle at 10% 12%,rgba(91,79,207,.08),transparent 27%)}
+  .gate-card{position:relative;width:min(100%,520px);background:var(--gate-card);border:1px solid var(--gate-line);box-shadow:0 24px 70px rgba(33,28,14,.12);padding:48px 46px 40px;overflow:hidden}
+  .gate-card::before{content:'PRIVATE 01';position:absolute;right:22px;top:18px;color:#ebe8e1;font-family:'BMDOHYEON','Noto Sans KR',sans-serif;font-size:34px}
+  .gate-mark{font-family:'BMDOHYEON','Noto Sans KR',sans-serif;font-size:13px;letter-spacing:.04em;margin-bottom:48px}.gate-mark span{color:var(--gate-brand)}
+  .gate-eyebrow{font-family:'BMDOHYEON','Noto Sans KR',sans-serif;color:var(--gate-brand);font-size:12px;letter-spacing:.08em;margin:0 0 12px}
+  .gate-title{font-family:'BMDOHYEON','Noto Sans KR',sans-serif;font-weight:400;font-size:clamp(34px,8vw,52px);line-height:1.12;letter-spacing:-.035em;margin:0 0 18px}
+  .gate-title span{background:linear-gradient(transparent 60%,var(--gate-yellow) 60% 91%,transparent 91%)}
+  .gate-copy{font-size:14px;line-height:1.75;color:var(--gate-muted);margin:0 0 28px}
+  .gate-form{display:grid;grid-template-columns:1fr auto;gap:9px}
+  .gate-input{min-width:0;height:52px;border:1px solid var(--gate-line);border-radius:0;background:#faf9f6;color:var(--gate-ink);padding:0 15px;font:500 16px 'Noto Sans KR',sans-serif;letter-spacing:.12em;outline:none}
+  .gate-input:focus{border-color:var(--gate-brand);box-shadow:0 0 0 3px rgba(91,79,207,.1)}
+  .gate-submit{height:52px;border:0;border-radius:0;background:var(--gate-ink);color:#fff;padding:0 22px;font-family:'BMDOHYEON','Noto Sans KR',sans-serif;font-size:15px;cursor:pointer}
+  .gate-submit:hover{background:var(--gate-brand)}.gate-submit:disabled{cursor:wait;opacity:.65}
+  .gate-error{min-height:22px;margin:9px 0 0;color:#c5402d;font-size:11px;line-height:1.5}
+  .gate-note{border-top:1px solid var(--gate-line);margin:20px 0 0;padding-top:16px;color:#8a8a8a;font-size:10.5px;line-height:1.6}
+  .access-logout{border:0;background:transparent;color:var(--ink-2);font-size:12px;padding:7px 10px;border-radius:18px;cursor:pointer}.access-logout:hover{background:var(--paper-2);color:var(--ink)}
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}
   .wordmark{font-family:var(--font-head);font-size:14px;letter-spacing:.03em}.wordmark span{color:var(--brand)}
   .nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
@@ -106,19 +127,35 @@
   .footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 4px 0;color:var(--ink-3);font-size:10.5px}.footer strong{font-family:var(--font-head);font-weight:400;color:var(--ink);font-size:14px}
 
   @media(max-width:1000px){.hero{grid-template-columns:.85fr 1.15fr}.hero-copy{padding:50px 38px 40px}.metric-strip{grid-template-columns:repeat(3,1fr)}.metric:nth-child(3n){border-right:0}.metric:nth-child(n+4){border-top:1px solid var(--line)}.cases{grid-template-columns:1fr 1fr}.skill-layout{grid-template-columns:1fr}.credential-grid{grid-template-columns:1fr 1fr}.credential-card:last-child{grid-column:1/-1}}
-  @media(max-width:720px){.viz-root{padding:16px 14px 48px}.topbar{align-items:flex-start}.nav a{display:none}.hero{grid-template-columns:1fr;min-height:0}.portrait{min-height:520px}.hero-copy{padding:40px 24px}.hero-copy::before{display:none}.metric-strip{grid-template-columns:repeat(2,1fr)}.metric:nth-child(3n){border-right:1px solid var(--line)}.metric:nth-child(even){border-right:0}.metric:nth-child(n+3){border-top:1px solid var(--line)}.section{padding:24px 18px}.section-no{display:none}.career-layout{grid-template-columns:1fr}.tabs{display:grid;grid-template-columns:repeat(3,1fr)}.tab{text-align:center;padding:10px 7px}.achievement-grid,.cases,.skills,.role-evolution,.credential-grid{grid-template-columns:1fr}.credential-card:last-child{grid-column:auto}.career-title{flex-direction:column;gap:5px}.time-row{grid-template-columns:110px 1fr}.footer{flex-direction:column;align-items:flex-start}}
+  @media(max-width:720px){.viz-root{padding:16px 14px 48px}.topbar{align-items:flex-start}.nav a{display:none}.hero{grid-template-columns:1fr;min-height:0}.portrait{min-height:520px}.hero-copy{padding:40px 24px}.hero-copy::before{display:none}.metric-strip{grid-template-columns:repeat(2,1fr)}.metric:nth-child(3n){border-right:1px solid var(--line)}.metric:nth-child(even){border-right:0}.metric:nth-child(n+3){border-top:1px solid var(--line)}.section{padding:24px 18px}.section-no{display:none}.career-layout{grid-template-columns:1fr}.tabs{display:grid;grid-template-columns:repeat(3,1fr)}.tab{text-align:center;padding:10px 7px}.achievement-grid,.cases,.skills,.role-evolution,.credential-grid{grid-template-columns:1fr}.credential-card:last-child{grid-column:auto}.career-title{flex-direction:column;gap:5px}.time-row{grid-template-columns:110px 1fr}.footer{flex-direction:column;align-items:flex-start}.gate-card{padding:40px 24px 30px}.gate-mark{margin-bottom:38px}.gate-form{grid-template-columns:1fr}.gate-submit{width:100%}}
   @media(max-width:430px){.portrait{min-height:440px}.tabs{grid-template-columns:1fr}.metric{padding:16px}.metric-value{font-size:23px}.section-head{align-items:flex-start}.time-row{grid-template-columns:1fr;gap:5px}.commerce-spectrum{grid-template-columns:repeat(2,1fr)}.spectrum-item:nth-child(2),.spectrum-item:nth-child(4){border-right:0}.spectrum-item:nth-child(n+3){border-top:1px solid var(--line)}.spectrum-item:last-child{grid-column:1/-1;border-right:0}}
   :root[data-theme="dark"] .viz-root{--paper:#151515;--paper-2:#242424;--card:#1c1c1c;--ink:#fff;--ink-2:#c9c9c9;--ink-3:#8f8f8f;--line:#383838;--yellow:#f5d742;--yellow-soft:#4b451c;--brand:#aaa1ff;--brand-soft:#302c51;--shadow:rgba(0,0,0,.22)}
   :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#151515}
   @media print{.viz-root{max-width:none;padding:0}.topbar,.theme-toggle{display:none}.hero,.section,.metric-strip{box-shadow:none;break-inside:avoid}.section{break-inside:auto}.career-panel{display:none!important}.career-panel.is-active{display:block!important}}
 </style>
 </head>
-<body>
-<main class="viz-root" id="profileRoot">
+<body class="is-locked">
+<section class="access-gate" id="accessGate" aria-labelledby="gateTitle">
+  <div class="gate-card">
+    <div class="gate-mark">KIM TAE SIK <span>· PORTFOLIO</span></div>
+    <p class="gate-eyebrow">PRIVATE ACCESS</p>
+    <h1 class="gate-title" id="gateTitle">초대받은 분께<br><span>포트폴리오를 공개합니다.</span></h1>
+    <p class="gate-copy">김태식의 리테일·플랫폼 커머스 경험과 주요 성과를 정리한 페이지입니다. 전달받은 입장 코드를 입력해 주세요.</p>
+    <form class="gate-form" id="accessForm" novalidate>
+      <label for="accessCode" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">입장 코드</label>
+      <input class="gate-input" id="accessCode" type="password" inputmode="numeric" autocomplete="current-password" placeholder="입장 코드" maxlength="20" aria-describedby="accessError" required>
+      <button class="gate-submit" id="accessSubmit" type="submit">포트폴리오 보기</button>
+    </form>
+    <p class="gate-error" id="accessError" role="alert" aria-live="polite"></p>
+    <p class="gate-note">본 페이지는 제한적으로 공유되는 개인 포트폴리오입니다. 내용과 이미지는 당사자의 동의 없이 복제하거나 재배포하지 말아 주세요.</p>
+  </div>
+</section>
+<main class="viz-root" id="profileRoot" aria-hidden="true">
   <header class="topbar">
     <div class="wordmark">KIM TAE SIK <span>· PORTFOLIO</span></div>
     <nav class="nav" aria-label="페이지 탐색">
       <a href="#career">Experience</a><a href="#cases">Business Impact</a><a href="#skills">Strength</a><a href="#credentials">Credentials</a><a href="#history">History</a>
+      <button class="access-logout" id="logoutBtn" type="button">나가기</button>
       <button class="theme-toggle" id="themeBtn" type="button">다크 모드</button>
     </nav>
   </header>
@@ -248,6 +285,27 @@
 </main>
 <script>
 (function(){
+  var ACCESS_KEY='kts_portfolio_access_v1';
+  var ACCESS_HASH='9724e91f499e33615e60c3941ad48f42f6a5d3411e73010a60a3b3f371cd44b0';
+  var body=document.body,profile=document.getElementById('profileRoot'),gate=document.getElementById('accessGate');
+  var form=document.getElementById('accessForm'),code=document.getElementById('accessCode'),submit=document.getElementById('accessSubmit'),error=document.getElementById('accessError');
+  function unlock(){body.classList.remove('is-locked');profile.setAttribute('aria-hidden','false');gate.setAttribute('aria-hidden','true')}
+  function lock(){sessionStorage.removeItem(ACCESS_KEY);body.classList.add('is-locked');profile.setAttribute('aria-hidden','true');gate.setAttribute('aria-hidden','false');code.value='';error.textContent='';setTimeout(function(){code.focus()},0)}
+  async function digest(value){
+    var bytes=new TextEncoder().encode(value);
+    var hash=await crypto.subtle.digest('SHA-256',bytes);
+    return Array.from(new Uint8Array(hash)).map(function(byte){return byte.toString(16).padStart(2,'0')}).join('');
+  }
+  if(sessionStorage.getItem(ACCESS_KEY)==='1'){unlock()}else{setTimeout(function(){code.focus()},0)}
+  form.addEventListener('submit',async function(event){
+    event.preventDefault();error.textContent='';submit.disabled=true;submit.textContent='확인 중';
+    try{
+      if(await digest(code.value.trim())===ACCESS_HASH){sessionStorage.setItem(ACCESS_KEY,'1');unlock()}
+      else{error.textContent='입장 코드가 일치하지 않습니다. 다시 확인해 주세요.';code.select()}
+    }catch(e){error.textContent='이 브라우저에서는 인증을 진행할 수 없습니다. 최신 브라우저로 다시 열어 주세요.'}
+    submit.disabled=false;submit.textContent='포트폴리오 보기';
+  });
+  document.getElementById('logoutBtn').addEventListener('click',lock);
   var root=document.documentElement,themeBtn=document.getElementById('themeBtn');
   root.dataset.theme='light';
   function isDark(){return root.dataset.theme==='dark'}
