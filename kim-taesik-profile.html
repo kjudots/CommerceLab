@@ -345,7 +345,7 @@
   document.getElementById('logoutBtn').addEventListener('click',lock);
   var osButton=document.getElementById('osAccessBtn'),osModal=document.getElementById('osAccessModal'),osClose=document.getElementById('osAccessClose');
   var osForm=document.getElementById('osAccessForm'),osCode=document.getElementById('osAccessCode'),osSubmit=document.getElementById('osAccessSubmit'),osError=document.getElementById('osAccessError');
-  function openOs(){if(sessionStorage.getItem(OS_ACCESS_KEY)==='1'){window.location.assign('md-field-os.html');return}osModal.hidden=false;osError.textContent='';setTimeout(function(){osCode.focus()},0)}
+  function openOs(){osModal.hidden=false;osCode.value='';osError.textContent='';setTimeout(function(){osCode.focus()},0)}
   function closeOs(){osModal.hidden=true;osCode.value='';osError.textContent='';osButton.focus()}
   osButton.addEventListener('click',openOs);
   osClose.addEventListener('click',closeOs);
@@ -354,7 +354,7 @@
   osForm.addEventListener('submit',async function(event){
     event.preventDefault();osError.textContent='';osSubmit.disabled=true;osSubmit.textContent='확인 중';
     try{
-      if(await digest(osCode.value.trim())===OS_ACCESS_HASH){sessionStorage.setItem(OS_ACCESS_KEY,'1');window.location.assign('md-field-os.html')}
+      if(await digest(osCode.value.trim())===OS_ACCESS_HASH){sessionStorage.setItem(OS_ACCESS_KEY,'handoff');window.location.assign('md-field-os.html')}
       else{osError.textContent='OS 입장 코드가 일치하지 않습니다. 다시 확인해 주세요.';osCode.select()}
     }catch(e){osError.textContent='이 브라우저에서는 인증을 진행할 수 없습니다. 최신 브라우저로 다시 열어 주세요.'}
     osSubmit.disabled=false;osSubmit.textContent='OS 열기';
