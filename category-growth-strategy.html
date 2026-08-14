@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>카테고리 성장 전략 OS | PLATFORM MD FIELD OS</title>
+  <meta name="description" content="경쟁 플랫폼의 공개 신호를 카테고리 공백, 셀러 영입·육성 우선순위와 기회액으로 전환하는 플랫폼 MD 전략 화면">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+  <style>
+    @font-face{font-family:'BMDOHYEON';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap}
+    :root{--bg:#f4f1e9;--card:#fff;--surface:#ebe7dc;--ink:#171719;--ink-2:#5d5a52;--ink-3:#88847a;--line:#d9d4c7;--purple:#5b4fcf;--purple-soft:#ece9ff;--mint:#2ac1bc;--mint-soft:#e3f7f5;--yellow:#ffd93d;--coral:#ef6b5b;--coral-soft:#ffebe7;--green:#168d67;--shadow:rgba(31,27,20,.08)}
+    :root[data-theme="dark"]{--bg:#141418;--card:#202026;--surface:#2b2a31;--ink:#fff;--ink-2:#c7c5ce;--ink-3:#9896a0;--line:#3a3941;--purple:#aaa1ff;--purple-soft:#302d50;--mint-soft:#193a38;--coral-soft:#482a2c;--shadow:rgba(0,0,0,.24)}
+    html{scroll-behavior:smooth}body{margin:0;background:var(--bg)}
+    .viz-root{--font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;max-width:1320px;margin:0 auto;padding:24px 26px 64px;background:var(--bg);color:var(--ink);font-family:var(--font);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+    .viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}.viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,.viz-root .num,.viz-root .step-no,.viz-root .kpi-value{font-family:var(--font-head)}.viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+    .viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li{text-wrap:pretty}.eyebrow{margin:0;color:var(--purple);font-size:11px;letter-spacing:.1em}.num{font-variant-numeric:tabular-nums}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.brand{font-family:var(--font-head);font-size:15px;letter-spacing:.03em}.brand span{color:var(--purple)}.top-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.top-actions a,.top-actions button{min-height:38px;display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--ink-2);padding:7px 12px;text-decoration:none;font-size:10.5px;cursor:pointer}.top-actions a:hover,.top-actions button:hover{border-color:var(--purple);color:var(--purple)}
+    .hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1.08fr .92fr;gap:30px;min-height:520px;border:2px solid var(--ink);background:var(--card);padding:74px 58px 50px;box-shadow:13px 13px 0 var(--ink)}.hero::before{content:'CATEGORY INTELLIGENCE · FIELD MAP 01';position:absolute;left:-2px;top:-2px;background:var(--yellow);color:#111;padding:12px 18px;font-family:var(--font-head);font-size:10.5px;letter-spacing:.08em}.hero::after{content:'MAP';position:absolute;right:22px;bottom:-42px;font-family:var(--font-head);font-size:170px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(91,79,207,.12)}.hero-copy,.hero-radar{position:relative;z-index:1;align-self:center}.hero h1{max-width:750px;margin:14px 0 22px;font-size:clamp(42px,6vw,70px);font-weight:400;line-height:1.02}.hero h1 span{display:inline;background:linear-gradient(transparent 66%,var(--yellow) 0)}.hero .deck{max-width:690px;margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.85}.demo-badge{display:inline-flex;align-items:center;gap:7px;margin-top:22px;border:1px solid var(--coral);background:var(--coral-soft);color:var(--coral);padding:7px 10px;font-size:9px;font-weight:700}.demo-badge::before{content:'DEMO';font-family:var(--font-head);color:var(--ink)}
+    .hero-radar{transform:rotate(-1deg);border:2px solid var(--ink);background:#171719;color:#fff;padding:25px;box-shadow:8px 8px 0 var(--yellow)}.hero-radar .eyebrow{color:var(--yellow)}.radar-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:10px 0 19px}.radar-head h2{margin:0;font-size:24px;font-weight:400}.radar-head span{color:#aaaab4;font-size:9px}.radar-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}.radar-kpi{min-height:118px;border:1px solid #38383e;background:#222227;padding:14px}.radar-kpi .kpi-value{display:block;color:var(--yellow);font-size:29px;line-height:1}.radar-kpi b{display:block;margin-top:10px;font-size:10px}.radar-kpi small{display:block;margin-top:5px;color:#aaaab4;font-size:8.5px;line-height:1.45}.radar-foot{margin-top:12px;border-top:1px solid #37373d;padding-top:12px;color:#7fe0db;font-size:9px;line-height:1.55}
+    .flow-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:34px 0 0}.flow-nav a{position:relative;display:block;min-height:86px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:15px 12px;text-decoration:none}.flow-nav a:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:31px;z-index:2;color:var(--purple);font-family:var(--font-head)}.flow-nav .step-no{font-size:20px;color:var(--purple)}.flow-nav b{display:block;margin-top:7px;font-size:10px}.flow-nav small{display:block;margin-top:4px;color:var(--ink-3);font-size:8.5px;line-height:1.45}
+    .section{padding-top:62px;scroll-margin-top:18px}.section-head{display:grid;grid-template-columns:auto 1fr minmax(250px,520px);gap:15px;align-items:end;margin-bottom:18px}.section-no{font-family:var(--font-head);font-size:44px;line-height:.85;color:#d8d3c7}.section-head h2{margin:6px 0 0;font-size:31px;font-weight:400;line-height:1.15}.section-head>p{margin:0;color:var(--ink-2);font-size:11.5px;line-height:1.7;text-align:right}
+    .card{border:1px solid var(--line);background:var(--card);box-shadow:0 3px 10px var(--shadow)}
+    .signal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.signal-card{position:relative;min-height:255px;padding:20px;overflow:hidden}.signal-card::after{content:attr(data-no);position:absolute;right:10px;bottom:-20px;font-family:var(--font-head);font-size:95px;color:var(--surface);line-height:1}.signal-card .tag{position:relative;z-index:1;display:inline-block;background:var(--purple-soft);color:var(--purple);padding:4px 7px;font-size:8.5px;font-weight:700}.signal-card h3{position:relative;z-index:1;margin:18px 0 8px;font-size:21px;font-weight:400}.signal-card p{position:relative;z-index:1;margin:0;color:var(--ink-2);font-size:10.5px;line-height:1.7}.signal-list{position:relative;z-index:1;margin:14px 0 0;padding:0;list-style:none}.signal-list li{border-top:1px solid var(--line);padding:8px 0;color:var(--ink-3);font-size:9px}.rule-note{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;margin-top:12px;border:1px solid #e4c967;background:#fff7d8;padding:14px 16px;color:#5b4b12;font-size:9.5px;line-height:1.65}.rule-note b{font-family:var(--font-head);font-weight:400;font-size:11px}.rule-note span{font-weight:400}
+    :root[data-theme="dark"] .rule-note{border-color:#6f5c22;background:#3e361f;color:#f4df9f}
+    .market-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:12px}.concentration,.opportunity-map{padding:23px}.concentration h3,.opportunity-map h3{margin:0 0 7px;font-size:20px;font-weight:400}.concentration>p,.opportunity-map>p{margin:0 0 18px;color:var(--ink-2);font-size:10px;line-height:1.6}.share-row{display:grid;grid-template-columns:92px 1fr 44px;gap:9px;align-items:center;margin:13px 0}.share-row b{font-size:9.5px}.share-row .track{height:13px;background:var(--surface);overflow:hidden}.share-row .track span{display:block;height:100%;background:var(--purple)}.share-row:nth-of-type(3) .track span{background:var(--mint)}.share-row:nth-of-type(4) .track span{background:var(--yellow)}.share-row em{text-align:right;color:var(--ink-2);font-size:9.5px;font-style:normal}.concentration-callout{margin-top:19px;border-left:5px solid var(--yellow);background:var(--surface);padding:14px;color:var(--ink-2);font-size:10px;line-height:1.65}.concentration-callout strong{display:block;color:var(--ink);font-family:var(--font-head);font-size:15px;font-weight:400;margin-bottom:4px}
+    .quadrant{position:relative;min-height:390px;border:1px solid var(--line);background:linear-gradient(90deg,transparent 49.8%,var(--line) 50%,transparent 50.2%),linear-gradient(transparent 49.8%,var(--line) 50%,transparent 50.2%),linear-gradient(135deg,var(--card),var(--surface));overflow:hidden}.axis{position:absolute;color:var(--ink-3);font-size:8px;z-index:1}.axis.x{right:10px;bottom:7px}.axis.y{left:8px;top:9px;writing-mode:vertical-rl;transform:rotate(180deg)}.zone-label{position:absolute;color:var(--ink-3);font-size:8px;line-height:1.35}.zone-label.z1{right:11px;top:9px}.zone-label.z2{left:17px;top:9px}.zone-label.z3{right:11px;bottom:25px}.zone-label.z4{left:17px;bottom:25px}.bubble{position:absolute;transform:translate(-50%,-50%);display:grid;place-items:center;border:0;border-radius:50%;background:var(--purple);color:#fff;width:var(--size);height:var(--size);padding:4px;box-shadow:0 6px 16px rgba(91,79,207,.22);font-size:8.5px;line-height:1.2;text-align:center;cursor:pointer;transition:transform .15s,box-shadow .15s}.bubble:hover,.bubble:focus-visible,.bubble.on{transform:translate(-50%,-50%) scale(1.09);outline:3px solid var(--yellow);box-shadow:0 10px 22px rgba(91,79,207,.32)}.bubble.grow{background:var(--mint);color:#102a33}.bubble.validate{background:var(--coral)}.map-detail{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:10px;border:1px solid var(--line);background:var(--surface);padding:13px 14px}.map-detail b{display:block;font-family:var(--font-head);font-weight:400;font-size:14px}.map-detail p{margin:4px 0 0;color:var(--ink-2);font-size:9px;line-height:1.55}.map-detail .num{align-self:center;color:var(--purple);font-size:23px;white-space:nowrap}
+    .target-controls{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}.target-controls button{min-height:38px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);padding:8px 13px;font-size:10px;cursor:pointer}.target-controls button.on{border-color:var(--ink);background:var(--ink);color:var(--card)}.table-wrap{overflow:auto;border:1px solid var(--line);background:var(--card)}table{width:100%;min-width:1010px;border-collapse:collapse;font-size:10px}th,td{border-bottom:1px solid var(--line);padding:12px 11px;text-align:left;vertical-align:top}th{position:sticky;top:0;z-index:1;background:var(--surface);color:var(--ink-2);font-weight:500;white-space:nowrap}tbody tr:hover{background:var(--surface)}td strong{display:block;font-family:var(--font-head);font-size:13px;font-weight:400;margin-bottom:3px}td small{color:var(--ink-3);font-size:8.5px;line-height:1.5}.pill{display:inline-flex;border-radius:12px;padding:4px 7px;background:var(--purple-soft);color:var(--purple);font-size:8.5px;font-weight:700;white-space:nowrap}.pill.grow{background:var(--mint-soft);color:var(--green)}.pill.validate{background:var(--coral-soft);color:var(--coral)}.score{white-space:nowrap}.score b{font-family:var(--font-head);font-weight:400;font-size:15px}.score span{display:block;color:var(--ink-3);font-size:8px;margin-top:3px}.priority{font-family:var(--font-head);font-weight:400;color:var(--coral);font-size:13px}.mobile-targets{display:none}
+    .sizing-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:12px}.formula{padding:24px}.formula h3{font-size:21px;font-weight:400;margin:0 0 17px}.formula-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:7px;align-items:stretch}.formula-item{display:flex;flex-direction:column;justify-content:center;min-height:102px;background:var(--surface);padding:13px}.formula-item b{color:var(--purple);font-size:9px}.formula-item span{margin-top:6px;color:var(--ink-2);font-size:9px;line-height:1.5}.formula-op{align-self:center;color:var(--purple);font-family:var(--font-head);font-size:19px}.formula-note{margin:15px 0 0;color:var(--ink-3);font-size:9px;line-height:1.6}.sizing-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sizing-card{position:relative;min-height:152px;padding:18px;overflow:hidden}.sizing-card.total{background:#171719;color:#fff;border-color:#171719}.sizing-card .tag{font-size:8.5px;color:var(--ink-3)}.sizing-card .kpi-value{display:block;margin-top:14px;font-size:32px;color:var(--purple);line-height:1}.sizing-card.total .kpi-value{color:var(--yellow)}.sizing-card p{margin:9px 0 0;color:var(--ink-2);font-size:9px;line-height:1.55}.sizing-card.total p{color:#b7b7c1}.sizing-card::after{content:attr(data-no);position:absolute;right:7px;bottom:-20px;font-family:var(--font-head);font-size:80px;color:var(--surface);opacity:.7}.sizing-card.total::after{color:#2e2e34}
+    .handoff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.handoff-card{display:flex;flex-direction:column;min-height:260px;padding:22px}.handoff-card .step-no{font-size:33px;color:#d8d3c7}.handoff-card h3{margin:22px 0 8px;font-size:21px;font-weight:400}.handoff-card p{margin:0;color:var(--ink-2);font-size:10.5px;line-height:1.7}.handoff-card ul{margin:14px 0 0;padding-left:17px;color:var(--ink-3);font-size:9px;line-height:1.7}.handoff-card a{align-self:flex-start;margin-top:auto;padding-top:20px;color:var(--purple);font-size:10px;font-weight:700;text-decoration:none}.handoff-card.primary{border-top:5px solid var(--yellow)}.handoff-card.growth{border-top:5px solid var(--mint)}.handoff-card.test{border-top:5px solid var(--coral)}
+    .decision-strip{display:grid;grid-template-columns:auto 1fr auto;gap:17px;align-items:center;margin-top:12px;border:2px solid var(--ink);background:var(--yellow);color:#171719;padding:19px 21px}.decision-strip .num{font-size:35px}.decision-strip b{display:block;font-family:var(--font-head);font-weight:400;font-size:17px}.decision-strip span{display:block;margin-top:3px;font-size:9.5px;line-height:1.5}.decision-strip a{border:1px solid #171719;background:#171719;color:#fff;padding:10px 13px;text-decoration:none;font-size:9.5px;white-space:nowrap}
+    .footer{display:flex;justify-content:space-between;gap:18px;border-top:1px solid var(--line);margin-top:54px;padding-top:15px;color:var(--ink-3);font-size:9px;line-height:1.55}.footer strong{font-family:var(--font-head);font-weight:400;color:var(--ink)}
+    @media(max-width:980px){.hero{grid-template-columns:1fr;padding:70px 38px 45px}.hero-radar{max-width:680px}.signal-grid{grid-template-columns:repeat(2,1fr)}.market-layout,.sizing-layout{grid-template-columns:1fr}.section-head{grid-template-columns:auto 1fr}.section-head>p{grid-column:1/-1;text-align:left;margin-left:59px}.handoff-grid{grid-template-columns:1fr 1fr}.handoff-card:last-child{grid-column:1/-1}}
+    @media(max-width:640px){.viz-root{padding:16px 12px 44px}.topbar{align-items:flex-start}.brand{font-size:13px}.top-actions{max-width:180px}.top-actions a,.top-actions button{min-height:40px;padding:7px 10px}.hero{min-height:0;padding:66px 20px 28px;box-shadow:7px 7px 0 var(--ink)}.hero::before{font-size:9px;padding:10px 12px}.hero::after{font-size:105px;bottom:-21px}.hero h1{font-size:37px}.hero .deck{font-size:12px}.hero-radar{transform:none;padding:18px;box-shadow:5px 5px 0 var(--yellow)}.radar-kpis{grid-template-columns:1fr 1fr}.radar-kpi{min-height:105px;padding:12px}.radar-kpi .kpi-value{font-size:25px}.flow-nav{grid-template-columns:1fr;margin-top:28px}.flow-nav a{min-height:0;padding:13px 14px 13px 58px}.flow-nav a:not(:last-child)::after{content:'↓';right:auto;left:24px;top:auto;bottom:-13px}.flow-nav .step-no{position:absolute;left:14px;top:14px}.section{padding-top:48px}.section-head{grid-template-columns:42px 1fr;align-items:start}.section-no{font-size:36px}.section-head h2{font-size:27px}.section-head>p{margin-left:0}.signal-grid{grid-template-columns:1fr}.signal-card{min-height:0}.rule-note{grid-template-columns:1fr}.concentration,.opportunity-map{padding:18px}.quadrant{min-height:350px}.bubble{font-size:7.5px}.table-wrap{display:none}.mobile-targets{display:grid;gap:8px}.mobile-target{border:1px solid var(--line);background:var(--card);padding:16px}.mobile-target header{display:flex;align-items:start;justify-content:space-between;gap:10px}.mobile-target h3{margin:0;font-size:17px;font-weight:400}.mobile-target .meta{margin:6px 0 0;color:var(--ink-3);font-size:8.5px;line-height:1.5}.mobile-target dl{display:grid;grid-template-columns:86px 1fr;gap:7px 9px;margin:15px 0 0;font-size:9px}.mobile-target dt{color:var(--ink-3)}.mobile-target dd{margin:0;color:var(--ink-2);line-height:1.55}.formula-row{grid-template-columns:1fr}.formula-op{text-align:center}.sizing-cards{grid-template-columns:1fr}.handoff-grid{grid-template-columns:1fr}.handoff-card:last-child{grid-column:auto}.handoff-card{min-height:230px}.decision-strip{grid-template-columns:auto 1fr}.decision-strip a{grid-column:1/-1;text-align:center;min-height:42px}.footer{flex-direction:column}.radar-head{align-items:start;flex-direction:column}}
+    @media(max-width:390px){.hero h1{font-size:33px}.radar-kpis{grid-template-columns:1fr}.quadrant{min-height:330px}.map-detail{grid-template-columns:1fr}.map-detail .num{font-size:20px}.share-row{grid-template-columns:78px 1fr 38px}}
+    @media print{.top-actions,.flow-nav{display:none}.viz-root{max-width:none;padding:0}.hero{box-shadow:none}.card,.hero{break-inside:avoid;box-shadow:none}.section{padding-top:32px}}
+  </style>
+</head>
+<body>
+<main class="viz-root">
+  <div class="topbar">
+    <div class="brand">CATEGORY <span>GROWTH STRATEGY</span> · PLATFORM MD FIELD OS</div>
+    <div class="top-actions"><a href="md-field-os.html">PLATFORM MD FIELD OS</a><button id="printBtn" type="button">프린트</button><button id="themeBtn" type="button">다크 모드</button></div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">EXTERNAL SIGNAL → CATEGORY ACTION</p>
+      <h1>시장의 빈칸을<br><span>영입·육성 기회로</span><br>바꿉니다</h1>
+      <p class="deck">경쟁 플랫폼의 판매자 등급·상품·리뷰·가격 같은 공개 신호와 우리 카테고리의 거래 구조를 함께 읽습니다. 잘 팔리는 셀러를 나열하는 데서 멈추지 않고, <b>누구를 영입하고 누구를 육성해야 거래액이 움직이는지</b> 우선순위와 실행 과제로 전환합니다.</p>
+      <div class="demo-badge">샘플 리테일 홈리빙 사업부 · 모든 브랜드와 수치는 가상</div>
+    </div>
+    <aside class="hero-radar" aria-label="가상 카테고리 기회 요약">
+      <p class="eyebrow">OPPORTUNITY RADAR</p>
+      <div class="radar-head"><h2>이번 분석이 찾은 기회</h2><span>2026년 3분기 가상 기준</span></div>
+      <div class="radar-kpis">
+        <div class="radar-kpi"><span class="kpi-value num">72%</span><b>상위 셀러 집중도</b><small>상위 20개 셀러가 카테고리 거래액에서 차지하는 비중</small></div>
+        <div class="radar-kpi"><span class="kpi-value num">18개</span><b>전략 영입 후보</b><small>외부 채널 체력은 높지만 현재 미입점인 우선 검토군</small></div>
+        <div class="radar-kpi"><span class="kpi-value num">12개</span><b>집중 육성 후보</b><small>입점했지만 외부 경쟁력 대비 내부 성과가 낮은 파트너</small></div>
+        <div class="radar-kpi"><span class="kpi-value num">24.6억</span><b>연간 기회 시나리오</b><small>영입·육성·구색 확장의 실현 가능 구간을 합산한 가상 값</small></div>
+      </div>
+      <div class="radar-foot">등급 자체가 결론은 아닙니다. 공개 신호는 후보를 찾는 출발점이고, 최종 우선순위는 카테고리 공백과 실행 가능성으로 결정합니다.</div>
+    </aside>
+  </header>
+
+  <nav class="flow-nav" aria-label="카테고리 성장 전략 단계">
+    <a href="#signals"><span class="step-no">01</span><b>시장 신호 수집</b><small>판매자·상품·고객의 공개 단서</small></a>
+    <a href="#map"><span class="step-no">02</span><b>공백 지도 작성</b><small>외부 강점과 내부 침투율 비교</small></a>
+    <a href="#targets"><span class="step-no">03</span><b>후보 우선순위</b><small>영입·육성·검증으로 분류</small></a>
+    <a href="#sizing"><span class="step-no">04</span><b>기회액 산정</b><small>가능성과 실현율을 분리</small></a>
+    <a href="#handoff"><span class="step-no">05</span><b>실행으로 전달</b><small>플레이북과 진척판 연결</small></a>
+  </nav>
+
+  <section class="section" id="signals">
+    <div class="section-head"><div class="section-no">01</div><div><p class="eyebrow">SIGNAL STACK</p><h2>외부 신호를 한 방향으로 읽습니다</h2></div><p>한 플랫폼의 등급만으로 셀러를 평가하지 않습니다. 채널 체력·상품력·고객 반응·운영 준비도를 여러 공개 신호로 교차 확인합니다.</p></div>
+    <div class="signal-grid">
+      <article class="signal-card card" data-no="N"><span class="tag">NAVER SIGNAL</span><h3>검색·판매자 체력</h3><p>판매자 등급과 검색 결과는 규모를 추정하는 시작점입니다. 검색어별 상위 상품을 비교해 실제 주력 SKU까지 확인합니다.</p><ul class="signal-list"><li>판매자 등급·우수 판매자 관련 공개 표시</li><li>검색어별 상위 노출·판매량순·리뷰 밀도</li><li>가격대·품절·프로모션 반복 패턴</li></ul></article>
+      <article class="signal-card card" data-no="C"><span class="tag">COUPANG SIGNAL</span><h3>거래·운영 경쟁력</h3><p>판매자 배지와 상품 단위 성과 신호를 통해 가격·배송·리뷰 운영 역량을 추정합니다.</p><ul class="signal-list"><li>파워판매자 등 공개 판매자 신호</li><li>아이템 단위 가격·배송·리뷰 경쟁력</li><li>베스트 상품과 구색 폭의 일관성</li></ul></article>
+      <article class="signal-card card" data-no="D"><span class="tag">D2C SIGNAL</span><h3>자사몰 상품 전략</h3><p>자사몰은 브랜드가 무엇을 주력으로 밀고 어떤 고객을 확보하려는지 보여주는 가장 직접적인 단서입니다.</p><ul class="signal-list"><li>SKU 수·베스트 상품·신상품 주기</li><li>회원 혜택·콘텐츠·리뷰·재구매 장치</li><li>채널별 가격 충돌과 독점 구색 가능성</li></ul></article>
+      <article class="signal-card card" data-no="M"><span class="tag">MARKET SIGNAL</span><h3>카테고리 성장성</h3><p>셀러가 좋아 보여도 우리 고객과 카테고리 방향에 맞지 않으면 우선순위가 아닙니다.</p><ul class="signal-list"><li>검색·SNS·오프라인 유통망의 성장 신호</li><li>우리 고객의 검색·장바구니·미구매 수요</li><li>경쟁 플랫폼 입점과 상품 구성 변화</li></ul></article>
+    </div>
+    <div class="rule-note"><b>등급 활용 원칙</b><span>월 거래액·최근 3개월 거래액·판매자 점수·아이템 관련 비율 같은 임계값은 <strong>후보 탐색용 내부 스크리닝 예시</strong>로만 사용합니다. 플랫폼의 등급 명칭과 조건은 바뀔 수 있으므로 실제 분석 시 기준일과 공식 최신 조건을 반드시 다시 확인합니다.</span></div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="section-head"><div class="section-no">02</div><div><p class="eyebrow">CATEGORY GAP MAP</p><h2>잘하는 셀러가 아니라 필요한 셀러를 찾습니다</h2></div><p>거래액 집중 구조와 외부 채널 체력을 함께 보면 영입 대상, 육성 대상, 검증 대상이 서로 다른 이유가 선명해집니다.</p></div>
+    <div class="market-layout">
+      <article class="concentration card">
+        <h3>카테고리 거래 집중 구조</h3><p>샘플 리테일 홈리빙 사업부의 가상 연간 거래액 기준</p>
+        <div class="share-row"><b>상위 10개 셀러</b><div class="track"><span style="width:54%"></span></div><em>54%</em></div>
+        <div class="share-row"><b>상위 20개 셀러</b><div class="track"><span style="width:72%"></span></div><em>72%</em></div>
+        <div class="share-row"><b>상위 40개 셀러</b><div class="track"><span style="width:86%"></span></div><em>86%</em></div>
+        <div class="concentration-callout"><strong>먼저 상위 거래 구조를 움직입니다</strong>후보 수가 많아도 거래액을 움직이는 지점은 제한적입니다. 상위 셀러의 미입점·저침투 구간을 먼저 찾고, 롱테일은 구색 완성 과제로 분리합니다.</div>
+      </article>
+      <article class="opportunity-map card">
+        <h3>외부 채널 체력 × 내부 침투율</h3><p>원을 누르면 후보별 판단과 가상 기회액을 확인할 수 있습니다.</p>
+        <div class="quadrant" id="quadrant" aria-label="셀러 기회 사분면">
+          <span class="axis y">외부 채널 체력 ↑</span><span class="axis x">내부 침투율 →</span>
+          <span class="zone-label z1">유지·확장</span><span class="zone-label z2">전략 영입</span><span class="zone-label z3">운영 개선</span><span class="zone-label z4">검증·관찰</span>
+          <button class="bubble on" type="button" style="left:25%;top:20%;--size:72px" data-name="온담리빙" data-type="전략 영입" data-desc="외부 상위 상품과 리뷰 체력은 높지만 현재 미입점입니다. 핵심 SKU 파일럿이 우선입니다." data-gmv="4.8억">온담<br>리빙</button>
+          <button class="bubble" type="button" style="left:38%;top:31%;--size:62px" data-name="소담팩토리" data-type="전략 영입" data-desc="가격 경쟁력과 배송 준비도가 확인된 미입점 후보입니다. POC 확보 후 제안서로 전달합니다." data-gmv="3.7억">소담<br>팩토리</button>
+          <button class="bubble grow" type="button" style="left:66%;top:28%;--size:68px" data-name="모노하우스" data-type="집중 육성" data-desc="입점은 완료됐지만 외부 베스트 SKU의 내부 노출과 리뷰가 부족합니다. 구색·노출 처방이 필요합니다." data-gmv="2.9억">모노<br>하우스</button>
+          <button class="bubble grow" type="button" style="left:78%;top:39%;--size:58px" data-name="베러키친" data-type="집중 육성" data-desc="내부 침투율은 중간 수준입니다. 히어로 상품과 재구매 구조를 검증하면 확장 여력이 있습니다." data-gmv="2.2억">베러<br>키친</button>
+          <button class="bubble validate" type="button" style="left:30%;top:73%;--size:55px" data-name="리프앤라이트" data-type="검증 대상" data-desc="시장 반응은 성장 중이지만 절대 규모가 작습니다. 6주 상품 테스트 후 확대 여부를 결정합니다." data-gmv="1.8억">리프&amp;<br>라이트</button>
+          <button class="bubble" type="button" style="left:85%;top:19%;--size:64px" data-name="데일리홈" data-type="유지·확장" data-desc="외부와 내부 모두 강한 핵심 파트너입니다. 공동 기획과 인접 카테고리 확장 대상으로 관리합니다." data-gmv="1.4억">데일리<br>홈</button>
+        </div>
+        <div class="map-detail" id="mapDetail"><div><b>온담리빙 · 전략 영입</b><p>외부 상위 상품과 리뷰 체력은 높지만 현재 미입점입니다. 핵심 SKU 파일럿이 우선입니다.</p></div><span class="num">+4.8억</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="targets">
+    <div class="section-head"><div class="section-no">03</div><div><p class="eyebrow">TARGET PRIORITY LAB</p><h2>후보를 영입·육성·검증으로 나눕니다</h2></div><p>외부 규모가 크다는 이유만으로 A등급이 되지 않습니다. 카테고리 적합도, 현재 공백, 실행 가능성과 예상 효과를 함께 평가합니다.</p></div>
+    <div class="target-controls" role="tablist" aria-label="후보 유형 필터"><button class="tab on" type="button" data-filter="all" aria-selected="true">전체 6개</button><button class="tab" type="button" data-filter="acquire" aria-selected="false">전략 영입 2개</button><button class="tab" type="button" data-filter="grow" aria-selected="false">집중 육성 2개</button><button class="tab" type="button" data-filter="validate" aria-selected="false">검증·확장 2개</button></div>
+    <div class="table-wrap"><table><thead><tr><th>가상 후보</th><th>외부 근거</th><th>내부 공백</th><th>판단</th><th>가상 연간 기회</th><th>우선순위</th><th>다음 입력값</th></tr></thead><tbody id="targetBody"></tbody></table></div>
+    <div class="mobile-targets" id="mobileTargets"></div>
+  </section>
+
+  <section class="section" id="sizing">
+    <div class="section-head"><div class="section-no">04</div><div><p class="eyebrow">OPPORTUNITY SIZING</p><h2>가능성과 약속을 분리해 계산합니다</h2></div><p>외부 매출을 그대로 가져오지 않습니다. 우리 고객·구색·가격·운영 조건에서 실제로 실현 가능한 구간만 시나리오로 산정합니다.</p></div>
+    <div class="sizing-layout">
+      <article class="formula card"><h3>기회액 산정의 기본식</h3><div class="formula-row"><div class="formula-item"><b>MARKET PROOF</b><span>외부 채널에서 확인된 상품·판매·고객 체력</span></div><div class="formula-op">×</div><div class="formula-item"><b>CATEGORY GAP</b><span>우리 플랫폼의 미입점·저침투·미구매 공백</span></div><div class="formula-op">×</div><div class="formula-item"><b>REALIZATION</b><span>가격·재고·연동·POC·실행 난이도를 반영한 실현율</span></div></div><p class="formula-note">기회액은 목표를 정당화하기 위한 확정 매출이 아니라 우선순위를 비교하는 의사결정 시나리오입니다. 실제 계획에는 보수·기준·도전 구간을 함께 둡니다.</p></article>
+      <div class="sizing-cards">
+        <article class="sizing-card card" data-no="A"><span class="tag">ACQUISITION</span><span class="kpi-value num">12.4억</span><p>미입점 상위 후보의 핵심 SKU를 파일럿한 뒤 확장하는 기준 시나리오</p></article>
+        <article class="sizing-card card" data-no="G"><span class="tag">GROWTH</span><span class="kpi-value num">8.1억</span><p>입점 파트너의 구색·노출·리뷰·재구매 공백을 개선하는 시나리오</p></article>
+        <article class="sizing-card card" data-no="S"><span class="tag">SELECTION</span><span class="kpi-value num">4.1억</span><p>고객 검색과 미구매 수요를 채우는 상품군·가격대 확장 시나리오</p></article>
+        <article class="sizing-card card total" data-no="Σ"><span class="tag">BASE SCENARIO</span><span class="kpi-value num">24.6억</span><p>중복 효과를 제외한 연간 기준 기회액. 모든 수치는 설명용 가상 값입니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="handoff">
+    <div class="section-head"><div class="section-no">05</div><div><p class="eyebrow">DECISION HANDOFF</p><h2>분석을 다음 실행 화면으로 넘깁니다</h2></div><p>좋은 분석은 보고서에서 끝나지 않습니다. 후보 유형에 따라 필요한 다음 행동과 운영 화면이 달라집니다.</p></div>
+    <div class="handoff-grid">
+      <article class="handoff-card card primary"><span class="step-no">A</span><h3>전략 영입 후보</h3><p>상위 후보의 업체 니즈와 키맨을 찾고, 우리 플랫폼에서 성장해야 할 장기 명분을 설계합니다.</p><ul><li>후보별 WHY YOU·WHY US 정리</li><li>Decision Maker·Champion·Gatekeeper 지도</li><li>예상 블로커와 내부 협업 부서 지정</li></ul><a href="seller-acquisition-playbook.html">입점 전략 플레이북으로 →</a></article>
+      <article class="handoff-card card growth"><span class="step-no">G</span><h3>집중 육성 후보</h3><p>3년 거래·상품·고객·리뷰 데이터를 진단해 이탈 복귀와 90일 성장 처방으로 연결합니다.</p><ul><li>외부 베스트 대비 내부 SKU 공백</li><li>노출·전환·리뷰·재구매 원인 분해</li><li>셀러와 합의할 공동 실행안 작성</li></ul><a href="partner-growth-playbook.html">파트너 성장 플레이북으로 →</a></article>
+      <article class="handoff-card card test"><span class="step-no">V</span><h3>검증·관찰 후보</h3><p>전체 입점이나 대규모 투자를 약속하지 않고 작은 상품 테스트로 수요와 운영 가능성을 확인합니다.</p><ul><li>핵심 SKU와 목표 고객 한정</li><li>6주 검증 지표와 중단 기준 설정</li><li>결과에 따라 영입·육성·보류로 재분류</li></ul><a href="brand-pipeline-progress.html">셀러 생애주기 진척판으로 →</a></article>
+    </div>
+    <div class="decision-strip"><span class="num">NEXT</span><div><b>카테고리 공백이 영입·육성 파이프라인의 입력값이 됩니다</b><span>후보·근거·기회액·다음 행동을 함께 전달해 담당자가 바뀌어도 같은 기준으로 실행합니다.</span></div><a href="md-field-os.html">OS 전체 흐름으로 돌아가기 →</a></div>
+  </section>
+
+  <footer class="footer"><strong>Category Growth Strategy OS · PLATFORM MD FIELD OS</strong><span>샘플 리테일 홈리빙 사업부의 가상 자료 · 실제 회사·브랜드·셀러·수치·플랫폼 내부 자료와 무관</span></footer>
+</main>
+<script>
+  const root=document.documentElement;
+  const themeBtn=document.getElementById('themeBtn');
+  themeBtn.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';themeBtn.textContent=root.dataset.theme==='dark'?'라이트 모드':'다크 모드'});
+  document.getElementById('printBtn').addEventListener('click',()=>window.print());
+
+  document.querySelectorAll('.bubble').forEach(button=>button.addEventListener('click',()=>{
+    document.querySelectorAll('.bubble').forEach(item=>item.classList.remove('on'));
+    button.classList.add('on');
+    document.getElementById('mapDetail').innerHTML=`<div><b>${button.dataset.name} · ${button.dataset.type}</b><p>${button.dataset.desc}</p></div><span class="num">+${button.dataset.gmv}</span>`;
+  }));
+
+  const targets=[
+    {group:'acquire',name:'온담리빙',cat:'수납·정리',evidence:'네이버 상위 등급 신호 · 리뷰 밀도 높음',gap:'미입점 · 중가 수납 구색 공백',type:'전략 영입',gmv:'4.8억',priority:'A1',next:'키맨 POC·핵심 12 SKU 파일럿'},
+    {group:'acquire',name:'소담팩토리',cat:'주방용품',evidence:'쿠팡 판매자 신호 · 가격·배송 경쟁력',gap:'미입점 · 실속형 조리도구 공백',type:'전략 영입',gmv:'3.7억',priority:'A2',next:'가격 충돌·재고 연동 조건 확인'},
+    {group:'grow',name:'모노하우스',cat:'홈데코',evidence:'외부 베스트 5개 SKU 리뷰 성장',gap:'입점 · 베스트 SKU 3개 미운영',type:'집중 육성',gmv:'2.9억',priority:'A3',next:'구색 확대·첫 리뷰 100건 계획'},
+    {group:'grow',name:'베러키친',cat:'주방용품',evidence:'자사몰 재구매·세트 상품 강점',gap:'입점 · 단품 중심·재구매 낮음',type:'집중 육성',gmv:'2.2억',priority:'B1',next:'세트 구성·재구매 쿠폰 검증'},
+    {group:'validate',name:'리프앤라이트',cat:'조명·인테리어',evidence:'검색·SNS 성장 · 절대 규모는 중간',gap:'미입점 · 디자인 조명 공백',type:'검증 대상',gmv:'1.8억',priority:'B2',next:'6주 8 SKU 수요 테스트'},
+    {group:'validate',name:'데일리홈',cat:'생활용품',evidence:'외부·내부 모두 상위권',gap:'입점 · 인접 카테고리 확장 여지',type:'유지·확장',gmv:'1.4억',priority:'B3',next:'공동 기획·인접 카테고리 제안'}
+  ];
+  function pillClass(group){return group==='grow'?'grow':group==='validate'?'validate':''}
+  function renderTargets(filter){
+    const rows=filter==='all'?targets:targets.filter(item=>item.group===filter);
+    document.getElementById('targetBody').innerHTML=rows.map(item=>`<tr><td><strong>${item.name}</strong><small>${item.cat} · 가상 셀러</small></td><td>${item.evidence}</td><td>${item.gap}</td><td><span class="pill ${pillClass(item.group)}">${item.type}</span></td><td class="score"><b class="num">+${item.gmv}</b><span>연간 기준 시나리오</span></td><td class="priority">${item.priority}</td><td>${item.next}</td></tr>`).join('');
+    document.getElementById('mobileTargets').innerHTML=rows.map(item=>`<article class="mobile-target"><header><div><h3>${item.name}</h3><p class="meta">${item.cat} · 가상 셀러</p></div><span class="pill ${pillClass(item.group)}">${item.type}</span></header><dl><dt>외부 근거</dt><dd>${item.evidence}</dd><dt>내부 공백</dt><dd>${item.gap}</dd><dt>기회 시나리오</dt><dd><b class="num">+${item.gmv}</b> · ${item.priority}</dd><dt>다음 입력값</dt><dd>${item.next}</dd></dl></article>`).join('');
+  }
+  document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
+    document.querySelectorAll('[data-filter]').forEach(item=>{item.classList.remove('on');item.setAttribute('aria-selected','false')});
+    button.classList.add('on');button.setAttribute('aria-selected','true');renderTargets(button.dataset.filter);
+  }));
+  renderTargets('all');
+</script>
+</body>
+</html>
