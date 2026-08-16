@@ -4,5 +4,6 @@
 
 - Method: BUILD YOUR WORK OS
 - Complete Case: MD FIELD OS
+- Retail Case: RETAIL MD FIELD OS
 - Personal Career Page: PORTFOLIO
 - Created by CommerceLab

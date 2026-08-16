@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="상권·고객 진단부터 브랜드 소싱, 공간 조닝, 평효율 관리와 리뉴얼까지 연결한 백화점·아울렛 유통 MD 운영체계">
+<title>RETAIL MD FIELD OS</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:'BMDOHYEON';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');font-weight:normal;font-style:normal;font-display:swap}
+:root{--font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--bg:#f2efe8;--paper:#fffdf8;--ink:#18211d;--ink-2:#52605a;--ink-3:#7a857f;--line:#d9d5ca;--forest:#164c3b;--forest-2:#236c54;--sage:#dce8dc;--gold:#e4b93f;--gold-soft:#fff1b5;--coral:#d9644a;--blue:#32677c;--shadow:rgba(32,42,37,.10)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink)}
+.viz-root{min-height:100vh;font-family:var(--font);font-variant-numeric:tabular-nums;padding:18px 22px 52px}
+.viz-root *{box-sizing:border-box;font-family:inherit;word-break:keep-all;overflow-wrap:break-word}
+.viz-root h1,.viz-root h2,.viz-root h3,.viz-root .eyebrow,.viz-root .tab,.viz-root .num,.viz-root .brand,.viz-root .stage-no,.viz-root .metric-value{font-family:var(--font-head)}
+.viz-root h2 .chip,.viz-root h3 .chip{font-family:var(--font)}
+a{color:inherit}
+button{font:inherit}
+.shell{width:min(1280px,100%);margin:0 auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+.brand{font-size:16px;letter-spacing:.035em}.brand span{color:var(--forest-2)}
+.top-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.top-link,.theme-toggle{display:inline-flex;align-items:center;min-height:36px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink-2);padding:7px 12px;text-decoration:none;font-size:11px;cursor:pointer}
+.top-link:hover,.theme-toggle:hover{border-color:var(--forest-2);color:var(--forest-2)}
+.hero{position:relative;overflow:hidden;display:grid;grid-template-columns:1.06fr .94fr;gap:34px;min-height:530px;border-radius:28px;background:var(--forest);color:#fff;padding:56px}
+.hero::before{content:'';position:absolute;right:-80px;top:-140px;width:470px;height:470px;border:92px solid rgba(228,185,63,.13);border-radius:50%}
+.hero::after{content:'㎡';position:absolute;right:38px;bottom:-58px;font-family:var(--font-head);font-size:250px;line-height:1;color:rgba(255,255,255,.035)}
+.hero-copy,.floor-card{position:relative;z-index:2}
+.hero-copy{align-self:center}
+.eyebrow{margin:0 0 12px;color:#f5d875;font-size:12px;letter-spacing:.08em}
+.hero h1{max-width:680px;margin:0;font-size:clamp(42px,6vw,72px);font-weight:400;line-height:1.05;letter-spacing:-.035em}
+.hero h1 .highlight{display:inline;background:linear-gradient(transparent 64%,var(--gold) 64% 93%,transparent 93%);color:#fff}
+.hero-deck{max-width:650px;margin:24px 0 0;color:#d8e3dd;font-size:14px;line-height:1.82;text-wrap:pretty}
+.hero-audience{display:inline-flex;align-items:center;margin-top:20px;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 11px;color:#e4eee8;font-size:10px;line-height:1.4}
+.hero-audience::before{content:'FOR';margin-right:8px;font-family:var(--font-head);color:#f5d875}
+.hero-signal{display:flex;align-items:flex-end;gap:11px;margin-top:22px}.hero-signal .num{color:#f5d875;font-size:36px;line-height:.9}.hero-signal small{max-width:200px;color:#bcd0c5;font-size:10px;line-height:1.45}
+.floor-card{align-self:center;border:1px solid rgba(255,255,255,.2);border-radius:22px;background:rgba(255,255,255,.08);padding:19px;backdrop-filter:blur(8px)}
+.floor-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.floor-head b{font-family:var(--font-head);font-size:16px;font-weight:400}.floor-head small{color:#bad0c4;font-size:9px}
+.floorplan{display:grid;grid-template-columns:1.35fr .8fr 1.05fr;grid-template-rows:92px 92px 82px;gap:7px;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:#0f3d2f;padding:8px}
+.zone{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-width:0;border-radius:10px;padding:12px;background:#2b6a53;color:#fff;overflow:hidden}.zone::after{content:'';position:absolute;inset:auto -12px -20px auto;width:60px;height:60px;border:16px solid rgba(255,255,255,.07);border-radius:50%}.zone b{font-family:var(--font-head);font-size:12px;font-weight:400}.zone span{font-size:9px;color:#d9e8df}.zone .metric-value{font-size:20px;color:#fff}.zone-a{grid-row:1 / 3;background:#d6a936;color:#18211d}.zone-a span{color:#4a4430}.zone-b{grid-column:2 / 4;background:#3b7864}.zone-c{grid-column:2;grid-row:2 / 4;background:#e9dfba;color:#18211d}.zone-c span{color:#68614a}.zone-d{grid-column:3;grid-row:2 / 4;background:#235844}.floor-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.legend-item{border-radius:10px;background:rgba(255,255,255,.08);padding:9px}.legend-item b{display:block;font-family:var(--font-head);font-size:15px;font-weight:400;color:#f5d875}.legend-item span{display:block;margin-top:2px;color:#bcd0c5;font-size:8.5px;line-height:1.35}
+.premise{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px;padding:36px 6px 28px;border-bottom:1px solid var(--line)}
+.premise h2{margin:0;font-size:30px;font-weight:400;line-height:1.28}.premise h2 span{color:var(--forest-2)}
+.premise-copy{display:grid;grid-template-columns:1fr 1fr;gap:12px}.premise-card{border-left:4px solid var(--gold);background:var(--paper);padding:18px}.premise-card b{display:block;font-family:var(--font-head);font-size:15px;font-weight:400}.premise-card p{margin:8px 0 0;color:var(--ink-2);font-size:11px;line-height:1.75}
+.section{padding-top:42px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:16px}.section-head .eyebrow{margin-bottom:5px;color:var(--forest-2)}.section-head h2{margin:0;font-size:34px;font-weight:400;line-height:1.2}.section-head p{max-width:570px;margin:0;color:var(--ink-2);font-size:11.5px;line-height:1.75;text-align:right}
+.stage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stage{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;min-height:100px;border:1px solid var(--line);border-radius:15px;background:var(--paper);padding:15px;text-align:left;color:var(--ink);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}.stage:hover{transform:translateY(-3px);border-color:var(--forest-2);box-shadow:0 8px 22px var(--shadow)}.stage[aria-selected="true"]{border-color:var(--forest);background:var(--forest);color:#fff;box-shadow:0 10px 28px rgba(22,76,59,.19)}.stage-no{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;color:var(--forest-2);font-size:14px}.stage[aria-selected="true"] .stage-no{border-color:#f5d875;background:#f5d875;color:var(--forest)}.stage b{display:block;font-family:var(--font-head);font-size:15px;font-weight:400;line-height:1.35}.stage small{display:block;margin-top:4px;color:var(--ink-3);font-size:9px;line-height:1.45}.stage[aria-selected="true"] small{color:#bfd2c7}
+.stage-detail{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;margin-top:12px;border:1px solid var(--line);border-radius:20px;background:var(--paper);overflow:hidden;box-shadow:0 5px 18px var(--shadow)}
+.detail-lead{position:relative;overflow:hidden;background:#18211d;color:#fff;padding:34px}.detail-lead::after{content:attr(data-step);position:absolute;right:-8px;bottom:-24px;font-family:var(--font-head);font-size:150px;color:rgba(255,255,255,.045)}.detail-lead .eyebrow{position:relative;z-index:2}.detail-lead h3{position:relative;z-index:2;margin:0;font-size:31px;font-weight:400;line-height:1.22}.detail-lead p{position:relative;z-index:2;margin:14px 0 0;color:#c8d2cc;font-size:12px;line-height:1.78}.detail-output{position:relative;z-index:2;margin-top:24px;border-top:1px solid #3a443f;padding-top:14px}.detail-output span{display:block;color:#f5d875;font-family:var(--font-head);font-size:10px;letter-spacing:.06em}.detail-output b{display:block;margin-top:5px;font-size:13px;line-height:1.5}
+.detail-body{display:grid;grid-template-columns:1fr 1fr;gap:0}.detail-block{padding:28px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.detail-block:nth-child(even){border-right:0}.detail-block:nth-child(n+3){border-bottom:0}.detail-block h4{margin:0 0 11px;color:var(--forest-2);font-family:var(--font-head);font-size:13px;font-weight:400;letter-spacing:.035em}.detail-block ul{margin:0;padding:0;list-style:none}.detail-block li{position:relative;margin-top:7px;padding-left:12px;color:var(--ink-2);font-size:10.5px;line-height:1.65}.detail-block li:first-child{margin-top:0}.detail-block li::before{content:'';position:absolute;left:0;top:.72em;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.score-grid{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}.score-card{min-width:0;border-right:1px solid var(--line);padding:23px 20px}.score-card:last-child{border-right:0}.score-card .metric-value{display:block;color:var(--forest-2);font-size:26px;line-height:1}.score-card b{display:block;margin-top:10px;font-size:11px}.score-card p{margin:6px 0 0;color:var(--ink-3);font-size:9px;line-height:1.55}.formula{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin-top:12px;border-radius:17px;background:#18211d;color:#fff;padding:22px}.formula-item{text-align:center}.formula-item b{display:block;font-family:var(--font-head);font-size:18px;font-weight:400;color:#f5d875}.formula-item span{display:block;margin-top:5px;color:#aebbb4;font-size:9px}.formula-op{font-family:var(--font-head);font-size:22px;color:#6f7d76}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.role-card{position:relative;min-height:185px;border-radius:18px;background:var(--paper);border:1px solid var(--line);padding:24px;overflow:hidden}.role-card::after{content:attr(data-code);position:absolute;right:14px;bottom:-18px;font-family:var(--font-head);font-size:90px;color:#f0ede5}.role-card>*{position:relative;z-index:2}.role-card .role-label{color:var(--forest-2);font-family:var(--font-head);font-size:10px;letter-spacing:.05em}.role-card h3{margin:10px 0 7px;font-size:22px;font-weight:400}.role-card p{max-width:430px;margin:0;color:var(--ink-2);font-size:11px;line-height:1.7}.role-card .role-kpi{display:flex;flex-wrap:wrap;gap:5px;margin-top:15px}.role-card .role-kpi span{border:1px solid var(--line);border-radius:999px;padding:4px 8px;color:var(--ink-3);font-size:8.5px}
+.decision-table{margin-top:12px;border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}.decision-row{display:grid;grid-template-columns:120px .8fr 1.2fr;align-items:center;border-bottom:1px solid var(--line)}.decision-row:last-child{border-bottom:0}.decision-row>*{padding:16px 18px}.decision-row .tab{color:var(--forest-2);font-size:14px}.decision-row b{font-size:11px}.decision-row p{margin:0;color:var(--ink-2);font-size:10px;line-height:1.6}
+.closing{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:center;border-radius:24px;background:var(--forest);color:#fff;padding:38px}.closing h2{margin:0;font-size:36px;font-weight:400;line-height:1.2}.closing p{margin:14px 0 0;color:#cfddd5;font-size:12px;line-height:1.8}.closing-loop{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.closing-loop span{display:grid;place-items:center;min-height:72px;border:1px solid rgba(255,255,255,.16);border-radius:12px;text-align:center;color:#e7efe9;font-family:var(--font-head);font-size:11px;line-height:1.4}.closing-loop span:nth-child(2),.closing-loop span:nth-child(5){background:var(--gold);color:var(--forest)}
+.footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:34px;padding:16px 4px 0;color:var(--ink-3);font-size:9.5px;line-height:1.6}
+:root[data-theme="dark"]{--bg:#121713;--paper:#1b221e;--ink:#fff;--ink-2:#c7d0cb;--ink-3:#909b95;--line:#364039;--sage:#24342b;--gold-soft:#4c4121;--shadow:rgba(0,0,0,.25)}
+:root[data-theme="dark"] .zone-c{background:#776d46;color:#fff}:root[data-theme="dark"] .zone-c span{color:#ddd5b6}:root[data-theme="dark"] .role-card::after{color:#242c27}
+@media(max-width:980px){.hero{grid-template-columns:1fr;padding:42px 36px}.floor-card{width:100%;max-width:720px}.premise{grid-template-columns:1fr}.stage-detail{grid-template-columns:1fr}.score-grid{grid-template-columns:repeat(3,1fr)}.score-card:nth-child(3){border-right:0}.score-card:nth-child(-n+3){border-bottom:1px solid var(--line)}.closing{grid-template-columns:1fr}}
+@media(max-width:720px){.viz-root{padding:14px 11px 42px}.topbar{align-items:flex-start}.brand{padding-top:8px}.hero{min-height:0;padding:30px 20px;border-radius:21px}.hero h1{font-size:36px}.hero-deck{font-size:12px}.floorplan{grid-template-columns:1.2fr .85fr;grid-template-rows:86px 86px 78px}.zone-a{grid-row:1 / 3}.zone-b{grid-column:2;grid-row:1}.zone-c{grid-column:2;grid-row:2}.zone-d{grid-column:1 / 3;grid-row:3}.floor-legend{grid-template-columns:1fr}.premise{padding-top:28px}.premise-copy{grid-template-columns:1fr}.section{padding-top:32px}.section-head{display:block}.section-head p{margin-top:8px;text-align:left}.stage-grid{grid-template-columns:1fr}.stage{min-height:86px}.detail-lead{padding:27px 22px}.detail-lead h3{font-size:27px}.detail-body{grid-template-columns:1fr}.detail-block,.detail-block:nth-child(even){border-right:0;border-bottom:1px solid var(--line);padding:22px}.detail-block:last-child{border-bottom:0}.score-grid{grid-template-columns:1fr 1fr}.score-card,.score-card:nth-child(3){border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.score-card:nth-child(even){border-right:0}.score-card:last-child{grid-column:1 / -1;border-right:0;border-bottom:0}.formula{grid-template-columns:1fr;padding:19px}.formula-op{transform:rotate(90deg);text-align:center}.portfolio-grid{grid-template-columns:1fr}.decision-row{grid-template-columns:86px 1fr}.decision-row p{grid-column:1 / -1;border-top:1px solid var(--line)}.closing{padding:28px 21px}.closing h2{font-size:30px}.footer{flex-direction:column}}
+@media(max-width:390px){.hero h1{font-size:32px}.top-actions{gap:5px}.top-link,.theme-toggle{padding:7px 9px;font-size:9px}.floor-card{padding:14px}.stage b{font-size:14px}.closing-loop{grid-template-columns:1fr 1fr}.section-head h2{font-size:30px}}
+@media print{.top-actions{display:none}.viz-root{padding:0}.hero,.closing,.detail-lead,.formula{-webkit-print-color-adjust:exact;print-color-adjust:exact}.stage,.role-card,.score-card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main class="viz-root">
+<div class="shell">
+  <div class="topbar"><div class="brand">RETAIL MD FIELD <span>OS</span></div><div class="top-actions"><a class="top-link" href="md-field-os.html">PLATFORM MD OS</a><button class="theme-toggle" id="themeBtn" type="button">다크 모드</button></div></div>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">DEPARTMENT STORE · OUTLET · STORE PORTFOLIO</p>
+      <h1>브랜드를 채우는 일이 아니라<br><span class="highlight">점포의 미래를 설계합니다.</span></h1>
+      <p class="hero-deck">백화점·아울렛 유통 MD는 한정된 공간에 어떤 브랜드와 콘텐츠를 배치할지 결정합니다. 상권과 고객을 읽고, 브랜드를 발굴하고, 조닝과 계약을 설계해 평효율과 점포 경쟁력을 함께 높이는 운영체계입니다.</p>
+      <div class="hero-audience">백화점·아울렛 유통 MD · 점포 리더 · 브랜드 파트너</div>
+      <div class="hero-signal"><span class="num">9 STAGES</span><small>상권 진단부터 리뉴얼·퇴점까지 연결한 점포 성장 구조</small></div>
+    </div>
+    <div class="floor-card" aria-label="가상 점포 평효율 지도">
+      <div class="floor-head"><b>FLOOR PRODUCTIVITY MAP</b><small>샘플 홈리빙관 · 월 기준</small></div>
+      <div class="floorplan">
+        <div class="zone zone-a"><b>A · TRAFFIC</b><span>집객 콘텐츠</span><strong class="metric-value">148%</strong></div>
+        <div class="zone zone-b"><b>B · CORE</b><span>평효율 핵심</span><strong class="metric-value">121%</strong></div>
+        <div class="zone zone-c"><b>C · TEST</b><span>신규 브랜드</span><strong class="metric-value">87%</strong></div>
+        <div class="zone zone-d"><b>D · IMAGE</b><span>점포 이미지·연관구매</span><strong class="metric-value">+18%</strong></div>
+      </div>
+      <div class="floor-legend"><div class="legend-item"><b>평효율</b><span>면적당 매출 생산성</span></div><div class="legend-item"><b>집객력</b><span>신규 고객과 체류 유입</span></div><div class="legend-item"><b>파급효과</b><span>인접 매장·층 전체 기여</span></div></div>
+    </div>
+  </header>
+
+  <section class="premise">
+    <h2>매출만 보는 것이 아니라<br><span>공간의 역할을 읽습니다.</span></h2>
+    <div class="premise-copy"><div class="premise-card"><b>한정된 면적은 가장 비싼 자원</b><p>같은 매출이라도 더 적은 면적에서 만드는 브랜드가 점포 생산성에 더 크게 기여합니다.</p></div><div class="premise-card"><b>좋은 콘텐츠는 주변까지 성장</b><p>집객·이미지·연관 구매를 만드는 브랜드는 단독 매출 이상의 전략적 가치가 있습니다.</p></div></div>
+  </section>
+
+  <section class="section" id="journey">
+    <div class="section-head"><div><p class="eyebrow">RETAIL OPERATING JOURNEY</p><h2>유통 MD의 9단계 운영체계</h2></div><p>단계를 선택하면 핵심 판단과 질문, 지표, 산출물이 한 화면에서 연결됩니다. 실제 조직에서는 점포와 카테고리 특성에 맞게 기준값을 조정합니다.</p></div>
+    <div class="stage-grid" role="tablist" aria-label="유통 MD 운영 단계">
+      <button class="stage tab" type="button" role="tab" aria-selected="true" data-stage="0"><span class="stage-no">01</span><span><b>상권·고객 진단</b><small>누가 왜 이 점포를 찾는가</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="1"><span class="stage-no">02</span><span><b>점포·카테고리 진단</b><small>공간의 공백과 비효율 찾기</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="2"><span class="stage-no">03</span><span><b>브랜드·콘텐츠 소싱</b><small>트렌드와 성장 후보 발굴</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="3"><span class="stage-no">04</span><span><b>입점 제안·협상</b><small>입점해야 할 장기적 이유 설계</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="4"><span class="stage-no">05</span><span><b>계약·손익 설계</b><small>조건과 기대 수익의 균형</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="5"><span class="stage-no">06</span><span><b>조닝·공간 구성</b><small>동선과 인접 시너지 설계</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="6"><span class="stage-no">07</span><span><b>오픈·초기 안착</b><small>첫 4주의 고객 반응 관리</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="7"><span class="stage-no">08</span><span><b>평효율·경쟁력 관리</b><small>매출과 전략적 역할 동시 측정</small></span></button>
+      <button class="stage tab" type="button" role="tab" aria-selected="false" data-stage="8"><span class="stage-no">09</span><span><b>리뉴얼·재계약·퇴점</b><small>다음 점포 개편으로 학습 연결</small></span></button>
+    </div>
+    <article class="stage-detail" id="stageDetail" aria-live="polite">
+      <div class="detail-lead" id="detailLead" data-step="01"><p class="eyebrow" id="detailEyebrow">MARKET &amp; CUSTOMER</p><h3 id="detailTitle">상권·고객 진단</h3><p id="detailSummary">점포의 현재 고객과 놓치고 있는 고객을 구분하고, 카테고리가 해결해야 할 방문 목적을 정의합니다.</p><div class="detail-output"><span>OUTPUT</span><b id="detailOutput">상권·고객 기회 지도</b></div></div>
+      <div class="detail-body">
+        <div class="detail-block"><h4>KEY DECISION</h4><ul id="decisionList"><li>누구를 더 데려오고 어떤 방문 이유를 강화할 것인가</li><li>점포가 경쟁점과 다르게 가져갈 고객 약속은 무엇인가</li></ul></div>
+        <div class="detail-block"><h4>QUESTIONS</h4><ul id="questionList"><li>배후 상권의 연령·가구·소비력은 어떻게 변하는가</li><li>평일·주말과 시간대별 방문 목적은 무엇인가</li><li>경쟁점에 있고 우리 점포에 없는 콘텐츠는 무엇인가</li></ul></div>
+        <div class="detail-block"><h4>METRICS</h4><ul id="metricList"><li>유입 고객·신규 고객·재방문</li><li>연령대·가구 유형·시간대별 매출</li><li>경쟁점 대비 카테고리 공백</li></ul></div>
+        <div class="detail-block"><h4>FIELD ACTION</h4><ul id="actionList"><li>상권 답사와 경쟁점 벤치마킹</li><li>고객 동선·체류·구매 관찰</li><li>브랜드·점포 담당자 인터뷰</li></ul></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">STORE SCORECARD</p><h2>평효율을 중심으로 함께 읽는 지표</h2></div><p>평효율은 중요한 기준이지만 단독 정답은 아닙니다. 매출·수익·고객·공간·전략 역할을 함께 봐야 점포 전체의 미래 경쟁력을 판단할 수 있습니다.</p></div>
+    <div class="score-grid"><div class="score-card"><span class="metric-value">SALES</span><b>매출·성장률</b><p>절대 규모와 추세</p></div><div class="score-card"><span class="metric-value">/ PY</span><b>평효율</b><p>영업 면적당 매출</p></div><div class="score-card"><span class="metric-value">PROFIT</span><b>수익 기여</b><p>수수료·임대·판촉 구조</p></div><div class="score-card"><span class="metric-value">TRAFFIC</span><b>고객 기여</b><p>유입·체류·연관 구매</p></div><div class="score-card"><span class="metric-value">ROLE</span><b>전략적 역할</b><p>집객·이미지·미래 성장</p></div></div>
+    <div class="formula" aria-label="점포 생산성 판단 공식"><div class="formula-item"><b>브랜드 매출</b><span>얼마나 팔았는가</span></div><div class="formula-op">÷</div><div class="formula-item"><b>실영업면적</b><span>얼마의 공간을 썼는가</span></div><div class="formula-op">+</div><div class="formula-item"><b>전략적 기여</b><span>누구를 데려오고 무엇을 바꿨는가</span></div></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">BRAND ROLE PORTFOLIO</p><h2>모든 브랜드를 같은 잣대로 보지 않습니다</h2></div><p>각 브랜드가 점포에서 맡아야 할 역할을 먼저 정의하면, 단기 매출만으로 중요한 콘텐츠를 놓치는 오류를 줄일 수 있습니다.</p></div>
+    <div class="portfolio-grid"><article class="role-card" data-code="T"><span class="role-label">TRAFFIC DRIVER</span><h3>집객형 콘텐츠</h3><p>신규 고객과 방문 목적을 만들고 점포 전체의 체류를 늘리는 브랜드·팝업·체험 콘텐츠입니다.</p><div class="role-kpi"><span>신규 고객</span><span>방문자</span><span>체류시간</span></div></article><article class="role-card" data-code="P"><span class="role-label">PRODUCTIVITY CORE</span><h3>생산성 핵심 브랜드</h3><p>안정적인 매출과 높은 평효율로 카테고리 실적과 점포 손익을 지탱합니다.</p><div class="role-kpi"><span>평효율</span><span>매출 성장</span><span>수익 기여</span></div></article><article class="role-card" data-code="I"><span class="role-label">IMAGE BUILDER</span><h3>이미지 리더</h3><p>점포의 감도와 신뢰를 높이고 인접 브랜드의 고객 인식까지 끌어올립니다.</p><div class="role-kpi"><span>검색·언급</span><span>연관 구매</span><span>고객 평가</span></div></article><article class="role-card" data-code="F"><span class="role-label">FUTURE BET</span><h3>미래 성장 후보</h3><p>현재 규모보다 트렌드 적합성과 확장 가능성을 보고 제한된 공간에서 검증합니다.</p><div class="role-kpi"><span>성장률</span><span>신규 고객</span><span>테스트 전환</span></div></article></div>
+    <div class="decision-table" aria-label="브랜드 운영 판단 기준"><div class="decision-row"><span class="tab">KEEP</span><b>유지·안정화</b><p>목표 역할과 생산성이 모두 유효하면 조건과 운영 품질을 안정화합니다.</p></div><div class="decision-row"><span class="tab">GROW</span><b>확대·핵심화</b><p>수요와 생산성이 검증되고 추가 성장 여력이 있으면 면적·점포·프로모션을 확대합니다.</p></div><div class="decision-row"><span class="tab">MOVE</span><b>이동·재조닝</b><p>브랜드 자체보다 층·동선·인접 구성이 문제라면 위치와 면적을 다시 설계합니다.</p></div><div class="decision-row"><span class="tab">EXIT</span><b>축소·퇴점</b><p>개선 기회를 충분히 실행했지만 생산성과 전략 역할이 모두 약하면 다음 콘텐츠로 교체합니다.</p></div></div>
+  </section>
+
+  <section class="section"><div class="closing"><div><p class="eyebrow">RETAIL MD OPERATING LOOP</p><h2>좋은 점포는<br>한 번의 입점으로 완성되지 않습니다.</h2><p>상권과 고객의 변화, 브랜드 성과, 공간의 생산성을 반복해서 읽고 다음 소싱과 리뉴얼에 반영할 때 점포 포트폴리오는 계속 진화합니다.</p></div><div class="closing-loop"><span>상권<br>진단</span><span>브랜드<br>소싱</span><span>공간<br>설계</span><span>오픈<br>안착</span><span>평효율<br>측정</span><span>리뉴얼<br>학습</span></div></div></section>
+
+  <footer class="footer"><span>RETAIL MD FIELD OS</span><span>샘플 리테일 사업부의 가상 자료 · 실제 회사·브랜드·점포·수치와 무관</span></footer>
+</div>
+</main>
+<script>
+(function(){
+  'use strict';
+  var root=document.documentElement,themeBtn=document.getElementById('themeBtn');
+  var stages=[
+    {step:'01',eyebrow:'MARKET & CUSTOMER',title:'상권·고객 진단',summary:'점포의 현재 고객과 놓치고 있는 고객을 구분하고, 카테고리가 해결해야 할 방문 목적을 정의합니다.',output:'상권·고객 기회 지도',decision:['누구를 더 데려오고 어떤 방문 이유를 강화할 것인가','점포가 경쟁점과 다르게 가져갈 고객 약속은 무엇인가'],questions:['배후 상권의 연령·가구·소비력은 어떻게 변하는가','평일·주말과 시간대별 방문 목적은 무엇인가','경쟁점에 있고 우리 점포에 없는 콘텐츠는 무엇인가'],metrics:['유입 고객·신규 고객·재방문','연령대·가구 유형·시간대별 매출','경쟁점 대비 카테고리 공백'],actions:['상권 답사와 경쟁점 벤치마킹','고객 동선·체류·구매 관찰','브랜드·점포 담당자 인터뷰']},
+    {step:'02',eyebrow:'STORE & CATEGORY',title:'점포·카테고리 진단',summary:'층·카테고리·브랜드별 성과를 면적과 동선까지 함께 읽어 성장 구간과 구조적 비효율을 찾습니다.',output:'층별 생산성·공백 진단서',decision:['어느 공간을 유지·확대·축소·재편할 것인가','카테고리의 역할을 집객·수익·이미지 중 어디에 둘 것인가'],questions:['매출 하락은 브랜드·상품·위치 중 어디에서 시작됐는가','공실과 저효율 구간이 고객 동선을 끊고 있지 않은가','인접 카테고리 사이에 연관 구매가 발생하는가'],metrics:['층별 매출·평효율·성장률','공실률·회유율·체류시간','브랜드 집중도·연관 구매'],actions:['점포 평면에 성과 히트맵 작성','브랜드별 역할과 면적 비교','비효율 원인 가설과 개선 순서 정의']},
+    {step:'03',eyebrow:'BRAND & CONTENT SOURCING',title:'브랜드·콘텐츠 소싱',summary:'점포의 공백을 채우고 새로운 방문 이유를 만들 브랜드, 팝업, 체험 콘텐츠를 발굴합니다.',output:'브랜드 소싱 파이프라인',decision:['지금 필요한 것은 매출형·집객형·이미지형·미래형 중 무엇인가','정규 입점과 팝업 테스트 중 어떤 방식이 적절한가'],questions:['검색·SNS·경쟁점에서 상승하는 브랜드는 무엇인가','브랜드의 고객이 우리 점포의 목표 고객과 겹치는가','콘텐츠 확장성과 점포 운영 역량이 충분한가'],metrics:['브랜드 성장률·검색량·판매 채널','목표 고객 중복도·차별성','후보 접촉·미팅·제안 전환율'],actions:['시장·경쟁점·온라인 트렌드 스캔','브랜드 키맨 POC 확보','후보를 역할과 기대효과로 우선순위화']},
+    {step:'04',eyebrow:'VALUE PROPOSITION',title:'입점 제안·협상',summary:'좋은 자리를 제안하는 데서 끝나지 않고, 브랜드가 우리 점포에서 장기적으로 성장할 이유를 설계합니다.',output:'브랜드별 입점 제안서·협상안',decision:['브랜드의 핵심 니즈와 점포의 성장 목표를 어떻게 연결할 것인가','어떤 조건은 양보하고 어떤 원칙은 지킬 것인가'],questions:['브랜드가 신규 고객·매출·인지 중 가장 원하는 것은 무엇인가','결정권자와 실무자는 각각 무엇을 우려하는가','경쟁 점포 대신 우리 점포를 선택할 근거는 무엇인가'],metrics:['키맨 접촉·미팅·제안·합의 전환율','제안 리드타임·주요 블로커','예상 매출·고객·이미지 기여'],actions:['브랜드 현황과 의사결정 구조 분석','3개년 성장 시나리오 제시','블로커를 내부 유관부서와 해결']},
+    {step:'05',eyebrow:'CONTRACT & ECONOMICS',title:'계약·손익 설계',summary:'수수료·임대·판촉·인테리어 조건과 예상 생산성을 함께 검토해 지속 가능한 계약 구조를 만듭니다.',output:'계약 조건표·점포 손익 시뮬레이션',decision:['브랜드와 점포가 함께 성장할 수 있는 손익 구조인가','기대효과 대비 면적과 지원 수준이 적정한가'],questions:['보수·기준·도전 시나리오별 매출은 얼마인가','판촉·공사·운영비 부담 주체가 명확한가','부진 시 개선·축소·철수 조건이 정의됐는가'],metrics:['예상 매출·평효율·수익 기여','투자 회수기간·판촉비 효율','계약기간·최소보장·중도 조건'],actions:['매출·손익 3개 시나리오 산정','법무·재무·시설 조건 정렬','성과 리뷰와 재협상 기준 문서화']},
+    {step:'06',eyebrow:'ZONING & SPACE DESIGN',title:'조닝·공간 구성',summary:'고객 동선, 인접 브랜드, 전면 노출과 면적 생산성을 고려해 점포 전체 관점에서 위치를 결정합니다.',output:'조닝안·면적 배분표·고객 동선 시나리오',decision:['어디에 배치해야 브랜드와 층 전체의 성과가 함께 커지는가','전면·깊이·면적을 브랜드 역할에 맞게 배분했는가'],questions:['고객이 자연스럽게 다음 매장으로 이동하는가','앵커와 신규 브랜드의 거리가 적절한가','사각지대와 병목이 생기지 않는가'],metrics:['전면 길이·실영업면적·동선 노출','인접 구매·회유율·체류시간','면적당 예상 매출'],actions:['평면 위 고객 여정 시뮬레이션','브랜드 역할별 위치 후보 비교','VMD·시설·운영 동선 사전 검토']},
+    {step:'07',eyebrow:'OPENING & STABILIZATION',title:'오픈·초기 안착',summary:'공사·VMD·상품·인력·프로모션을 하나의 일정으로 연결하고 첫 4주의 고객 반응을 빠르게 개선합니다.',output:'오픈 체크리스트·4주 안정화 리포트',decision:['오픈 전 반드시 해소해야 할 리스크는 무엇인가','첫 고객 반응에서 무엇을 즉시 바꿀 것인가'],questions:['상품·재고·인력·POS·안전 준비가 완료됐는가','초기 유입을 만들 프로모션과 콘텐츠가 충분한가','고객이 매장의 가치를 즉시 이해하는가'],metrics:['오픈 준비율·이슈 해소율','첫 4주 매출·방문·구매전환','품절·반품·고객 피드백'],actions:['부서 통합 오픈 게이트 운영','일·주 단위 초기 성과 리뷰','상품·VMD·프로모션 즉시 보정']},
+    {step:'08',eyebrow:'PRODUCTIVITY & COMPETITIVENESS',title:'평효율·점포 경쟁력 관리',summary:'브랜드 매출을 실영업면적으로 나눈 평효율을 중심으로, 집객·수익·연관 구매와 전략 역할을 함께 평가합니다.',output:'브랜드·공간 성과 스코어카드',decision:['현재 면적이 성과와 전략 역할에 비해 적절한가','단기 실적과 장기 점포 경쟁력 사이의 균형은 맞는가'],questions:['평효율 변화는 매출과 면적 중 무엇이 만든 것인가','브랜드가 주변 카테고리까지 성장시키는가','부진 원인이 위치·상품·운영·브랜드력 중 무엇인가'],metrics:['매출·성장률·평효율','수익 기여·연관 구매·고객 유입','목표 대비 격차·개선 과제 이행률'],actions:['월별 브랜드 스코어카드 운영','부진 원인별 30·60·90일 개선','확대·이동·축소 후보 사전 분류']},
+    {step:'09',eyebrow:'RENEWAL & PORTFOLIO',title:'리뉴얼·재계약·퇴점',summary:'성과와 전략 적합성을 근거로 유지·확대·이동·축소·퇴점을 결정하고, 다음 점포 개편의 학습으로 남깁니다.',output:'차기 MD 개편안·브랜드 의사결정 로그',decision:['다음 계약과 개편에서 공간을 누구에게 다시 배분할 것인가','브랜드 개선 가능성과 교체 기회비용 중 어느 쪽이 큰가'],questions:['합의한 개선 과제가 충분히 실행됐는가','브랜드 역할이 현재 점포 전략에도 유효한가','대체 후보가 더 큰 생산성과 고객 가치를 만드는가'],metrics:['재계약·확대·이동·퇴점 비중','개편 전후 평효율·매출·고객 변화','공실 기간·오픈 리드타임'],actions:['KEEP·GROW·MOVE·EXIT 판정','브랜드별 근거와 협상 원칙 기록','개편 성과를 다음 소싱 기준에 반영']}
+  ];
+  var tabs=Array.from(document.querySelectorAll('.stage'));
+  var lead=document.getElementById('detailLead'),eyebrow=document.getElementById('detailEyebrow'),title=document.getElementById('detailTitle'),summary=document.getElementById('detailSummary'),output=document.getElementById('detailOutput');
+  var lists={decision:document.getElementById('decisionList'),questions:document.getElementById('questionList'),metrics:document.getElementById('metricList'),actions:document.getElementById('actionList')};
+  function fillList(node,items){node.innerHTML=items.map(function(item){return '<li>'+item+'</li>'}).join('')}
+  function selectStage(index){var item=stages[index];tabs.forEach(function(tab,i){tab.setAttribute('aria-selected',i===index?'true':'false')});lead.dataset.step=item.step;eyebrow.textContent=item.eyebrow;title.textContent=item.title;summary.textContent=item.summary;output.textContent=item.output;fillList(lists.decision,item.decision);fillList(lists.questions,item.questions);fillList(lists.metrics,item.metrics);fillList(lists.actions,item.actions)}
+  tabs.forEach(function(tab){tab.addEventListener('click',function(){selectStage(Number(tab.dataset.stage))})});
+  root.dataset.theme='light';themeBtn.addEventListener('click',function(){root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';themeBtn.textContent=root.dataset.theme==='dark'?'라이트 모드':'다크 모드'});
+})();
+</script>
+</body>
+</html>
