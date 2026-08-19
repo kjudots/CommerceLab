@@ -72,6 +72,17 @@ table{border:0;border-radius:0;background:transparent}th,td{padding:11px 12px}th
 .takeaway b{color:var(--coral)}.checklist li{padding:13px 0 13px 38px}.checklist li::before{content:'↗';left:8px;color:var(--coral)}
 .privacy{border-radius:0;background:var(--mint-soft);border-left:5px solid var(--mint-dark);padding:16px 18px}
 .footer{display:flex;justify-content:space-between;gap:20px;border-top:3px solid var(--ink);padding-top:16px}
+.report-actions{display:flex;align-items:center;gap:7px}.theme-btn-report{border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--ink);
+  padding:8px 12px;font-size:9.5px;cursor:pointer;white-space:nowrap}.theme-btn-report:hover{background:var(--mint-soft)}
+:root[data-theme="dark"] body{background:#101518}:root[data-theme="dark"] .report{--bg:#161d22;--card:#1d272d;--ink:#edf2f4;--ink-2:#ccd6da;
+  --ink-3:#aebac0;--line:#435159;--mint:#84bac9;--mint-dark:#b6d7df;--mint-soft:#223a43;--yellow:#e2b764;--coral:#e48b6d;
+  background:linear-gradient(90deg,transparent 0,transparent 23px,rgba(132,186,201,.06) 24px,transparent 25px),var(--bg)}
+:root[data-theme="dark"] .banner h1{color:var(--ink)}:root[data-theme="dark"] .banner p{color:var(--ink-2)}
+:root[data-theme="dark"] .print-btn{background:#edf2f4;color:#172b3b}:root[data-theme="dark"] .stat:first-child{background:#244c63}
+:root[data-theme="dark"] .stat:first-child .num,:root[data-theme="dark"] .stat:first-child p{color:#fff}
+:root[data-theme="dark"] .privacy{background:var(--mint-soft);color:var(--ink-2)}
+:root[data-theme="dark"] .chart-tip{background:#edf2f4;color:#172b3b}:root[data-theme="dark"] .svg-chart .event-dot{fill:var(--card)}
+:root[data-theme="dark"] .badge{color:#172b3b}
 @media(max-width:680px){
   html,body{background:var(--bg)}.report{padding:18px 14px 48px;background:var(--bg);box-shadow:none}.banner{padding:28px 0 25px}.banner::after{display:none}
   .banner h1{font-size:34px}.tabbar{margin-left:-2px;margin-right:-2px}.tab{padding:8px 13px}.tab:first-child{padding-left:2px}.tab.on::after{left:13px;right:13px}
@@ -80,13 +91,13 @@ table{border:0;border-radius:0;background:transparent}th,td{padding:11px 12px}th
   .card{padding:18px 14px}.action{grid-template-columns:1fr}.badge{grid-row:auto;margin-bottom:9px}.action p{grid-column:1}
   .gain{grid-template-columns:1fr}.gain-card{border-right:0;border-bottom:1px solid var(--line)}.gain-card:last-child{border-bottom:0}
 }
-@media print{html,body{background:#fff}.report{box-shadow:none}.banner{border-top-color:var(--ink)}.pane{counter-increment:report-section}}
+@media print{html,body{background:#fff}.report{box-shadow:none}.banner{border-top-color:var(--ink)}.pane{counter-increment:report-section}.theme-btn-report{display:none}}
 </style>
 </head>
 <body>
 <main class="report">
   <header class="banner"><p class="eyebrow">샘플 리테일 홈리빙 사업부 · PARTNER GROWTH REPORT</p><h1>홈앤코의 다음 성장은<br><span>첫 구매를 단골로 만드는 것</span>입니다</h1><p>홈앤코의 가상 판매 데이터를 바탕으로 성장한 부분, 놓치고 있는 기회, 앞으로 함께 실행할 일을 정리했습니다.</p></header>
-  <div class="draft"><span><b>공개용 데모</b> · 내부 플레이북과 동일한 2026.08 기준 데이터를 사용하며, 내부 가설·협상 기준과 다른 파트너 정보는 포함하지 않습니다.</span><button class="print-btn" type="button" onclick="window.print()">PDF로 저장</button></div>
+  <div class="draft"><span><b>공개용 데모</b> · 내부 플레이북과 동일한 2026.08 기준 데이터를 사용하며, 내부 가설·협상 기준과 다른 파트너 정보는 포함하지 않습니다.</span><div class="report-actions"><button class="theme-btn-report" id="reportThemeBtn" type="button">다크 모드</button><button class="print-btn" type="button" onclick="window.print()">PDF로 저장</button></div></div>
   <nav class="tabbar" aria-label="리포트 목차"><button class="tab on" data-pane="0">① 성장 현황</button><button class="tab" data-pane="1">② 고객 구조</button><button class="tab" data-pane="2">③ 성장 기회</button><button class="tab" data-pane="3">④ 공동 제안</button><button class="tab" data-pane="4">⑤ 함께할 일</button></nav>
 
   <section class="pane on"><div class="section-head"><h2>홈앤코, 3년 동안 성장의 기반을 만들었습니다</h2><p>첫 판매 이후 36개월의 흐름을 보면 단기 행사보다 상품력과 재구매가 성장을 이끌었습니다. 2026년 4월 품절 충격도 3개월 안에 회복했습니다.</p></div>
@@ -123,7 +134,7 @@ table{border:0;border-radius:0;background:transparent}th,td{padding:11px 12px}th
   <footer class="footer">Partner Growth Report · PLATFORM MD FIELD OS · 가상 데이터 기준 · 거래액은 취소·반품을 제외한 예시 순거래액 · 고객 구조는 최근 12개월 예시 · 실제 회사·브랜드·셀러 자료와 무관합니다.</footer>
 </main>
 <script>
-(function(){'use strict';var tabs=[].slice.call(document.querySelectorAll('.tab')),panes=[].slice.call(document.querySelectorAll('.pane'));function openPane(i){tabs.forEach(function(t,n){var on=n===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});panes.forEach(function(p,n){p.classList.toggle('on',n===i)});window.scrollTo({top:0,behavior:'smooth'})}tabs.forEach(function(t,i){t.addEventListener('click',function(){openPane(i)})});
+(function(){'use strict';var tabs=[].slice.call(document.querySelectorAll('.tab')),panes=[].slice.call(document.querySelectorAll('.pane'));function openPane(i){tabs.forEach(function(t,n){var on=n===i;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false')});panes.forEach(function(p,n){p.classList.toggle('on',n===i)});window.scrollTo({top:0,behavior:'smooth'})}tabs.forEach(function(t,i){t.addEventListener('click',function(){openPane(i)})});var reportRoot=document.documentElement,reportThemeBtn=document.querySelector('#reportThemeBtn');reportRoot.dataset.theme='light';reportThemeBtn.addEventListener('click',function(){reportRoot.dataset.theme=reportRoot.dataset.theme==='dark'?'light':'dark';reportThemeBtn.textContent=reportRoot.dataset.theme==='dark'?'라이트 모드':'다크 모드'});
 function renderTrend(id,tipId){var host=document.getElementById(id),tip=document.getElementById(tipId);if(!host)return;var data=[.82,.88,.91,.96,1.04,1.12,1.18,1.23,1.31,1.38,1.42,1.55,1.62,1.70,1.68,1.74,1.80,1.88,1.94,2.00,2.08,2.14,2.22,2.30,2.38,2.46,2.40,2.52,2.61,2.14,2.48,2.67,2.75,2.83,2.91,3.00],W=900,H=300,p={l:48,r:18,t:25,b:39},max=3.2,min=.6;function x(i){return p.l+i*(W-p.l-p.r)/(data.length-1)}function y(v){return p.t+(max-v)*(H-p.t-p.b)/(max-min)}var pts=data.map(function(v,i){return x(i).toFixed(1)+','+y(v).toFixed(1)}).join(' '),area=p.l+','+(H-p.b)+' '+pts+' '+x(35)+','+(H-p.b),grid='',labels='';[1,1.5,2,2.5,3].forEach(function(v){grid+='<line x1="'+p.l+'" y1="'+y(v)+'" x2="'+(W-p.r)+'" y2="'+y(v)+'" class="g"/><text x="8" y="'+(y(v)+4)+'" class="axis">'+v.toFixed(1)+'억</text>'});[[0,'23.11'],[12,'24.11'],[24,'25.11'],[35,'26.10']].forEach(function(d){labels+='<text x="'+x(d[0])+'" y="286" text-anchor="middle" class="axis">'+d[1]+'</text>'});var events=[{i:0,t:'첫 판매',dy:-12},{i:29,t:'대표 상품 품절',dy:-28},{i:32,t:'성장 추세 회복',dy:-15}],marks=events.map(function(e){return '<line x1="'+x(e.i)+'" y1="'+y(data[e.i])+'" x2="'+x(e.i)+'" y2="'+(y(data[e.i])+e.dy)+'" class="event-line"/><circle cx="'+x(e.i)+'" cy="'+y(data[e.i])+'" r="5" class="event-dot"/><text x="'+x(e.i)+'" y="'+(y(data[e.i])+e.dy-5)+'" text-anchor="middle" class="event-label">'+e.t+'</text>'}).join('');var hit=data.map(function(v,i){return '<circle class="hit" data-i="'+i+'" cx="'+x(i)+'" cy="'+y(v)+'" r="10"/>'}).join('');host.insertAdjacentHTML('afterbegin','<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="2023년 11월부터 2026년 10월까지 월 거래액 추세">'+grid+'<line x1="'+p.l+'" y1="'+y(2.8)+'" x2="'+(W-p.r)+'" y2="'+y(2.8)+'" class="target-line"/><text x="'+(W-p.r-3)+'" y="'+(y(2.8)-6)+'" text-anchor="end" class="target-label">공동 목표 2.8억</text><polygon points="'+area+'" class="area"/><polyline points="'+pts+'" class="trend"/>'+marks+labels+hit+'</svg>');var start=new Date(2023,10,1);host.querySelectorAll('.hit').forEach(function(dot){dot.addEventListener('mouseenter',function(){var i=Number(dot.dataset.i),d=new Date(start.getFullYear(),start.getMonth()+i,1);tip.textContent=d.getFullYear()+'.'+String(d.getMonth()+1).padStart(2,'0')+'  '+data[i].toFixed(2)+'억';tip.style.left=(100*x(i)/W)+'%';tip.style.top=(100*y(data[i])/H)+'%';tip.classList.add('show')});dot.addEventListener('mouseleave',function(){tip.classList.remove('show')})})}
 renderTrend('gmvChartPublic','gmvTipPublic');if(new URLSearchParams(location.search).get('print')==='1')setTimeout(function(){window.print()},350)})();
 </script>
