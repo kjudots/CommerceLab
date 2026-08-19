@@ -303,6 +303,14 @@
   .fchip,.seg,.seg button{border-radius:2px}.fchip[aria-pressed="true"]{box-shadow:inset 0 -2px 0 var(--brand)}
   .chip,.pct{border-radius:2px}.viz-root thead th{background:transparent}.viz-root tbody tr:hover td{background:var(--brand-soft)}
   details.src{border-radius:0;background:transparent}.theme-toggle,.progress-link{border-radius:2px;box-shadow:none}
+  .waterfall-nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:14px;
+    margin:-18px 0 16px;padding:10px 12px;border-top:4px solid var(--brand);border-bottom:1px solid var(--border);
+    background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(12px)}
+  .waterfall-nav .nav-actions{display:flex;align-items:center;gap:8px}
+  .waterfall-nav .progress-link,.waterfall-nav .theme-toggle{position:static;min-height:34px;margin:0;padding:8px 12px;
+    background:transparent;border-color:var(--border)}
+  .waterfall-nav .os-home{font-family:var(--font-head);font-size:13px;color:var(--ink)}
+  .waterfall-nav .progress-link:not(.os-home){background:var(--brand);border-color:var(--brand);color:var(--card)}
 
   @media (prefers-color-scheme:dark){
     :root:where(:not([data-theme="light"])) .viz-root{--surface-1:#171a18;--card:#202421;--surface-2:#292e2a;--surface-3:#252a26;
@@ -321,6 +329,9 @@
     .method-intro h1{font-size:32px;margin-top:20px}.method-flow{grid-template-columns:1fr 1fr}
     .method-step:nth-child(2){border-right:0}.method-step:nth-child(-n+2){border-bottom:1px solid var(--border)}
     .method-step:nth-child(2)::after{display:none}.card{padding:22px 16px 24px}.bridge .b{padding:15px 16px}
+    .waterfall-nav{margin:-8px 0 12px;padding:8px;align-items:stretch;flex-direction:column}
+    .waterfall-nav .nav-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .waterfall-nav .progress-link,.waterfall-nav .theme-toggle{justify-content:center;width:100%;min-height:40px}
   }
   @media(max-width:420px){
     .method-flow{grid-template-columns:1fr}.method-step{border-right:0;border-bottom:1px solid var(--border)}
@@ -332,9 +343,13 @@
 <body>
 <div class="viz-root" id="doc">
 
-  <a class="progress-link os-home" href="md-field-os.html">PLATFORM MD FIELD OS</a>
-  <a class="progress-link" href="waterfall-progress.html">진척판 보기 →</a>
-  <button class="theme-toggle" id="themebtn" type="button"><span class="ico">◑</span><span id="themetxt">다크 모드</span></button>
+  <nav class="waterfall-nav" aria-label="Waterfall 페이지 이동">
+    <a class="progress-link os-home" href="md-field-os.html">PLATFORM MD FIELD OS</a>
+    <div class="nav-actions">
+      <a class="progress-link" href="waterfall-progress.html">진척판 보기 →</a>
+      <button class="theme-toggle" id="themebtn" type="button"><span class="ico">◑</span><span id="themetxt">다크 모드</span></button>
+    </div>
+  </nav>
 
   <section class="method-intro" aria-labelledby="waterfallTitle">
     <div class="method-topline"><p class="eyebrow">PERSONAL METHOD · WATERFALL 01</p><span class="sample-badge">ILLUSTRATIVE EXAMPLE · SAMPLE DATA</span></div>
