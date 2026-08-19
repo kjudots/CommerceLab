@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="샘플 리테일 홈리빙 사업부의 가상 워터폴 진척판">
+<meta name="description" content="개인 업무 경험을 일반화한 가상 워터폴 진척 템플릿">
 <title>워터폴 진척판 · PLATFORM MD FIELD OS</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
@@ -14,7 +14,7 @@
     --font-head:'BMDOHYEON','Noto Sans KR',"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     --font:'Noto Sans KR',-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     --surface:#f7f7fa;--surface-2:#f1f1f7;--card:#fff;--ink:#191930;--ink-2:#56566d;--ink-3:#7d7d91;
-    --line:#e4e4ed;--brand:#5b4fcf;--brand-soft:#efedff;--mint:#2ac1bc;--mint-soft:#e5f7f6;
+    --line:#e4e4ed;--brand:#5b4fcf;--brand-soft:#efedff;--mint:#267d68;--mint-soft:#e6f1ed;
     --green:#1baf7a;--green-soft:#e7f7f0;--yellow:#e49a0a;--yellow-soft:#fff4d7;--red:#d95050;--red-soft:#fdeaea;
     --blue:#2a78d6;--blue-soft:#e9f1fb;--shadow:rgba(25,25,48,.07);
     font-family:var(--font);font-variant-numeric:tabular-nums;color:var(--ink);background:var(--surface);
@@ -27,6 +27,10 @@
   .top-actions a,.theme-toggle{border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:20px;padding:7px 12px;text-decoration:none;font-size:11.5px;cursor:pointer}
   .top-actions a:hover,.theme-toggle:hover{border-color:var(--brand);color:var(--brand)}
   .eyebrow{margin:0 0 8px;color:var(--brand);font-size:13px;letter-spacing:.05em}
+  .method-intro{position:relative;overflow:hidden;border:1px solid var(--line);border-top:6px solid var(--brand);border-radius:20px;background:linear-gradient(135deg,var(--card) 0%,var(--card) 72%,var(--brand-soft) 100%);padding:24px 26px 22px;margin-bottom:15px}
+  .method-intro::after{content:'02';position:absolute;right:18px;bottom:-26px;font-family:var(--font-head);font-size:130px;line-height:1;color:var(--brand);opacity:.055;pointer-events:none}
+  .method-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}.sample-badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink-2);padding:6px 10px;font-size:10px;letter-spacing:.06em;white-space:nowrap}
+  .method-intro h1,.method-intro .deck,.method-flow{position:relative;z-index:1}.method-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:16px}.method-step{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 11px}.method-step .n{font-family:var(--font-head);font-size:10px;color:var(--brand);margin-bottom:4px}.method-step b{display:block;font-family:var(--font-head);font-weight:400;font-size:12px}.method-step span{display:block;margin-top:3px;color:var(--ink-3);font-size:9.5px;line-height:1.45}
   h1{font-size:clamp(30px,4vw,44px);font-weight:400;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
   .deck{max-width:1120px;color:var(--ink-2);font-size:13.5px;line-height:1.75;margin:0 0 17px}.deck b{color:var(--ink)}
   .demo-alert{display:flex;align-items:center;gap:9px;width:fit-content;margin:0 0 18px;padding:7px 11px;border:1px solid #ead283;background:#fff8da;color:#705900;border-radius:7px;font-size:11px}
@@ -102,7 +106,8 @@
   :root[data-theme="dark"] .viz-root{--surface:#141420;--surface-2:#252538;--card:#1c1c2a;--ink:#fff;--ink-2:#c5c5d7;--ink-3:#9292aa;--line:#34344a;--brand:#aaa1ff;--brand-soft:#302c51;--mint:#49d4cf;--mint-soft:#173d3b;--green:#66cfa3;--green-soft:#163b2d;--yellow:#f1c35f;--yellow-soft:#41371c;--red:#ee8484;--red-soft:#482525;--blue:#74aff3;--blue-soft:#1d3250;--shadow:rgba(0,0,0,.18)}
   :root[data-theme="dark"] html,:root[data-theme="dark"] body{background:#141420}
   @media(max-width:1080px){.kpi-strip{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(3n){border-right:0}.kpi:nth-child(n+4){border-top:1px solid var(--line)}.pace-layout{grid-template-columns:1fr}.forecast{display:grid;grid-template-columns:repeat(3,1fr)}.blocker-room{grid-template-columns:repeat(2,1fr)}.category-grid{grid-template-columns:repeat(2,1fr)}.pipeline-grid{grid-template-columns:1fr}}
-@media(max-width:680px){.viz-root{padding:18px 12px 48px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.task-copy{text-wrap:pretty}.top-actions{justify-content:flex-start;flex-wrap:wrap}.top-actions a,.theme-toggle{display:inline-flex;align-items:center;min-height:38px}h1{font-size:29px}.deck{font-size:12.5px;line-height:1.75}.card{padding:18px 14px}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(3n){border-right:1px solid var(--line)}.kpi:nth-child(even){border-right:0}.kpi:nth-child(n+3){border-top:1px solid var(--line)}.forecast{grid-template-columns:1fr}.blocker-room{grid-template-columns:1fr}.blocker-card{min-height:0}.category-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step:not(:last-child)::after{content:'⌄';right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%)}.notes{grid-template-columns:1fr}.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:5px}.footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:680px){.viz-root{padding:18px 12px 48px}.viz-root h1,.viz-root h2,.viz-root h3{text-wrap:balance}.viz-root p,.viz-root li,.task-copy{text-wrap:pretty}.top-actions{justify-content:flex-start;flex-wrap:wrap}.top-actions a,.theme-toggle{display:inline-flex;align-items:center;min-height:38px}.method-intro{padding:20px 16px}.method-topline{align-items:flex-start;flex-direction:column}.method-flow{grid-template-columns:repeat(2,minmax(0,1fr))}h1{font-size:29px}.deck{font-size:12.5px;line-height:1.75}.card{padding:18px 14px}.kpi-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(3n){border-right:1px solid var(--line)}.kpi:nth-child(even){border-right:0}.kpi:nth-child(n+3){border-top:1px solid var(--line)}.forecast{grid-template-columns:1fr}.blocker-room{grid-template-columns:1fr}.blocker-card{min-height:0}.category-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step:not(:last-child)::after{content:'⌄';right:auto;left:50%;top:auto;bottom:-12px;transform:translateX(-50%)}.notes{grid-template-columns:1fr}.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:5px}.footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:420px){.method-flow{grid-template-columns:1fr}}
 @media(max-width:390px){h1{font-size:27px}.kpi{padding:14px 11px}.kpi .num{font-size:21px}}
   @media print{.top-actions{display:none}.viz-root{padding:0;max-width:none}.card,.kpi-strip{box-shadow:none;break-inside:avoid}}
 </style>
@@ -110,10 +115,13 @@
 <body>
 <main class="viz-root" id="progressRoot">
   <div class="top-actions"><a href="md-field-os.html">PLATFORM MD FIELD OS</a><a href="index.html">← 목표 워터폴</a><button class="theme-toggle" id="themeBtn" type="button">다크 모드</button></div>
-  <p class="eyebrow">샘플 리테일 홈리빙 사업부 · 2026년 10월 12일 기준</p>
-  <h1>워터폴 전략 진척판 — 목표 갭을 만드는 블로커를 해소한다</h1>
-  <p class="deck">목표 워터폴에서 설계한 <b>기준선 84.0억 + 과제 증분 15.6억 = 월 목표 99.6억</b>을 실행 관점으로 추적합니다. 단순 달성률보다 <b>갭을 만드는 핵심 블로커, 원인 가설, 필요한 의사결정, 해소 오너와 기한</b>을 한 화면에서 연결합니다.</p>
-  <div class="demo-alert"><b>DEMO DATA</b><span>회사·파트너·담당자·수치·일정은 모두 설명을 위해 만든 가상 자료입니다.</span></div>
+  <section class="method-intro" aria-labelledby="progressTitle">
+    <div class="method-topline"><p class="eyebrow">PERSONAL METHOD · WATERFALL 02</p><span class="sample-badge">ILLUSTRATIVE EXAMPLE · SAMPLE DATA</span></div>
+    <h1 id="progressTitle">목표 갭을 블로커와<br>의사결정으로 관리한다</h1>
+    <p class="deck">설계판의 <b>기준선 84.0억 + 과제 기대효과 15.6억 = 월 목표 99.6억</b>을 같은 순서로 추적합니다. 달성률만 보고하지 않고 <b>근거 → 원인 가설 → 의사결정 → 책임 오너와 기한 → 성과 확인</b>을 연결합니다. 모든 명칭·수치·일정은 방법 설명용 가상 데이터입니다.</p>
+    <div class="method-flow" aria-label="워터폴 실행관리 4단계"><div class="method-step"><div class="n">01 · TARGET</div><b>목표 페이스</b><span>누적 계획과 실적 차이</span></div><div class="method-step"><div class="n">02 · BLOCKER</div><b>원인 규명</b><span>현상과 구조적 원인 분리</span></div><div class="method-step"><div class="n">03 · DECIDE</div><b>해소 결정</b><span>오너·액션·기한 확정</span></div><div class="method-step"><div class="n">04 · VERIFY</div><b>성과 확인</b><span>회수 증분과 다음 판단</span></div></div>
+  </section>
+  <div class="demo-alert"><b>SAMPLE DATA</b><span>특정 회사·거래처·프로젝트를 나타내지 않는 설명용 예시입니다.</span></div>
   <div class="rule"></div>
 
   <section class="kpi-strip" id="kpis" aria-label="월간 핵심 진척 지표"></section>
@@ -128,7 +136,7 @@
   </section>
 
   <section class="card">
-    <h2>Executive Blocker Room <span class="asof">이번 주 우선 해소 4건</span></h2>
+    <h2>핵심 블로커 의사결정판 <span class="asof">이번 주 우선 해소 4건</span></h2>
     <p class="sub">현상을 나열하지 않고 <b>근거 → 원인 가설 → 의사결정 → 회수할 증분</b> 순서로 봅니다. 회의의 목적은 보고가 아니라 블로커를 제거하는 것입니다.</p>
     <div class="blocker-room" id="blockerRoom"></div>
   </section>
@@ -163,7 +171,7 @@
     </div>
   </section>
 
-  <footer class="footer"><strong>Waterfall Progress Board · PLATFORM MD FIELD OS</strong><span>샘플 리테일 홈리빙 사업부의 가상 예시 · 실제 회사 자료와 무관</span></footer>
+  <footer class="footer"><strong>Personal Waterfall Template · PLATFORM MD FIELD OS</strong><span>Illustrative Example · Sample Data · 실제 회사 자료와 무관</span></footer>
 </main>
 <script>
 (function(){
@@ -174,31 +182,31 @@ var DATA={
   dailyActual:[2.9,5.8,8.8,12.1,15.3,18.5,21.3,24.6,27.9,31.1,34.4,37.9]
 };
 var TASKS=[
-  {no:'①',name:'전략상품 24종',owner:'리빙MD 1파트',month:4.6,plan:1.79,actual:1.68,status:'yellow',blocker:'핵심 3종 품절 위험으로 주말 매출 상한 발생',strategy:'안전재고 14일 합의 · 공급가 구간 재협상 · 대체 SKU 동시 노출',due:'10/16',measure:'전략상품의 기준선 대비 순증을 중복 제거 후 집계'},
-  {no:'②',name:'기획전 미끼상품 8종',owner:'리빙MD 1파트',month:3.1,plan:1.21,actual:1.50,status:'green',blocker:'상위 4종에 성과가 편중되어 후속 구색 확장 필요',strategy:'승자 SKU 슬롯 연장 · 연관구매 6종 번들 테스트 승인',due:'10/14',measure:'기획전 유입 주문 중 전략상품 중복분을 제외한 순증'},
-  {no:'③',name:'자체브랜드 라인업 확장',owner:'자체브랜드 파트',month:1.4,plan:.55,actual:.42,status:'yellow',blocker:'4SKU 상세 콘텐츠와 초도 입고 일정 불일치',strategy:'콘텐츠·입고 병렬 진행 · 7SKU 선오픈으로 학습 데이터 확보',due:'10/18',measure:'신규 PB 코드의 결제완료 거래액에서 취소분 차감'},
-  {no:'④',name:'소용량 전용 전략상품',owner:'리빙MD 2파트',month:1.1,plan:.43,actual:.21,status:'red',blocker:'패키지 금형 일정 지연으로 7종 판매 개시 불가',strategy:'대체 패키지 4종 우선 오픈 · 3종은 다음 차수 이관 결정',due:'10/15',measure:'전용 코드 판매분만 집계하며 기존 상품 대체분 제외'},
-  {no:'⑤',name:'제휴 채널 확대',owner:'리빙MD 1파트',month:1.8,plan:.70,actual:.61,status:'yellow',blocker:'86SKU 속성 검수와 공동 쿠폰 분담률 미확정',strategy:'오류 상위 3유형 일괄 수정 · 쿠폰 분담 상한 승인 요청',due:'10/17',measure:'제휴 채널 유입 태그가 확인된 주문의 순증'},
-  {no:'⑥',name:'카테고리 오너 딥다이브',owner:'리빙MD 2파트',month:3.6,plan:1.40,actual:.98,status:'red',blocker:'침구·조명 저성과가 유입·전환·재고 문제로 혼재',strategy:'원인별 SKU 세분화 · 교체/개선/철수 포트폴리오 의사결정',due:'10/16',measure:'카테고리별 액션 대상 SKU의 기준선 대비 순증'}
+  {no:'①',name:'핵심 상품군 24종',owner:'포트폴리오 오너 A',month:4.6,plan:1.79,actual:1.68,status:'yellow',blocker:'핵심 3종 품절 위험으로 주말 매출 상한 발생',strategy:'안전재고 14일 합의 · 공급가 구간 재협상 · 대체 SKU 동시 노출',due:'10/16',measure:'핵심 상품군의 기준선 대비 순증을 중복 제거 후 집계'},
+  {no:'②',name:'유입 상품군 8종',owner:'포트폴리오 오너 A',month:3.1,plan:1.21,actual:1.50,status:'green',blocker:'상위 4종에 성과가 편중되어 후속 구색 확장 필요',strategy:'성과 상품 슬롯 연장 · 연관구매 6종 구성 테스트 승인',due:'10/14',measure:'기획전 유입 주문 중 핵심 상품군 중복분을 제외한 순증'},
+  {no:'③',name:'전용상품 라인업 확장',owner:'상품기획 오너',month:1.4,plan:.55,actual:.42,status:'yellow',blocker:'4SKU 상세 콘텐츠와 초도 입고 일정 불일치',strategy:'콘텐츠·입고 병렬 진행 · 7SKU 선오픈으로 학습 데이터 확보',due:'10/18',measure:'신규 전용상품 코드의 결제완료 거래액에서 취소분 차감'},
+  {no:'④',name:'소용량 전용 구성',owner:'포트폴리오 오너 B',month:1.1,plan:.43,actual:.21,status:'red',blocker:'패키지 제작 일정 지연으로 7종 판매 개시 불가',strategy:'대체 패키지 4종 우선 오픈 · 3종은 다음 차수 이관 결정',due:'10/15',measure:'전용 코드 판매분만 집계하며 기존 상품 대체분 제외'},
+  {no:'⑤',name:'외부 채널 접점 확대',owner:'포트폴리오 오너 A',month:1.8,plan:.70,actual:.61,status:'yellow',blocker:'86SKU 속성 검수와 공동 혜택 분담률 미확정',strategy:'오류 상위 3유형 일괄 수정 · 혜택 분담 상한 승인 요청',due:'10/17',measure:'외부 채널 유입 태그가 확인된 주문의 순증'},
+  {no:'⑥',name:'저성과 상품군 개선',owner:'포트폴리오 오너 B',month:3.6,plan:1.40,actual:.98,status:'red',blocker:'침구·조명 저성과가 유입·전환·재고 문제로 혼재',strategy:'원인별 SKU 세분화 · 교체/개선/철수 포트폴리오 의사결정',due:'10/16',measure:'카테고리별 액션 대상 SKU의 기준선 대비 순증'}
 ];
 var BLOCKERS=[
-  {priority:'P1',tone:'p1',title:'소용량 전용상품 출시 지연',impact:'월 증분 -0.42억',evidence:'12종 중 5종만 판매 개시, 7종 패키지 일정 2주 지연',cause:'단일 금형 일정에 출시 경로가 종속됨',decision:'대체 패키지 4종 선오픈, 잔여 3종 다음 차수 이관',owner:'리빙MD 2파트 · 상품개발',due:'10/15'},
-  {priority:'P1',tone:'p1',title:'침구·조명 저성과 원인 혼재',impact:'월 증분 -0.35억',evidence:'대상 38SKU 중 61%가 계획 대비 70% 미만',cause:'유입 부족·전환 저하·재고 결품이 같은 액션으로 관리됨',decision:'원인별 SKU 분리 후 교체·개선·철수 기준 승인',owner:'리빙MD 2파트 · 데이터',due:'10/16'},
-  {priority:'P2',tone:'p2',title:'전략상품 핵심 3종 품절 위험',impact:'주말 매출 -0.23억',evidence:'예상 재고일수 4.2일, 주말 수요 커버리지 68%',cause:'공급 리드타임과 프로모션 수요가 발주 기준에 미반영',decision:'안전재고 14일 전환 및 대체 SKU 동시 노출',owner:'리빙MD 1파트 · SCM',due:'10/16'},
-  {priority:'P3',tone:'p3',title:'제휴몰 상품 검수 장기화',impact:'오픈 5일 지연',evidence:'86SKU 중 29SKU가 동일 속성 오류로 반려',cause:'채널별 필수 속성 매핑 기준 부재',decision:'오류 3유형 일괄 수정 및 사전 검수 체크리스트 표준화',owner:'리빙MD 1파트 · 운영',due:'10/17'}
+  {priority:'P1',tone:'p1',title:'소용량 전용상품 출시 지연',impact:'월 증분 -0.42억',evidence:'12종 중 5종만 판매 개시, 7종 패키지 일정 2주 지연',cause:'단일 제작 일정에 출시 경로가 종속됨',decision:'대체 패키지 4종 선오픈, 잔여 3종 다음 차수 이관',owner:'포트폴리오 오너 B · 상품기획',due:'10/15'},
+  {priority:'P1',tone:'p1',title:'침구·조명 저성과 원인 혼재',impact:'월 증분 -0.35억',evidence:'대상 38SKU 중 61%가 계획 대비 70% 미만',cause:'유입 부족·전환 저하·재고 결품이 같은 액션으로 관리됨',decision:'원인별 SKU 분리 후 교체·개선·철수 기준 승인',owner:'포트폴리오 오너 B · 데이터 분석',due:'10/16'},
+  {priority:'P2',tone:'p2',title:'핵심 상품 3종 품절 위험',impact:'주말 매출 -0.23억',evidence:'예상 재고일수 4.2일, 주말 수요 커버리지 68%',cause:'공급 리드타임과 프로모션 수요가 발주 기준에 미반영',decision:'안전재고 14일 전환 및 대체 SKU 동시 노출',owner:'포트폴리오 오너 A · 공급 운영',due:'10/16'},
+  {priority:'P3',tone:'p3',title:'외부 채널 상품 검수 장기화',impact:'오픈 5일 지연',evidence:'86SKU 중 29SKU가 동일 속성 오류로 반려',cause:'채널별 필수 속성 매핑 기준 부재',decision:'오류 3유형 일괄 수정 및 사전 검수 체크리스트 표준화',owner:'포트폴리오 오너 A · 채널 운영',due:'10/17'}
 ];
 var CATS=[
-  {name:'수납박스',owner:'리빙MD 1파트',month:4.6,plan:1.79,actual:1.68,action:'대형 3종 재고 보강 · 중형 세트 가격 복구'},
-  {name:'주방소품',owner:'리빙MD 1파트',month:4.0,plan:1.56,actual:1.51,action:'기획전 상위 4종 슬롯 연장 · 리뷰 확보'},
-  {name:'욕실용품',owner:'리빙MD 2파트',month:2.5,plan:.97,actual:.92,action:'정리용품 세트 구성 확대 · 품절 2종 입고'},
-  {name:'침구패브릭',owner:'리빙MD 2파트',month:1.9,plan:.74,actual:.61,action:'환절기 이불 6종 검색 키워드와 썸네일 개선'},
-  {name:'청소용품',owner:'리빙MD 2파트',month:.4,plan:.16,actual:.12,action:'리필형 3종 교차판매 영역 추가'},
-  {name:'조명·인테리어',owner:'자체브랜드 파트',month:1.2,plan:.47,actual:.32,action:'PB 무드등 4종 초도 입고와 상세페이지 확정'},
-  {name:'생활잡화',owner:'자체브랜드 파트',month:1.0,plan:.39,actual:.24,action:'소용량 전용 4종 대체 패키지 우선 오픈'}
+  {name:'수납박스',owner:'포트폴리오 오너 A',month:4.6,plan:1.79,actual:1.68,action:'대형 3종 재고 보강 · 중형 세트 가격 복구'},
+  {name:'주방소품',owner:'포트폴리오 오너 A',month:4.0,plan:1.56,actual:1.51,action:'기획전 상위 4종 슬롯 연장 · 리뷰 확보'},
+  {name:'욕실용품',owner:'포트폴리오 오너 B',month:2.5,plan:.97,actual:.92,action:'정리용품 세트 구성 확대 · 품절 2종 입고'},
+  {name:'침구패브릭',owner:'포트폴리오 오너 B',month:1.9,plan:.74,actual:.61,action:'환절기 이불 6종 검색 키워드와 썸네일 개선'},
+  {name:'청소용품',owner:'포트폴리오 오너 B',month:.4,plan:.16,actual:.12,action:'리필형 3종 교차판매 영역 추가'},
+  {name:'조명·인테리어',owner:'상품기획 오너',month:1.2,plan:.47,actual:.32,action:'전용 무드등 4종 초도 입고와 상세페이지 확정'},
+  {name:'생활잡화',owner:'상품기획 오너',month:1.0,plan:.39,actual:.24,action:'소용량 전용 4종 대체 패키지 우선 오픈'}
 ];
 var PIPELINES=[
-  {title:'신규 브랜드 입점',note:'10월 목표 12개 브랜드 판매 개시',view:'acq',denom:12,done:3,steps:[['타깃',12,'확정'],['1차 제안',10,'83%'],['조건 협의',7,'58%'],['계약',5,'42%'],['판매 개시',3,'25%']],now:'<b>홈데코·키친 브랜드 5곳 계약 완료</b> · 상품 연동 2곳을 10/18까지 판매 개시'},
-  {title:'기존 파트너 육성',note:'집중 파트너 18곳의 성장 액션 운영',view:'grow',denom:18,done:7,steps:[['진단',18,'100%'],['계획 합의',15,'83%'],['액션 실행',12,'67%'],['성과 확인',9,'50%'],['성장 달성',7,'39%']],now:'<b>7곳이 누적 목표 100% 이상</b> · 저성과 3곳은 가격·재고 조건을 10/16 재협의'}
+  {title:'신규 브랜드 입점',note:'10월 목표 12개 브랜드 판매 개시',view:'acq',denom:12,done:3,steps:[['타깃',12,'확정'],['1차 제안',10,'83%'],['조건 협의',7,'58%'],['계약',5,'42%'],['판매 개시',3,'25%']],now:'<b>가상 브랜드 5곳 계약 완료</b> · 상품 연동 2곳을 10/18까지 판매 개시'},
+  {title:'기존 파트너 육성',note:'가상 파트너 18곳의 성장 액션 운영',view:'grow',denom:18,done:7,steps:[['진단',18,'100%'],['계획 합의',15,'83%'],['액션 실행',12,'67%'],['성과 확인',9,'50%'],['성장 달성',7,'39%']],now:'<b>7곳이 누적 목표 100% 이상</b> · 저성과 3곳은 가격·재고 조건을 10/16 재협의'}
 ];
 var $=function(s){return document.querySelector(s)};
 var esc=function(s){return String(s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};

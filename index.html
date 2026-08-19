@@ -21,7 +21,7 @@
     --brand:#5b4fcf; --brand-soft:#efedff;
     --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100;
     --c5:#e87ba4; --c6:#008300; --c7:#4a3aa7; --c0:#c9c9d8;
-    /* 오너 파트 식별색 — 각 파트의 최대 카테고리 색과 같은 계열의 톤다운 */
+    /* 포트폴리오 오너 식별색 */
     --md1:#1f5ea8; --md1-bg:#e9f0fb; --md1-line:#2a78d6;
     --md2:#b44e21; --md2-bg:#fdeee6; --md2-line:#eb6834;
     --md3:#0e7d57; --md3-bg:#e5f5ef; --md3-line:#1baf7a;
@@ -88,6 +88,15 @@
   h1{font-size:34px;line-height:1.28;font-weight:400;margin:0 0 12px;letter-spacing:-.015em}
   .deck{font-size:14px;color:var(--ink-2);line-height:1.7;margin:0 0 18px;letter-spacing:-.005em}
   .deck b{color:var(--ink)}
+  .method-intro{position:relative;overflow:hidden;border:1px solid var(--border);border-top:6px solid var(--brand);border-radius:22px;
+    background:linear-gradient(135deg,var(--card) 0%,var(--card) 72%,var(--brand-soft) 100%);padding:26px 28px 24px;margin:0 0 18px}
+  .method-intro::after{content:'W';position:absolute;right:18px;bottom:-42px;font-family:var(--font-head);font-size:170px;line-height:1;color:var(--brand);opacity:.055;pointer-events:none}
+  .method-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}
+  .sample-badge{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:999px;background:var(--surface-3);color:var(--ink-2);padding:6px 10px;font-size:10px;letter-spacing:.06em;white-space:nowrap}
+  .method-intro h1,.method-intro .deck,.method-flow{position:relative;z-index:1}
+  .method-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:18px}
+  .method-step{border:1px solid var(--border);border-radius:11px;background:color-mix(in srgb,var(--card) 88%,transparent);padding:11px 12px;min-height:72px}
+  .method-step .n{font-family:var(--font-head);font-size:11px;color:var(--brand);margin-bottom:5px}.method-step b{display:block;font-family:var(--font-head);font-weight:400;font-size:13px}.method-step span{display:block;margin-top:4px;color:var(--ink-3);font-size:10px;line-height:1.45}
   .rule{height:3px;background:var(--brand);margin:0 0 18px;border-radius:2px}
   h2{font-size:24px;font-weight:400;margin:0 0 6px;letter-spacing:-.015em;display:flex;align-items:center;gap:10px}
   h2::before{content:'';width:4px;height:19px;background:var(--brand);border-radius:2px;flex:none}
@@ -201,7 +210,7 @@
   .seg-mark{transition:opacity .1s}
 
   /* 질문 위젯 */
-  #cmt-fab{position:fixed;right:24px;bottom:24px;z-index:9000;background:#2ac1bc;color:#fff;border:none;
+  #cmt-fab{position:fixed;right:24px;bottom:24px;z-index:9000;background:#5b4fcf;color:#fff;border:none;
            border-radius:24px;padding:12px 20px;font-size:15px;font-weight:700;
            box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer;font-family:inherit}
   #cmt-panel{position:fixed;right:24px;bottom:80px;z-index:9000;width:360px;max-height:65vh;overflow-y:auto;
@@ -225,7 +234,7 @@
                      font-size:13px;margin-bottom:8px;font-family:inherit;height:80px;resize:vertical;color:#222}
   #cmt-form .row{display:flex;gap:8px;justify-content:flex-end}
   #cmt-form .row button{border:none;border-radius:6px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit}
-  #cmt-form .ok{background:#2ac1bc;color:#fff;font-weight:700}
+  #cmt-form .ok{background:#5b4fcf;color:#fff;font-weight:700}
   #cmt-form .no{background:#eee;color:#333}
 
   @media(max-width:620px){
@@ -238,6 +247,8 @@
     details.src summary{padding:13px 12px}.src-grid{grid-template-columns:1fr}.src-item{padding:14px 12px}
   }
   @media(max-width:390px){h1{font-size:27px}.bridge .b .v{font-size:22px}.seg{width:100%}.seg button{flex:1;padding:6px 10px}}
+  @media(max-width:760px){.method-intro{padding:22px 18px}.method-topline{align-items:flex-start;flex-direction:column}.method-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:420px){.method-flow{grid-template-columns:1fr}.method-step{min-height:0}}
   @media print{.theme-toggle,.progress-link,.filters,#cmt-fab,#cmt-panel,#cmt-selbtn,#cmt-form{display:none !important}}
 </style>
 </head>
@@ -248,13 +259,17 @@
   <a class="progress-link" href="waterfall-progress.html">진척판 보기 →</a>
   <button class="theme-toggle" id="themebtn" type="button"><span class="ico">◑</span><span id="themetxt">다크 모드</span></button>
 
-  <p class="eyebrow">샘플 리테일 홈리빙 사업부 — 26년 10월 목표 설정</p>
-  <h1>10월 과제별 기대효과 — 거래액 워터폴</h1>
-  <p class="deck">
-    <b>이 문서는 화면 구성 예시입니다.</b> 회사명·카테고리·파트너명·수치·날짜는 전부 임의로 만든 가상 값이며 실제 실적이나 계획과는 무관합니다.
-    10월 기준선 <b>84.0억</b>에 과제 6건의 증분 <b>15.6억</b>을 쌓아 목표 <b>99.6억</b>을 만드는 구조로 구성했습니다.
-    막대는 모두 기준선 위에 쌓이는 증분이며, 색은 증분이 귀속되는 카테고리를 뜻합니다.
-  </p>
+  <section class="method-intro" aria-labelledby="waterfallTitle">
+    <div class="method-topline"><p class="eyebrow">PERSONAL METHOD · WATERFALL 01</p><span class="sample-badge">ILLUSTRATIVE EXAMPLE · SAMPLE DATA</span></div>
+    <h1 id="waterfallTitle">목표를 실행과제로 바꾸는<br>거래액 Waterfall</h1>
+    <p class="deck"><b>실무에서 익힌 목표관리 순서를 일반화한 개인 템플릿입니다.</b> 기준선 <b>84.0억</b>과 목표 <b>99.6억</b> 사이의 갭을 세부 과제 6건의 기대효과 <b>15.6억</b>으로 분해합니다. 카테고리·오너·수치·일정은 방법을 설명하기 위해 만든 가상 값이며 실제 회사 자료와 무관합니다.</p>
+    <div class="method-flow" aria-label="워터폴 목표관리 4단계">
+      <div class="method-step"><div class="n">01 · GOAL</div><b>목표와 기준선</b><span>무개입 전망과 목표 갭을 확인</span></div>
+      <div class="method-step"><div class="n">02 · DECOMPOSE</div><b>세부 목표 분해</b><span>과제별 기대효과와 귀속 기준 설정</span></div>
+      <div class="method-step"><div class="n">03 · EXECUTE</div><b>실행과제 운영</b><span>오너·카테고리·우선순위를 연결</span></div>
+      <div class="method-step"><div class="n">04 · VERIFY</div><b>성과 확인</b><span>누적 실적과 목표 차이를 재점검</span></div>
+    </div>
+  </section>
   <div class="rule"></div>
 
   <!-- 기준선 + 증분 = 목표 -->
@@ -307,7 +322,7 @@
   <div class="card">
     <h2>과제 × 카테고리 증분 행렬 (억원)</h2>
     <p class="sub">과제축과 카테고리축은 서로 <b>직교</b>합니다. 한 과제의 증분이 여러 카테고리로 흩어지므로 두 축의 합계만 서로 일치합니다.
-      상단 묶음 헤더는 카테고리를 맡은 <b>오너 파트</b>입니다.</p>
+      상단 묶음 헤더는 카테고리를 맡은 <b>포트폴리오 오너</b>입니다.</p>
     <div class="scroller"><table id="matrix"></table></div>
   </div>
 
@@ -327,7 +342,7 @@
       <li><b>증분</b> — 과제 실행으로 기준선을 넘어설 것으로 보는 순증분. 과제 간 중복 효과는 상위 과제에 우선 귀속시키고 하위 과제에서 차감했습니다.</li>
       <li><b>YoY</b> — 25년 동월 대비. 영업일 수 차이(10월 기준 -1일)는 보정하지 않은 값입니다.</li>
       <li><b>워터폴 축</b> — 절대 거래액이 아니라 <b>기준선 대비 증분</b>입니다. +0이 기준선 84.0억에 해당하므로 막대 높이끼리는 그대로 비교할 수 있습니다.</li>
-      <li><b>자체브랜드 이중계상</b> — 위탁과 자체브랜드에 같은 품목이 함께 있는 경우 위탁 쪽에만 계상했습니다.</li>
+      <li><b>전용상품 이중계상</b> — 일반상품과 전용상품에 같은 품목이 함께 있는 경우 일반상품 쪽에만 계상했습니다.</li>
     </ul>
     <details class="src">
       <summary>산출 기준 · 데이터 출처 (예시)</summary>
@@ -344,7 +359,7 @@
         </div>
         <div class="src-item">
           <div class="h">오너 커버율<span>축의 직교성</span></div>
-          <div class="d">과제 오너와 카테고리 오너가 일치하지 않습니다. 카테고리 기준으로 볼 때 오너 파트가 직접 커버하는 증분은
+          <div class="d">과제 오너와 카테고리 오너가 일치하지 않습니다. 카테고리 기준으로 볼 때 포트폴리오 오너가 직접 커버하는 증분은
             전체의 <b>일부</b>이므로, 과제축 합계와 카테고리축 합계를 오너 단위로 그대로 더하면 이중계상이 발생합니다.</div>
         </div>
       </div>
@@ -387,20 +402,20 @@ var CATS = [
   {key:'light',   name:'조명·인테리어', slot:'--c6', owner:'m3', base: 6.8, sep: 6.4, prevOct: 7.4},
   {key:'misc',    name:'생활잡화',      slot:'--c7', owner:'m3', base: 3.9, sep: 3.6, prevOct: 3.6}
 ];
-var OWNERS = {m1:'리빙MD 1파트', m2:'리빙MD 2파트', m3:'자체브랜드 파트'};
+var OWNERS = {m1:'포트폴리오 오너 A', m2:'포트폴리오 오너 B', m3:'상품기획 오너'};
 
 var TASKS = [
-  {mk:'①', name:'전략상품 24종',        owner:'리빙MD 1파트',
+  {mk:'①', name:'핵심 상품군 24종',      owner:'포트폴리오 오너 A',
    inc:{storage:1.4, kitchen:1.2, bath:0.7, bedding:0.5, clean:0.1, light:0.4, misc:0.3}},
-  {mk:'②', name:'기획전 미끼상품 8종',   owner:'리빙MD 1파트',
+  {mk:'②', name:'유입 상품군 8종',        owner:'포트폴리오 오너 A',
    inc:{storage:0.9, kitchen:0.8, bath:0.5, bedding:0.4, clean:0.1, light:0.2, misc:0.2}},
-  {mk:'③', name:'자체브랜드 라인업 확장', owner:'자체브랜드 파트',
+  {mk:'③', name:'전용상품 라인업 확장',   owner:'상품기획 오너',
    inc:{storage:0.3, kitchen:0.3, bath:0.2, bedding:0.2, clean:0.1, light:0.1, misc:0.2}},
-  {mk:'④', name:'소용량 전용 전략상품',   owner:'리빙MD 2파트',
+  {mk:'④', name:'소용량 전용 구성',       owner:'포트폴리오 오너 B',
    inc:{storage:0.3, kitchen:0.3, bath:0.2, bedding:0.1, clean:0.0, light:0.1, misc:0.1}},
-  {mk:'⑤', name:'제휴 채널 확대',        owner:'리빙MD 1파트',
+  {mk:'⑤', name:'외부 채널 접점 확대',    owner:'포트폴리오 오너 A',
    inc:{storage:0.6, kitchen:0.5, bath:0.3, bedding:0.2, clean:0.0, light:0.1, misc:0.1}},
-  {mk:'⑥', name:'카테고리 오너 딥다이브', owner:'리빙MD 2파트',
+  {mk:'⑥', name:'저성과 상품군 개선',     owner:'포트폴리오 오너 B',
    inc:{storage:1.1, kitchen:0.9, bath:0.6, bedding:0.5, clean:0.1, light:0.3, misc:0.1}}
 ];
 
@@ -414,7 +429,7 @@ var MONTHLY = {
   light  :[ 6.0,  6.2,  6.5,  6.3,  6.4,  6.4],
   misc   :[ 3.1,  3.2,  3.4,  3.4,  3.5,  3.6]
 };
-var PB_BASE = 9.4, PB_INC = 1.8;   /* 자체브랜드 몫 (전체 선택 기준) */
+var PB_BASE = 9.4, PB_INC = 1.8;   /* 전용상품 몫 (전체 선택 기준) */
 
 /* ===================================================================
    2. 상태 / 유틸
@@ -780,7 +795,7 @@ function renderTrend(d){
 }
 
 /* ===================================================================
-   8. 증분 행렬 표 (오너 파트 묶음 헤더)
+   8. 증분 행렬 표 (포트폴리오 오너 묶음 헤더)
    =================================================================== */
 function renderMatrix(d){
   var cs = d.cs;
@@ -832,7 +847,7 @@ function renderMatrix(d){
    9. 카테고리별 기준선과 목표
    =================================================================== */
 function renderCatTable(d){
-  var head = '<thead><tr><th>카테고리</th><th>오너 파트</th><th>9월 실적</th>' +
+  var head = '<thead><tr><th>카테고리</th><th>포트폴리오 오너</th><th>9월 실적</th>' +
     '<th class="gsep">10월 기준선</th><th>증분</th><th>10월 목표</th>' +
     '<th class="gsep">전년 10월</th><th>YoY</th></tr></thead>';
   var body = d.cs.map(function(c){
